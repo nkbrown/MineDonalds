@@ -1,10 +1,12 @@
 package MineDonalds;
 
+import MineDonalds.Biomes.BiomeGenYellowTree;
 import MineDonalds.Blocks.*;
 import MineDonalds.Mobs.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.*;
+import net.minecraft.world.biome.BiomeGenBase;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -57,6 +59,8 @@ public class Main {
 	public static Block McLog = new BlockMcLog(205).setHardness(2.0F).setUnlocalizedName("McLog");
 	public static Block McVine = new BlockMcVine(206).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
 	
+	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
+	
 	@EventHandler
     public void load(FMLInitializationEvent event) {
 	
@@ -98,6 +102,8 @@ public class Main {
     		GameRegistry.registerBlock(McLeaf, "McLeaf");
     		GameRegistry.registerBlock(McLog, "McLog");
     		GameRegistry.registerBlock(McVine, "McVine");
+    		
+    		GameRegistry.addBiome(YellowTree);
     		
     		/**
     		 * LanguageRegistry
