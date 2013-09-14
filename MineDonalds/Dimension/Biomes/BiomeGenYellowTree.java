@@ -1,4 +1,4 @@
-package MineDonalds.Biomes;
+package MineDonalds.Dimension.Biomes;
 
 import MineDonalds.Main;
 import net.minecraft.block.material.Material;
