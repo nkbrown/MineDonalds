@@ -60,7 +60,7 @@ public class Main {
 	public static Block McVine = new BlockMcVine(206).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
 	
 	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
-	
+	public static int DimID = 2;
 	@EventHandler
     public void load(FMLInitializationEvent event) {
 	
@@ -102,8 +102,6 @@ public class Main {
     		GameRegistry.registerBlock(McLeaf, "McLeaf");
     		GameRegistry.registerBlock(McLog, "McLog");
     		GameRegistry.registerBlock(McVine, "McVine");
-    		
-    		GameRegistry.addBiome(YellowTree);
     		
     		/**
     		 * LanguageRegistry
