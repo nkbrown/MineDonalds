@@ -1,6 +1,7 @@
 package MineDonalds;
 
 import MineDonalds.Mobs.EntityEmployee;
+import MineDonalds.Mobs.EntityMcZombie;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
@@ -16,7 +17,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid = "minedonalds", name = "MineDonalds", version = "4.0")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 //Last edited by iLexiconn
-//14:46 (2:46 PM)
+//14:47 (2:47 PM)
 public class Main {
 	
 	/**
@@ -28,7 +29,7 @@ public class Main {
 	/**
 	 * The Entity ID Registry
 	 */
-	static int startEntityId = 300;
+	static int startEntityId = 5;
 	public static int getUniqueEntityId() {
 		do {
 			startEntityId++;
@@ -62,6 +63,13 @@ public class Main {
     		LanguageRegistry.instance().addStringLocalization("entity.Employee.name", "en_US", "McDonalds Employee");
     		LanguageRegistry.instance().addStringLocalization("entity.Employee.name", "nl_NL", "McDonalds Werknemer");
     		registerEntityEgg(EntityEmployee.class, 0xFF0000, 0xFFFF00);
+    		
+    		EntityRegistry.registerGlobalEntityID(EntityMcZombie.class, "McZombie", 2);
+    		EntityRegistry.addSpawn(EntityMcZombie.class, 2, 2, 5, EnumCreatureType.ambient);
+    		EntityRegistry.findGlobalUniqueEntityId();
+    		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "en_US", "McDimension Zombie");
+    		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "nl_NL", "McDimensie Zombie");
+    		registerEntityEgg(EntityMcZombie.class, 0xFF0000, 0x096910);
             
 }
 }
