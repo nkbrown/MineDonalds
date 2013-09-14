@@ -17,7 +17,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid = "minedonalds", name = "MineDonalds", version = "4.0")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 //Last edited by iLexiconn
-//14:47 (2:47 PM)
+//15:12 (3:12 PM)
 public class Main {
 	
 	/**
