@@ -6,8 +6,8 @@
 *.ear
 
 /cpw
-/ixbm
-/new
+/ibxm
+/net
 /paulscode
 *.cfg
 fmlversion.properties
