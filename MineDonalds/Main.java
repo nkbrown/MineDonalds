@@ -6,6 +6,7 @@ import MineDonalds.Mobs.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.*;
+import net.minecraft.item.Item;
 import net.minecraft.world.biome.BiomeGenBase;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -50,7 +51,7 @@ public class Main {
 	}
 	
 	/**
-	 * The blocks!
+	 * The public static things!
 	 */
 	public static Block McGrass = new BlockMcGrass(201).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
 	public static Block McDirt = new BlockMcDirtMcStone(202, Material.ground).setStepSound(Block.soundGravelFootstep).setHardness(0.5F).setUnlocalizedName("McDirt");
@@ -58,6 +59,11 @@ public class Main {
 	public static Block McLeaf = new BlockMcLeaf(204).setHardness(0.2F).setUnlocalizedName("McLeaf");
 	public static Block McLog = new BlockMcLog(205).setHardness(2.0F).setUnlocalizedName("McLog");
 	public static Block McVine = new BlockMcVine(206).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
+	public static BlockMcFire McFire = (BlockMcFire)new BlockMclFire(207).setUnlocalizedName("McFire");
+	public static BlockMclPortal McPortal = (BlockMclPortal)new BlockMcPortal(208).setUnlocalizedName("McPortal");
+	public static BlockMcSapling McSapling = (BlockMcSapling)new BlockMcSapling(209, 0).setUnlocalizedName("McSapling");
+	
+	public static Item McWand = new ItemMcWand(451).setUnlocalizedName("McWand");
 	
 	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
 	public static int DimID = 2;
