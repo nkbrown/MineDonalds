@@ -21,18 +21,8 @@ public class EntityEmployee extends EntityVillager
         EntityVillager entityemployee = new EntityEmployee(this.worldObj);
         return entityemployee;
     }
-
-    public boolean func_110164_bC()
-    {
-        return false;
-    }
-
-    public EntityAgeable createChild(EntityAgeable par1EntityAgeable)
+	public EntityAgeable createChild(EntityAgeable par1EntityAgeable)
     {
         return this.func_90012_b(par1EntityAgeable);
-    }
-    public EnumCreatureAttribute getCreatureAttribute()
-    {
-        return EnumCreatureAttribute.ARTHROPOD;
     }
 }

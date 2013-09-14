@@ -1,7 +1,9 @@
 package MineDonalds;
 
 import MineDonalds.Mobs.EntityEmployee;
+import MineDonalds.Mobs.EntityFatZombie;
 import MineDonalds.Mobs.EntityMcZombie;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityEggInfo;
 import net.minecraft.entity.EntityList;
@@ -17,7 +19,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @Mod(modid = "minedonalds", name = "MineDonalds", version = "4.0")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 //Last edited by iLexiconn
-//15:12 (3:12 PM)
+//16:18 (4:18 PM)
 public class Main {
 	
 	/**
@@ -45,7 +47,7 @@ public class Main {
 		
 		
 	}
-
+	
 	@EventHandler
     public void load(FMLInitializationEvent event) {
 	
@@ -70,6 +72,13 @@ public class Main {
     		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "en_US", "McDimension Zombie");
     		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "nl_NL", "McDimensie Zombie");
     		registerEntityEgg(EntityMcZombie.class, 0xFF0000, 0x096910);
+    		
+    		EntityRegistry.registerGlobalEntityID(EntityFatZombie.class, "FatZombie", 3);
+    		EntityRegistry.addSpawn(EntityFatZombie.class, 2, 2, 5, EnumCreatureType.ambient);
+    		EntityRegistry.findGlobalUniqueEntityId();
+    		LanguageRegistry.instance().addStringLocalization("entity.FatZombie.name", "en_US", "Fat Zombie");
+    		LanguageRegistry.instance().addStringLocalization("entity.FatZombie.name", "nl_NL", "Dikke Zombie");
+    		registerEntityEgg(EntityFatZombie.class, 0xFF0000, 0x096910);
             
 }
 }
