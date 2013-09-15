@@ -17,7 +17,7 @@ public class ItemMcWand extends Item
 	public ItemMcWand(int par1)
 	{
 		super(par1);
-		setCreativeTab(CreativeTabs.tabTools);
+		setCreativeTab(Main.McTab2);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(1);
 	}

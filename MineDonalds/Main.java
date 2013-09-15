@@ -1,6 +1,7 @@
 package MineDonalds;
 
 import MineDonalds.Blocks.*;
+import MineDonalds.Items.*;
 import MineDonalds.Dimension.McWorldProvider;
 import MineDonalds.Dimension.Biomes.BiomeGenMcBiome;
 import MineDonalds.Dimension.Biomes.BiomeGenYellowTree;
@@ -66,6 +67,10 @@ public class Main {
 		public ItemStack getIconItemStack(){
 			return new ItemStack(McGrass);
 		}};
+	public static CreativeTabs McTab2 = new CreativeTabs("McTab2"){
+		public ItemStack getIconItemStack(){
+			return new ItemStack(BigMac);
+		}};
 		
 	public static Block McGrass = new BlockMcGrass(201).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
 	public static Block McDirt = new BlockMcDirtMcStone(202, Material.ground).setStepSound(Block.soundGravelFootstep).setHardness(0.5F).setUnlocalizedName("McDirt");
@@ -78,6 +83,14 @@ public class Main {
 	public static BlockMcSapling McSapling = (BlockMcSapling)new BlockMcSapling(209, 0).setUnlocalizedName("McSapling");
 	
 	public static Item McWand = new ItemMcWand(451).setUnlocalizedName("McWand");
+	public static Item BigMac = new BigMac(452, 30, 10.0F, false).setUnlocalizedName("BigMac");
+	public static Item CheeseBurger = new CheeseBurger(453, 18, 4.0F, false).setUnlocalizedName("CheeseBurger");
+	public static Item McChicken = new McChicken(454, 17, 3.5F, false).setUnlocalizedName("McChicken");
+	public static Item McNuggets = new McNuggets(455, 7, 4.0F, true).setUnlocalizedName("McNuggets");
+	public static Item Fries = new Fries(456, 10, 4.5F, false).setUnlocalizedName("Fries");
+	public static Item Salad = new Salad(457, 8, 1.5F, true).setUnlocalizedName("Salad");
+	public static Item CocaCola = new CocaCola(458, 0, 0, false).setUnlocalizedName("CocaCola");
+	public static Item Fanta = new Fanta(459, 1, 0.1F, false).setUnlocalizedName("Fanta");
 	
 	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
 	public static BiomeGenBase McBiome = new BiomeGenMcBiome(42);
@@ -146,8 +159,17 @@ public class Main {
             LanguageRegistry.addName(McVine, "McVine");
             
             LanguageRegistry.addName(McWand, "McWand");
+            LanguageRegistry.addName(McNuggets, "Chicken McNuggets");
+            LanguageRegistry.addName(CheeseBurger, "Cheeseburger");
+            LanguageRegistry.addName(BigMac, "Big Mac");
+            LanguageRegistry.addName(McChicken, "McChicken");
+            LanguageRegistry.addName(Fries, "World Famous Fries");
+            LanguageRegistry.addName(Salad, "Premium Bacon Ranch Salad");
+            LanguageRegistry.addName(CocaCola, "Coca-Cola");
+            LanguageRegistry.addName(Fanta, "Fanta");
             
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonalds Blocks");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonalds Items");
             
 }
 }
