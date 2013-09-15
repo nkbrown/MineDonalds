@@ -2,6 +2,8 @@ package MineDonalds.Blocks;
 
 import java.util.List;
 import java.util.Random;
+
+import MineDonalds.Main;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -24,7 +26,7 @@ private Icon iconLogBottom;
 public BlockMcLog(int par1)
 {
 super(par1, Material.wood);
-this.setCreativeTab(CreativeTabs.tabBlock);
+this.setCreativeTab(Main.McTab);
 this.setStepSound(soundWoodFootstep);
 this.setHardness(2.0F);
 }

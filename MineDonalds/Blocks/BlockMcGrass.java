@@ -28,7 +28,7 @@ public BlockMcGrass(int par1)
 {
 super(par1, Material.grass);
 this.setTickRandomly(true);
-this.setCreativeTab(CreativeTabs.tabBlock);
+this.setCreativeTab(Main.McTab);
 }
 
 @SideOnly(Side.CLIENT)

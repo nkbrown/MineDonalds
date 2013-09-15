@@ -19,7 +19,7 @@ public class BlockMcDirtMcStone extends Block
     {
             super(par1, material);
             this.blockMaterial = material;
-            setCreativeTab(CreativeTabs.tabBlock);
+            setCreativeTab(Main.McTab);
     }
 
     public int idDropped(int par1, Random par2Random, int par3)

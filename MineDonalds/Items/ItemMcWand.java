@@ -18,6 +18,8 @@ public class ItemMcWand extends Item
 	{
 		super(par1);
 		setCreativeTab(CreativeTabs.tabTools);
+		this.setMaxStackSize(1);
+		this.setMaxDamage(1);
 	}
 	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int X, int Y, int Z, int par7, float par8, float par9, float par10)
 	{

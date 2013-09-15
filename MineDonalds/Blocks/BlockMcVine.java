@@ -1,5 +1,6 @@
 package MineDonalds.Blocks;
 
+import MineDonalds.Main;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -20,7 +21,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
 import net.minecraftforge.common.IShearable;
 
 public class BlockMcVine extends Block implements IShearable
@@ -29,7 +29,7 @@ public class BlockMcVine extends Block implements IShearable
     {
         super(par1, Material.vine);
         this.setTickRandomly(true);
-        this.setCreativeTab(CreativeTabs.tabDecorations);
+        this.setCreativeTab(Main.McTab);
     }
     public void registerIcons(IconRegister iconRegister) {
     	blockIcon = iconRegister.registerIcon("minedonalds:McVine");

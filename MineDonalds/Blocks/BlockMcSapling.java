@@ -24,7 +24,7 @@ public class BlockMcSapling extends BlockFlower
 		super(i);
 		float var3 = 0.4F;
 		this.setBlockBounds(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, var3 * 2.0F, 0.5F + var3);
-		this.setCreativeTab(CreativeTabs.tabDecorations);
+		this.setCreativeTab(Main.McTab);
 	}
 	
 	@Override
