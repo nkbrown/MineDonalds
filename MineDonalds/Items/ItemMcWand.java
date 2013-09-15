@@ -18,8 +18,9 @@ public class ItemMcWand extends Item
 	{
 		super(par1);
 		setCreativeTab(Main.McTab2);
-		this.setMaxStackSize(1);
-		this.setMaxDamage(1);
+		this.maxStackSize = 1;
+        this.setMaxDamage(0);
+		
 	}
 	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int X, int Y, int Z, int par7, float par8, float par9, float par10)
 	{
@@ -65,8 +66,11 @@ public class ItemMcWand extends Item
 				par3World.setBlock(X + 1, Y + 6, Z, Block.blockGold.blockID);
 				
 				par3World.setBlock(X, Y + 3, Z, Main.McFire.blockID);
+				
+				par1ItemStack.damageItem(1, par2EntityPlayer);
+				return true;
 			}
-			else
+		else
 			{
 				for (int y = 1; y < 5; y++)
 				{
@@ -106,8 +110,10 @@ public class ItemMcWand extends Item
 				
 				par3World.setBlock(X, Y + 3, Z, Main.McFire.blockID);
 			}
+			par1ItemStack.damageItem(1, par2EntityPlayer);
 			return true;
 		}
+		par1ItemStack.damageItem(1, par2EntityPlayer);
 		return true;
 	}
 	

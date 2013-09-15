@@ -91,6 +91,10 @@ public class Main {
 	public static Item Salad = new Salad(457, 8, 1.5F, true).setUnlocalizedName("Salad");
 	public static Item CocaCola = new CocaCola(458, 0, 0, false).setUnlocalizedName("CocaCola");
 	public static Item Fanta = new Fanta(459, 1, 0.1F, false).setUnlocalizedName("Fanta");
+	public static Item McFlurry = new McFlurry(460, 1, 1.2F, false).setUnlocalizedName("McFlurry");
+	public static Item McWrap = new McWrap(461, 2, 1.6F, true).setUnlocalizedName("McWrap");
+	public static Item Apple = new Apple(462, 2, 1.8F, true).setUnlocalizedName("Apple");
+	public static Item Milk = new Milk(463, 3, 2.0F, true).setUnlocalizedName("Milk");
 	
 	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
 	public static BiomeGenBase McBiome = new BiomeGenMcBiome(42);
@@ -157,6 +161,7 @@ public class Main {
             LanguageRegistry.addName(McLeaf, "McLeaf");
             LanguageRegistry.addName(McLog, "McLog");
             LanguageRegistry.addName(McVine, "McVine");
+            LanguageRegistry.addName(McSapling, "McSapling");
             
             LanguageRegistry.addName(McWand, "McWand");
             LanguageRegistry.addName(McNuggets, "Chicken McNuggets");
@@ -167,6 +172,10 @@ public class Main {
             LanguageRegistry.addName(Salad, "Premium Bacon Ranch Salad");
             LanguageRegistry.addName(CocaCola, "Coca-Cola");
             LanguageRegistry.addName(Fanta, "Fanta");
+            LanguageRegistry.addName(McFlurry, "McFlurry with M&M's®");
+            LanguageRegistry.addName(McWrap, "Honey Mustard Snack Wrap (Crispy)");
+            LanguageRegistry.addName(Apple, "Apple Slices");
+            LanguageRegistry.addName(Milk, "1% Low Fat Milk Jug");
             
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonalds Blocks");
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonalds Items");
