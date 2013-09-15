@@ -12,10 +12,12 @@ import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.*;
+import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -71,6 +73,7 @@ public class Main {
 		public ItemStack getIconItemStack(){
 			return new ItemStack(BigMac);
 		}};
+	public static EnumArmorMaterial armorMcZombie = EnumHelper.addArmorMaterial("MCZOMBIE", 15, new int[]{2, 7, 5, 2}, 99);
 		
 	public static Block McGrass = new BlockMcGrass(201).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
 	public static Block McDirt = new BlockMcDirtMcStone(202, Material.ground).setStepSound(Block.soundGravelFootstep).setHardness(0.5F).setUnlocalizedName("McDirt");
@@ -96,6 +99,11 @@ public class Main {
 	public static Item Apple = new Apple(462, 2, 1.8F, true).setUnlocalizedName("Apple");
 	public static Item Milk = new Milk(463, 3, 2.0F, true).setUnlocalizedName("Milk");
 	
+	public static Item McZombieHelmet = new McZombieArmor(464, armorMcZombie, 0, 0, "mczombie").setUnlocalizedName("McZombieHelmet");
+	public static Item McZombieChestplate = new McZombieArmor(465, armorMcZombie, 0, 1, "mczombie").setUnlocalizedName("McZombieChestplate");
+	public static Item McZombieLeggings = new McZombieArmor(466, armorMcZombie, 0, 2, "mczombie").setUnlocalizedName("McZombieLeggings");
+	public static Item McZombieBoots = new McZombieArmor(467, armorMcZombie, 0, 3, "mczombie").setUnlocalizedName("McZombieBoots");
+
 	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
 	public static BiomeGenBase McBiome = new BiomeGenMcBiome(42);
 	public static int DimID = 2;
@@ -112,21 +120,21 @@ public class Main {
              * Entity stuff
              */
             EntityRegistry.registerGlobalEntityID(EntityEmployee.class, "Employee", 1);
-    		EntityRegistry.addSpawn(EntityEmployee.class, 1, 1, 4, EnumCreatureType.ambient);
+    		EntityRegistry.addSpawn(EntityEmployee.class, 1, 1, 1, EnumCreatureType.ambient, Main.McBiome);
     		EntityRegistry.findGlobalUniqueEntityId();
     		LanguageRegistry.instance().addStringLocalization("entity.Employee.name", "en_US", "McDonalds Employee");
     		LanguageRegistry.instance().addStringLocalization("entity.Employee.name", "nl_NL", "McDonalds Werknemer");
     		registerEntityEgg(EntityEmployee.class, 0xFF0000, 0xFFFF00);
     		
     		EntityRegistry.registerGlobalEntityID(EntityMcZombie.class, "McZombie", 2);
-    		EntityRegistry.addSpawn(EntityMcZombie.class, 2, 2, 5, EnumCreatureType.ambient);
+    		EntityRegistry.addSpawn(EntityMcZombie.class, 5, 5, 5, EnumCreatureType.ambient, Main.McBiome);
     		EntityRegistry.findGlobalUniqueEntityId();
     		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "en_US", "McDimension Zombie");
     		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "nl_NL", "McDimensie Zombie");
     		registerEntityEgg(EntityMcZombie.class, 0xFF0000, 0x096910);
     		
     		EntityRegistry.registerGlobalEntityID(EntityFatZombie.class, "FatZombie", 3);
-    		EntityRegistry.addSpawn(EntityFatZombie.class, 2, 2, 5, EnumCreatureType.ambient);
+    		EntityRegistry.addSpawn(EntityFatZombie.class, 4, 4, 4, EnumCreatureType.monster, Main.YellowTree);
     		EntityRegistry.findGlobalUniqueEntityId();
     		LanguageRegistry.instance().addStringLocalization("entity.FatZombie.name", "en_US", "Fat Zombie");
     		LanguageRegistry.instance().addStringLocalization("entity.FatZombie.name", "nl_NL", "Dikke Zombie");
@@ -172,8 +180,9 @@ public class Main {
             LanguageRegistry.addName(Salad, "Premium Bacon Ranch Salad");
             LanguageRegistry.addName(CocaCola, "Coca-Cola");
             LanguageRegistry.addName(Fanta, "Fanta");
-            LanguageRegistry.addName(McFlurry, "McFlurry with M&M's®");
-            LanguageRegistry.addName(McWrap, "Honey Mustard Snack Wrap (Crispy)");
+            LanguageRegistry.addName(McFlurry, "McFlurry with M&M's");
+			LanguageRegistry.addName(McFlurry, "McFlurry with M&M's®");
+			LanguageRegistry.addName(McWrap, "Honey Mustard Snack Wrap (Crispy)");
             LanguageRegistry.addName(Apple, "Apple Slices");
             LanguageRegistry.addName(Milk, "1% Low Fat Milk Jug");
             
