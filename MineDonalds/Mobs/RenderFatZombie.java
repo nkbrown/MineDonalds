@@ -15,8 +15,12 @@ public class RenderFatZombie extends RenderLiving
         super(par1ModelBase, par2);
     }
 
-	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
+		return texture;
+	}
+
+	@Override
+	protected ResourceLocation func_110775_a(Entity entity) {
 		return texture;
 	}
 }

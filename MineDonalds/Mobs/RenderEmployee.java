@@ -133,7 +133,6 @@ public class RenderEmployee extends RenderLiving
         this.renderVillager((EntityVillager)par1Entity, par2, par4, par6, par8, par9);
     }
 
-	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		return new ResourceLocation("minedonalds:textures/entity/Employee.png");
 	}
