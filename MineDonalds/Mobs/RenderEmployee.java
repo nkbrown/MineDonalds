@@ -136,4 +136,5 @@ public class RenderEmployee extends RenderLiving
 	protected ResourceLocation getEntityTexture(Entity entity) {
 		return new ResourceLocation("minedonalds:textures/entity/Employee.png");
 	}
+	
 }
