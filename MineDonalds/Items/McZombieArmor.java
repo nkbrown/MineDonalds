@@ -32,6 +32,7 @@ public class McZombieArmor extends ItemArmor{
 		}
 		return "minedonalds:textures/armor/" + "mczombie" + "_1.png";
 	}
+	
 	public void registerIcon(IconRegister par1iconRegister) {
 		if(itemID == Main.McZombieHelmet.itemID) {
 			itemIcon = par1iconRegister.registerIcon("minedonalds:mczombie_helmet");
@@ -44,6 +45,6 @@ public class McZombieArmor extends ItemArmor{
 		}
 		if(itemID == Main.McZombieBoots.itemID) {
 			itemIcon = par1iconRegister.registerIcon("minedonalds:mczombie_boots");
-		}
 	}
+}
 }

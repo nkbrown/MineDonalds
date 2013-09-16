@@ -17,4 +17,8 @@ public class ClientProxy extends ServerProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMcZombie.class, new RenderMcZombie());
 		RenderingRegistry.registerEntityRenderingHandler(EntityFatZombie.class, new RenderFatZombie(new ModelFatZombie(), 0.3F));
 	}
+	
+	public void addArmor(String armor) {
+		RenderingRegistry.addNewArmourRendererPrefix(armor);
+	}
 }

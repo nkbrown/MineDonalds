@@ -30,7 +30,6 @@ import net.minecraft.world.gen.structure.MapGenVillage;
 
 public class McChunkProvider implements IChunkProvider
 {
-	
 	private Random rand;
 	private NoiseGeneratorOctaves noiseGen1;
 	private NoiseGeneratorOctaves noiseGen2;

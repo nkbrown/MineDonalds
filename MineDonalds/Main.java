@@ -1,5 +1,8 @@
 package MineDonalds;
 
+import java.io.File;
+import java.util.HashMap;
+
 import MineDonalds.Blocks.*;
 import MineDonalds.Items.*;
 import MineDonalds.Dimension.McWorldProvider;
@@ -11,16 +14,22 @@ import MineDonalds.Mobs.*;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.src.BaseMod;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.Property;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -41,6 +50,9 @@ public class Main {
 	 */
 	@SidedProxy(clientSide="MineDonalds.ClientProxy", serverSide="MineDonalds.ServerProxy")
 	public static ServerProxy proxy;
+	static Configuration config;
+	@Instance("minedonalds")
+	public static Main instance;
 	
 	/**
 	 * The Entity ID Registry
@@ -57,9 +69,258 @@ public class Main {
 		int id = getUniqueEntityId();
 		EntityList.IDtoClassMapping.put(id, entity);
 		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
+	}
+	
+	
+	
+	
+	static String blockList[]=new String[4096];
+	static HashMap<String,Integer> blockMapping=new HashMap<String,Integer>();
+	
+	static String itemList[]=new String[32000];
+	static HashMap<String,Integer> itemMapping=new HashMap<String,Integer>();
+	
+	static String enchantmentList[]=new String[256];
+	static HashMap<String,Integer> enchantmentMapping=new HashMap<String,Integer>();
+	
+	static boolean isBlockItem;
+	public static String getModNamespace(){
+		String res=null;
+		isBlockItem=false;
 		
+		try {
+			throw new Exception();
+		} catch (Exception ex) {
+			StackTraceElement[] stack=ex.getStackTrace();
+			
+			for(StackTraceElement e: ex.getStackTrace()){
+				Class<?> cl=null;
+				
+				try {
+					cl = Class.forName(e.getClassName());
+				} catch (ClassNotFoundException ee) {
+					continue;
+				}
+				
+				if(ItemBlock.class.isAssignableFrom(cl)) isBlockItem=true;
+				
+				if(cl.getName().startsWith("sun."))continue;
+				if(cl.getName().startsWith("cpw.mods.fml."))continue;
+				if(cl.getName().startsWith("java."))continue;
+				if(Block.class.isAssignableFrom(cl)) continue;
+				if(Item.class.isAssignableFrom(cl)) continue;
+				if(Enchantment.class.isAssignableFrom(cl)) continue;
+				if(Main.class.isAssignableFrom(cl)) continue;
+				
+				if(res==null)
+					res=e.getClassName();
+				
+				if (BaseMod.class.isAssignableFrom(cl)){
+					res=e.getClassName();
+					break;
+				}
+				if (cl.isAnnotationPresent(Mod.class)) {
+					res=e.getClassName();
+					break;
+				}
+			}
+		}
 		
+		return res;
+	}
+	
+	static void loadConfig(){
+		if(config!=null) return;
 		
+		Configuration cfg=new Configuration(new File("minedonalds.txt"));
+		cfg.load();
+		config = cfg;
+		
+		for(int i=0;i<blockList.length;i++){
+			Property p=getBlockId(i,"");
+			if(p==null) continue;
+			
+			blockList[i]=p.getString();
+			blockMapping.put(blockList[i],i);
+		}
+		
+		for(int i=0;i<itemList.length;i++){
+			Property p=getItemId(i,"");
+			if(p==null) continue;
+			
+			itemList[i]=p.getString();
+			itemMapping.put(itemList[i],i);
+		}
+		
+		for(int i=0;i<enchantmentList.length;i++){
+			Property p=getEnchantmentId(i,"");
+			if(p==null) continue;
+			
+			enchantmentList[i]=p.getString();
+			enchantmentMapping.put(enchantmentList[i],i);
+		}
+	}
+	
+	static Property getBlockId(int id,String def){
+		return getId("blocks","%04d", id, def);
+	}
+	static Property getItemId(int id,String def){
+		return getId("items","%05d", id, def);
+	}
+	static Property getEnchantmentId(int id,String def){
+		return getId("enchantments","%03d", id, def);
+	}
+	static Property getId(String category,String keyMask,int id,String def){
+		String key=String.format(keyMask,id);
+		
+		if(! config.hasKey(category, key) && def.isEmpty()) return null;
+		
+		return config.get(category, key, def);
+	}
+
+	public static int transformBlockId(int blockId) {
+		if(Block.field_111034_cE==null) return blockId;
+		loadConfig();
+		
+		String key=getModNamespace()+"|"+blockId;
+		if(blockMapping.containsKey(key))
+			blockId=blockMapping.get(key);
+		
+    	int lower=0x100;
+    	int upper=Block.blocksList.length;
+    	
+    	if(blockId<0 || blockId>=blockList.length)
+    		blockId=upper-1;
+    	
+        for(int possibleId=upper;possibleId>=lower;possibleId--){
+        	int id=possibleId==upper?blockId:possibleId;
+        	
+        	if(Block.blocksList[id]!=null) continue;
+        	if(itemList[id]!=null) continue;
+       	
+        	boolean empty=blockList[id]==null;
+        	boolean fits=!empty && blockList[id].equals(key);
+        	if(!empty && !fits) continue;
+        	
+        	if(empty && config!=null){
+        		blockList[id]=key;
+        		blockMapping.put(key, id);
+        		getBlockId(id,key).set(key);
+        		config.save();
+        	}
+        	
+        	if(id!=blockId){
+        		if(itemList[blockId]!=null)
+        			System.out.println("[MineDonalds] changing block id for "+key+" because of conflict with item "+itemList[blockId]+"; from "+blockId+" to "+id);
+        		else
+        			System.out.println("[MineDonalds] changing block id for "+key+" because of conflict with block "+blockList[blockId]+"; from "+blockId+" to "+id);
+        	}
+        	
+        	return id;
+        }
+        
+    	return blockId;
+	}
+
+	public static int transformItemId(int itemId) {
+		if(Item.recordWait==null) return itemId;
+		loadConfig();
+		
+		int shiftedItemId=itemId+0x100;
+    	
+		String namespace=getModNamespace();
+		String key=namespace+"|"+itemId;
+		String blockKey=namespace+"|"+shiftedItemId;
+		
+		/* this is a normal block item */
+    	if(shiftedItemId>=0 && shiftedItemId<Block.blocksList.length && Block.blocksList[shiftedItemId]!=null && isBlockItem)
+    		return itemId;
+    	
+    	/* this is a block item, but not inherited from ItemBlock */
+    	Integer itemBlockId=blockMapping.get(blockKey);
+    	if(itemBlockId!=null)
+    		return itemBlockId-0x100;
+
+    	if(itemMapping.containsKey(key)){
+			itemId=itemMapping.get(key);
+			shiftedItemId=itemId+0x100;
+		}
+		
+    	int lower=0x100;
+    	int upper=Item.itemsList.length-0x100;
+    	
+    	if(itemId<0 || itemId+0x100>=itemList.length)
+    		itemId=upper-1;
+    	
+        for(int possibleId=upper;possibleId>=lower;possibleId--){
+        	int id=possibleId==upper?itemId:possibleId;
+        	int shiftedId=id+0x100;
+        	
+        	if(Item.itemsList[shiftedId]!=null) continue;
+        	if(shiftedId>0 && shiftedId<blockList.length && blockList[shiftedId]!=null)
+        		continue;
+        	
+        	boolean empty=itemList[id]==null;
+        	boolean fits=!empty && itemList[id].equals(key);
+        	if(!empty && !fits) continue;
+        	
+        	if(empty && config!=null){
+        		itemList[id]=key;
+        		itemMapping.put(key, id);
+        		getItemId(id,key).set(key);
+        		config.save();
+        	}
+        	
+        	if(id!=itemId){
+        		if(shiftedItemId>0 && shiftedItemId<blockList.length && blockList[shiftedItemId]!=null)
+            		System.out.println("Idfix: changing item id for "+key+" because of conflict with block "+blockList[shiftedItemId]+"; from "+itemId+" to "+id);
+        		else
+        			System.out.println("Idfix: changing item id for "+key+" because of conflict with item "+itemList[itemId]+"; from "+itemId+" to "+id);
+        	}
+        	
+        	return id;
+        }
+        
+    	return itemId;
+	}
+	
+	public static int transformEnchantmentId(int enchantmentId) {
+		if(Enchantment.infinity==null) return enchantmentId;
+		loadConfig();
+		
+		String key=getModNamespace()+"|"+enchantmentId;
+		if(enchantmentMapping.containsKey(key))
+			enchantmentId=enchantmentMapping.get(key);
+		
+    	int lower=0;
+    	int upper=0x100;
+    	
+    	if(enchantmentId<0 || enchantmentId>=enchantmentList.length)
+    		enchantmentId=upper-1;
+    	
+        for(int possibleId=upper;possibleId>=lower;possibleId--){
+        	int id=possibleId==upper?enchantmentId:possibleId;
+        	
+        	if(Enchantment.enchantmentsList[id]!=null) continue;
+        	
+        	boolean empty=enchantmentList[id]==null;
+        	boolean fits=!empty && enchantmentList[id].equals(key);
+        	if(!empty && !fits) continue;
+        	
+        	if(empty && config!=null){
+        		enchantmentList[id]=key;
+        		enchantmentMapping.put(key, id);
+        		getEnchantmentId(id,key).set(key);
+        		config.save();
+        	}
+        	
+        	if(id!=enchantmentId)
+        		System.out.println("Idfix: changing enchantment id for "+key+" because of conflict with "+enchantmentList[enchantmentId]+"; from "+enchantmentId+" to "+id);
+        	
+        	return id;
+        }
+        
+    	return enchantmentId;
 	}
 	
 	/**

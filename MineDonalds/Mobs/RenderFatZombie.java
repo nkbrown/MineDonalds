@@ -9,7 +9,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class RenderFatZombie extends RenderLiving
 {
     private static final ResourceLocation texture = new ResourceLocation("minedonalds:textures/entity/FatZombie.png");
-	//Lol
+
     public RenderFatZombie(ModelBase par1ModelBase, float par2)
     {
         super(par1ModelBase, par2);
