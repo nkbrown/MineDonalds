@@ -109,9 +109,10 @@ public class ItemMcWand extends Item
 				par3World.setBlock(X + 1, Y + 6, Z, Block.blockGold.blockID);
 				
 				par3World.setBlock(X, Y + 3, Z, Main.McFire.blockID);
+				
+				par1ItemStack.damageItem(1, par2EntityPlayer);
+				return true;
 			}
-			par1ItemStack.damageItem(1, par2EntityPlayer);
-			return true;
 		}
 		par1ItemStack.damageItem(1, par2EntityPlayer);
 		return true;

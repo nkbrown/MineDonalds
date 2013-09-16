@@ -41,6 +41,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 /**
  * Hi
  * I have added little pieces of text due the whole project!
+ * Please do not copy code, only see how I did it ;)
  * @author iLexiconn
  */
 public class Main {
@@ -368,10 +369,10 @@ public class Main {
 	public static Item Apple = new Apple(462, 2, 1.8F, true).setUnlocalizedName("Apple");
 	public static Item Milk = new Milk(463, 3, 2.0F, true).setUnlocalizedName("Milk");
 	
-	public static Item McZombieHelmet = new McZombieArmor(464, armorMcZombie, 0, 0, "mczombie").setUnlocalizedName("McZombieHelmet");
-	public static Item McZombieChestplate = new McZombieArmor(465, armorMcZombie, 0, 1, "mczombie").setUnlocalizedName("McZombieChestplate");
-	public static Item McZombieLeggings = new McZombieArmor(466, armorMcZombie, 0, 2, "mczombie").setUnlocalizedName("McZombieLeggings");
-	public static Item McZombieBoots = new McZombieArmor(467, armorMcZombie, 0, 3, "mczombie").setUnlocalizedName("McZombieBoots");
+	public static Item McZombieHelmet = new McZombieArmor(464, armorMcZombie, 0, 0).setUnlocalizedName("McZombieHelmet");
+	public static Item McZombieChestplate = new McZombieArmor(465, armorMcZombie, 0, 1).setUnlocalizedName("McZombieChestplate");
+	public static Item McZombieLeggings = new McZombieArmor(466, armorMcZombie, 0, 2).setUnlocalizedName("McZombieLeggings");
+	public static Item McZombieBoots = new McZombieArmor(467, armorMcZombie, 0, 3).setUnlocalizedName("McZombieBoots");
 
 	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
 	public static BiomeGenBase McBiome = new BiomeGenMcBiome(42);
