@@ -72,7 +72,9 @@ public class Main {
 	}
 	
 	
-	
+	/**
+	 * IDFix stuff
+	 */
 	
 	static String blockList[]=new String[4096];
 	static HashMap<String,Integer> blockMapping=new HashMap<String,Integer>();
@@ -331,6 +333,12 @@ public class Main {
 			return new ItemStack(McGrass);
 		}};
 	public static CreativeTabs McTab2 = new CreativeTabs("McTab2"){
+
+		public ItemStack getIconItemStack(){
+			return new ItemStack(McWand);
+		}};
+	public static CreativeTabs McTab3 = new CreativeTabs("McTab3"){
+
 		public ItemStack getIconItemStack(){
 			return new ItemStack(BigMac);
 		}};
@@ -381,24 +389,18 @@ public class Main {
              * Entity stuff
              */
             EntityRegistry.registerGlobalEntityID(EntityEmployee.class, "Employee", 1);
-    		EntityRegistry.addSpawn(EntityEmployee.class, 1, 1, 1, EnumCreatureType.ambient, Main.McBiome);
     		EntityRegistry.findGlobalUniqueEntityId();
     		LanguageRegistry.instance().addStringLocalization("entity.Employee.name", "en_US", "McDonalds Employee");
-    		LanguageRegistry.instance().addStringLocalization("entity.Employee.name", "nl_NL", "McDonalds Werknemer");
     		registerEntityEgg(EntityEmployee.class, 0xFF0000, 0xFFFF00);
     		
     		EntityRegistry.registerGlobalEntityID(EntityMcZombie.class, "McZombie", 2);
-    		EntityRegistry.addSpawn(EntityMcZombie.class, 5, 5, 5, EnumCreatureType.ambient, Main.McBiome);
     		EntityRegistry.findGlobalUniqueEntityId();
     		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "en_US", "McDimension Zombie");
-    		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "nl_NL", "McDimensie Zombie");
     		registerEntityEgg(EntityMcZombie.class, 0xFF0000, 0x096910);
     		
     		EntityRegistry.registerGlobalEntityID(EntityFatZombie.class, "FatZombie", 3);
-    		EntityRegistry.addSpawn(EntityFatZombie.class, 4, 4, 4, EnumCreatureType.monster, Main.YellowTree);
     		EntityRegistry.findGlobalUniqueEntityId();
     		LanguageRegistry.instance().addStringLocalization("entity.FatZombie.name", "en_US", "Fat Zombie");
-    		LanguageRegistry.instance().addStringLocalization("entity.FatZombie.name", "nl_NL", "Dikke Zombie");
     		registerEntityEgg(EntityFatZombie.class, 0xFF0000, 0x096910);
     		
     		/**
@@ -449,6 +451,7 @@ public class Main {
             
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonalds Blocks");
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonalds Items");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonalds Food");
             
 }
 }

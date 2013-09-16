@@ -11,7 +11,7 @@ public class Fanta extends ItemFood{
 		super(par1, par2, par3, par4);
 		this.setAlwaysEdible();
 		this.setPotionEffect(Potion.regeneration.id, 100, 2, 1.0F);
-		this.setCreativeTab(Main.McTab2);
+		this.setCreativeTab(Main.McTab3);
 }
 	public void registerIcons(IconRegister iconRegister) {
 		itemIcon = iconRegister.registerIcon("minedonalds:Fanta");
