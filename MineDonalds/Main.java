@@ -11,12 +11,18 @@ import MineDonalds.Dimension.Biomes.BiomeGenYellowTree;
 import MineDonalds.Dimension.Event.McEvent;
 import MineDonalds.Items.ItemMcWand;
 import MineDonalds.Mobs.*;
+import MineDonalds.Tools.McStoneAxe;
+import MineDonalds.Tools.McStoneHoe;
+import MineDonalds.Tools.McStonePickaxe;
+import MineDonalds.Tools.McStoneShovel;
+import MineDonalds.Tools.McStoneSword;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
 import net.minecraft.item.EnumArmorMaterial;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
@@ -344,12 +350,15 @@ public class Main {
 			return new ItemStack(BigMac);
 		}};
 	public static EnumArmorMaterial armorMcZombie = EnumHelper.addArmorMaterial("MCZOMBIE", 15, new int[]{2, 7, 5, 2}, 99);
+	public static EnumToolMaterial toolMcStone = EnumHelper.addToolMaterial("MCSTONE", 2, 242, 4.5F, 1.5F, 30);
+	public static EnumToolMaterial toolMcPlanks = EnumHelper.addToolMaterial("MCPLANKS", 1, 69, 2.5F, 0.5F, 15);
 		
 	public static Block McGrass = new BlockMcGrass(201).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
 	public static Block McDirt = new BlockMcDirtMcStone(202, Material.ground).setStepSound(Block.soundGravelFootstep).setHardness(0.5F).setUnlocalizedName("McDirt");
 	public static Block McStone = new BlockMcDirtMcStone(203, Material.rock).setHardness(2.0F).setUnlocalizedName("McStone");
 	public static Block McLeaf = new BlockMcLeaf(204).setHardness(0.2F).setUnlocalizedName("McLeaf");
 	public static Block McLog = new BlockMcLog(205).setHardness(2.0F).setUnlocalizedName("McLog");
+	public static Block McPlanks = new BlockMcPlanks(210, Material.wood).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("McWood");
 	public static Block McVine = new BlockMcVine(206).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
 	public static BlockMcFire McFire = (BlockMcFire)new BlockMcFire(207).setUnlocalizedName("McFire");
 	public static BlockMcPortal McPortal = (BlockMcPortal)new BlockMcPortal(208).setUnlocalizedName("McPortal");
@@ -373,6 +382,12 @@ public class Main {
 	public static Item McZombieChestplate = new McZombieArmor(465, armorMcZombie, 0, 1).setUnlocalizedName("McZombieChestplate");
 	public static Item McZombieLeggings = new McZombieArmor(466, armorMcZombie, 0, 2).setUnlocalizedName("McZombieLeggings");
 	public static Item McZombieBoots = new McZombieArmor(467, armorMcZombie, 0, 3).setUnlocalizedName("McZombieBoots");
+	
+	public static Item McStoneSword = new McStoneSword(468, toolMcStone).setUnlocalizedName("McStoneSword");
+	public static Item McStonePickaxe = new McStonePickaxe(469, toolMcStone).setUnlocalizedName("McStonePickaxe");
+	public static Item McStoneAxe = new McStoneAxe(470, toolMcStone).setUnlocalizedName("McStoneAxe");
+	public static Item McStoneShovel = new McStoneShovel(471, toolMcStone).setUnlocalizedName("McStoneShovel");
+	public static Item McStoneHoe = new McStoneHoe(472, toolMcStone).setUnlocalizedName("McStoneHoe");
 
 	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
 	public static BiomeGenBase McBiome = new BiomeGenMcBiome(42);
@@ -423,6 +438,7 @@ public class Main {
     		GameRegistry.registerBlock(McLog, "McLog");
     		GameRegistry.registerBlock(McVine, "McVine");
     		GameRegistry.registerBlock(McSapling, "McSapling");
+    		GameRegistry.registerBlock(McPlanks, "McPlanks");
     		
     		/**
     		 * LanguageRegistry
@@ -450,9 +466,14 @@ public class Main {
             LanguageRegistry.addName(Apple, "Apple Slices");
             LanguageRegistry.addName(Milk, "1% Low Fat Milk Jug");
             
+            LanguageRegistry.addName(McZombieHelmet, "McZombie Helmet");
+            LanguageRegistry.addName(McZombieChestplate, "McZombie Chestplate");
+            LanguageRegistry.addName(McZombieLeggings, "McZombie Leggings");
+            LanguageRegistry.addName(McZombieBoots, "McZombie Boots");
+            
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonalds Blocks");
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonalds Items");
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonalds Food");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab3", "MineDonalds Food");
             
 }
 }
