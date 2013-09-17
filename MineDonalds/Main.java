@@ -497,6 +497,5 @@ public class Main {
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonalds Blocks");
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonalds Items");
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab3", "MineDonalds Food");
-            
 }
 }
