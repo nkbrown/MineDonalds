@@ -16,6 +16,11 @@ import MineDonalds.Tools.McStoneHoe;
 import MineDonalds.Tools.McStonePickaxe;
 import MineDonalds.Tools.McStoneShovel;
 import MineDonalds.Tools.McStoneSword;
+import MineDonalds.Tools.McWoodAxe;
+import MineDonalds.Tools.McWoodHoe;
+import MineDonalds.Tools.McWoodPickaxe;
+import MineDonalds.Tools.McWoodShovel;
+import MineDonalds.Tools.McWoodSword;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -350,8 +355,8 @@ public class Main {
 			return new ItemStack(BigMac);
 		}};
 	public static EnumArmorMaterial armorMcZombie = EnumHelper.addArmorMaterial("MCZOMBIE", 15, new int[]{2, 7, 5, 2}, 99);
-	public static EnumToolMaterial toolMcStone = EnumHelper.addToolMaterial("MCSTONE", 2, 242, 4.5F, 1.5F, 30);
-	public static EnumToolMaterial toolMcPlanks = EnumHelper.addToolMaterial("MCPLANKS", 1, 69, 2.5F, 0.5F, 15);
+	public static EnumToolMaterial toolMcStone = EnumHelper.addToolMaterial("MCSTONE", 2, 242, 4.5F, 1.5F, 99);
+	public static EnumToolMaterial toolMcWood = EnumHelper.addToolMaterial("MCWOOD", 1, 69, 2.5F, 0.5F, 99);
 		
 	public static Block McGrass = new BlockMcGrass(201).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
 	public static Block McDirt = new BlockMcDirtMcStone(202, Material.ground).setStepSound(Block.soundGravelFootstep).setHardness(0.5F).setUnlocalizedName("McDirt");
@@ -388,6 +393,12 @@ public class Main {
 	public static Item McStoneAxe = new McStoneAxe(470, toolMcStone).setUnlocalizedName("McStoneAxe");
 	public static Item McStoneShovel = new McStoneShovel(471, toolMcStone).setUnlocalizedName("McStoneShovel");
 	public static Item McStoneHoe = new McStoneHoe(472, toolMcStone).setUnlocalizedName("McStoneHoe");
+	
+	public static Item McWoodSword = new McWoodSword(473, toolMcWood).setUnlocalizedName("McWoodSword");
+	public static Item McWoodPickaxe = new McWoodPickaxe(474, toolMcWood).setUnlocalizedName("McWoodPickaxe");
+	public static Item McWoodAxe = new McWoodAxe(475, toolMcWood).setUnlocalizedName("McWoodAxe");
+	public static Item McWoodShovel = new McWoodShovel(476, toolMcWood).setUnlocalizedName("McWoodShovel");
+	public static Item McWoodHoe = new McWoodHoe(477, toolMcWood).setUnlocalizedName("McWoodHoe");
 
 	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
 	public static BiomeGenBase McBiome = new BiomeGenMcBiome(42);
@@ -443,13 +454,14 @@ public class Main {
     		/**
     		 * LanguageRegistry
     		 */
-    		LanguageRegistry.addName(McGrass, "McGrass");
-            LanguageRegistry.addName(McDirt, "McDirt");
-            LanguageRegistry.addName(McStone, "McStone");
-            LanguageRegistry.addName(McLeaf, "McLeaf");
-            LanguageRegistry.addName(McLog, "McLog");
-            LanguageRegistry.addName(McVine, "McVine");
-            LanguageRegistry.addName(McSapling, "McSapling");
+    		LanguageRegistry.addName(McGrass, "McDimension Grass");
+            LanguageRegistry.addName(McDirt, "McDimension Dirt");
+            LanguageRegistry.addName(McStone, "McDimension Stone");
+            LanguageRegistry.addName(McLeaf, "McTree Leaf");
+            LanguageRegistry.addName(McLog, "McTree Log");
+            LanguageRegistry.addName(McVine, "McTree Vine");
+            LanguageRegistry.addName(McSapling, "McTree Sapling");
+            LanguageRegistry.addName(McPlanks, "McTree Planks");
             
             LanguageRegistry.addName(McWand, "McWand");
             LanguageRegistry.addName(McNuggets, "Chicken McNuggets");
@@ -465,6 +477,17 @@ public class Main {
 			LanguageRegistry.addName(McWrap, "Honey Mustard Snack Wrap (Crispy)");
             LanguageRegistry.addName(Apple, "Apple Slices");
             LanguageRegistry.addName(Milk, "1% Low Fat Milk Jug");
+            
+            LanguageRegistry.addName(McStoneSword, "McStone Sword");
+            LanguageRegistry.addName(McStonePickaxe, "McStone Pickaxe");
+            LanguageRegistry.addName(McStoneAxe, "McStone Axe");
+            LanguageRegistry.addName(McStoneShovel, "McStone Shovel");
+            LanguageRegistry.addName(McStoneHoe, "McStone Hoe");
+            LanguageRegistry.addName(McWoodSword, "McWood Sword");
+            LanguageRegistry.addName(McWoodPickaxe, "McWood Pickaxe");
+            LanguageRegistry.addName(McWoodAxe, "McWood Axe");
+            LanguageRegistry.addName(McWoodShovel, "McWood Shovel");
+            LanguageRegistry.addName(McWoodHoe, "McWood Hoe");
             
             LanguageRegistry.addName(McZombieHelmet, "McZombie Helmet");
             LanguageRegistry.addName(McZombieChestplate, "McZombie Chestplate");
