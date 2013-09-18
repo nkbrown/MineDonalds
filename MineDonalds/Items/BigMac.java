@@ -12,6 +12,7 @@ public class BigMac extends ItemFood{
 		this.setAlwaysEdible();
 		this.setPotionEffect(Potion.moveSlowdown.id, 20, 1, 1.0F);
 		this.setCreativeTab(Main.McTab3);
+		this.setMaxStackSize(1);
 }
 	public void registerIcons(IconRegister iconRegister) {
 		itemIcon = iconRegister.registerIcon("minedonalds:BigMac");

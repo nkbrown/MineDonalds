@@ -523,5 +523,52 @@ public class Main {
             GameRegistry.addRecipe(new ItemStack(McWand,1), new Object[]{
             	"GGB","GSG","GGG",'B',BigMac,'G',Block.blockGold,'S',Item.stick
             	});
+            
+            GameRegistry.addRecipe(new ItemStack(BigMac,2), new Object[]{
+            	"LTL","SOS","CBC",'L',LettucePiece,'T',BurgerTop,'S',Item.beefCooked,'O',Tomato,'C',Cheese,'B',BurgerButtom
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(CheeseBurger,2), new Object[]{
+            	"CTC","SCS","CBC",'L',LettucePiece,'T',BurgerTop,'S',Item.beefCooked,'O',Tomato,'C',Cheese,'B',BurgerButtom
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McChicken,2), new Object[]{
+            	"KTK","LKL","KBK",'L',LettucePiece,'T',BurgerTop,'S',Item.beefCooked,'O',Tomato,'C',Cheese,'B',BurgerButtom,'K',Item.chickenCooked
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McNuggets,2), new Object[]{
+            	"KK","KK",'L',LettucePiece,'T',BurgerTop,'S',Item.beefCooked,'O',Tomato,'C',Cheese,'B',BurgerButtom,'K',Item.chickenCooked
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(Fries,2), new Object[]{
+            	"FF","FF",'L',LettucePiece,'T',BurgerTop,'S',Item.beefCooked,'O',Tomato,'C',Cheese,'B',BurgerButtom,'K',Item.chickenCooked,'F',Item.bakedPotato
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(Salad,2), new Object[]{
+            	"LLL","LSL"," B ",'L',LettucePiece,'T',BurgerTop,'S',Item.porkCooked,'O',Tomato,'C',Cheese,'B',Item.bowlEmpty,'K',Item.chickenCooked
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(CocaCola,2), new Object[]{
+            	"GOG","GOG"," G ",'G',Block.glass,'O',Block.obsidian
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(Fanta,2), new Object[]{
+            	"GOG","GOG"," G ",'G',Block.glass,'O',Item.glowstone
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McFlurry,2), new Object[]{
+            	"SCS","SSS"," B ",'S',Item.snowball,'C',Item.cookie,'B',Item.bowlEmpty
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McWrap,2), new Object[]{
+            	"LBL","CCC","LBL",'L',LettucePiece,'B',Item.bread,'C',Item.chickenCooked
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(Apple,2), new Object[]{
+            	"AA","AA",'A',Item.appleRed
+            	});
+            
+            GameRegistry.addShapelessRecipe(new ItemStack(Milk,2), new Object[]{
+            	Item.bucketMilk });
 }
-	}
+}
