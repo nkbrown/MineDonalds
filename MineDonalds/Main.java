@@ -31,6 +31,8 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.RecipesTools;
 import net.minecraft.src.BaseMod;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.Configuration;
@@ -47,16 +49,20 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
+
 @Mod(modid = "minedonalds", name = "MineDonalds", version = "4.0")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
+
+
 /**
  * Hi
  * I have added little pieces of text due the whole project!
  * Please do not copy code, only see how I did it ;)
  * @author iLexiconn
  */
+
 public class Main {
-	
+
 	/**
 	 * Proxy stuff
 	 */
@@ -404,9 +410,15 @@ public class Main {
 	public static BiomeGenBase McBiome = new BiomeGenMcBiome(42);
 	public static int DimID = 2;
 	
+	public static Item BurgerButtom = new BurgerButtom(478).setUnlocalizedName("BurgerButtom");
+	public static Item BurgerTop = new BurgerTop(479).setUnlocalizedName("BurgerTop");
+	public static Item LettucePiece = new LettucePiece(480).setUnlocalizedName("LettucePiece");
+	public static Item Tomato = new Tomato(481).setUnlocalizedName("Tomato");
+	public static Item Cheese = new Cheese(482).setUnlocalizedName("Cheese");
+	
 	@EventHandler
     public void load(FMLInitializationEvent event) {
-	
+		
 			/**
 			 * The Proxy-registry
 			 */
@@ -478,6 +490,12 @@ public class Main {
             LanguageRegistry.addName(Apple, "Apple Slices");
             LanguageRegistry.addName(Milk, "1% Low Fat Milk Jug");
             
+            LanguageRegistry.addName(BurgerButtom, "Burger Buttom");
+            LanguageRegistry.addName(BurgerTop, "Burger Top");
+            LanguageRegistry.addName(LettucePiece, "Lettuce Piece");
+            LanguageRegistry.addName(Tomato, "Tomato");
+            LanguageRegistry.addName(Cheese, "Cheese");
+            
             LanguageRegistry.addName(McStoneSword, "McStone Sword");
             LanguageRegistry.addName(McStonePickaxe, "McStone Pickaxe");
             LanguageRegistry.addName(McStoneAxe, "McStone Axe");
@@ -497,5 +515,13 @@ public class Main {
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonalds Blocks");
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonalds Items");
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab3", "MineDonalds Food");
+            
+            
+            /**
+             * Crafting recipes
+             */
+            GameRegistry.addRecipe(new ItemStack(McWand,1), new Object[]{
+            	"GGB","GSG","GGG",'B',BigMac,'G',Block.blockGold,'S',Item.stick
+            	});
 }
-}
+	}
