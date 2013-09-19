@@ -25,4 +25,31 @@ public class EntityEmployee extends EntityVillager
     {
         return this.func_90012_b(par1EntityAgeable);
     }
+	@Override
+	protected boolean canDespawn()
+    {
+        return true;
+    }
+	@Override
+	protected int getDropItemId()
+    {
+        return Main.BurgerButtom.itemID;
+    }
+	@Override
+	protected void dropRareDrop(int par1)
+    {
+        switch (this.rand.nextInt(4))
+        {
+            case 0:
+                this.dropItem(Main.McZombieHelmet.itemID, 1);
+                break;
+            case 1:
+                this.dropItem(Main.McZombieChestplate.itemID, 1);
+                break;
+            case 2:
+                this.dropItem(Main.McZombieLeggings.itemID, 1);
+            case 3:
+            	this.dropItem(Main.McZombieBoots.itemID, 1);
+        }
+    }
 }

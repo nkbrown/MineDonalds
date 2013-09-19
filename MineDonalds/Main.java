@@ -56,8 +56,6 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
  * Hi
- * I have added little pieces of text due the whole project!
- * Please do not copy code, only see how I did it ;)
  * @author iLexiconn
  */
 
@@ -96,13 +94,10 @@ public class Main {
 	
 	static String blockList[]=new String[4096];
 	static HashMap<String,Integer> blockMapping=new HashMap<String,Integer>();
-	
 	static String itemList[]=new String[32000];
 	static HashMap<String,Integer> itemMapping=new HashMap<String,Integer>();
-	
 	static String enchantmentList[]=new String[256];
 	static HashMap<String,Integer> enchantmentMapping=new HashMap<String,Integer>();
-	
 	static boolean isBlockItem;
 	public static String getModNamespace(){
 		String res=null;
@@ -148,7 +143,6 @@ public class Main {
 		
 		return res;
 	}
-	
 	static void loadConfig(){
 		if(config!=null) return;
 		
@@ -180,7 +174,6 @@ public class Main {
 			enchantmentMapping.put(enchantmentList[i],i);
 		}
 	}
-	
 	static Property getBlockId(int id,String def){
 		return getId("blocks","%04d", id, def);
 	}
@@ -197,7 +190,6 @@ public class Main {
 		
 		return config.get(category, key, def);
 	}
-
 	public static int transformBlockId(int blockId) {
 		if(Block.field_111034_cE==null) return blockId;
 		loadConfig();
@@ -241,7 +233,6 @@ public class Main {
         
     	return blockId;
 	}
-
 	public static int transformItemId(int itemId) {
 		if(Item.recordWait==null) return itemId;
 		loadConfig();
@@ -303,7 +294,6 @@ public class Main {
         
     	return itemId;
 	}
-	
 	public static int transformEnchantmentId(int enchantmentId) {
 		if(Enchantment.infinity==null) return enchantmentId;
 		loadConfig();

@@ -11,9 +11,15 @@ public class EntityMcZombie extends EntityZombie
 	public EntityMcZombie(World par1World) {
 		super(par1World);
 	}
+	@Override
+	protected int getDropItemId()
+    {
+        return Main.BurgerTop.itemID;
+    }
+	@Override
 	protected void dropRareDrop(int par1)
     {
-        switch (this.rand.nextInt(3))
+        switch (this.rand.nextInt(4))
         {
             case 0:
                 this.dropItem(Main.McZombieHelmet.itemID, 1);
