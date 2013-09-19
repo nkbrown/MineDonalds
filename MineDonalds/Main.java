@@ -359,13 +359,14 @@ public class Main {
 	public static Block McStone = new BlockMcDirtMcStone(203, Material.rock).setHardness(2.0F).setUnlocalizedName("McStone");
 	public static Block McLeaf = new BlockMcLeaf(204).setHardness(0.2F).setUnlocalizedName("McLeaf");
 	public static Block McLog = new BlockMcLog(205).setHardness(2.0F).setUnlocalizedName("McLog");
-	public static Block McPlanks = new BlockMcPlanks(210, Material.wood).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("McWood");
-	public static Block McVine = new BlockMcVine(206).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
-	public static BlockMcFire McFire = (BlockMcFire)new BlockMcFire(207).setUnlocalizedName("McFire");
-	public static BlockMcPortal McPortal = (BlockMcPortal)new BlockMcPortal(208).setUnlocalizedName("McPortal");
-	public static BlockMcSapling McSapling = (BlockMcSapling)new BlockMcSapling(209, 0).setUnlocalizedName("McSapling");
+	public static Block McPlanks = new BlockMcPlanks(206, Material.wood).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("McWood");
+	public static Block McVine = new BlockMcVine(207).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
+	public static BlockMcFire McFire = (BlockMcFire)new BlockMcFire(208).setUnlocalizedName("McFire");
+	public static BlockMcPortal McPortal = (BlockMcPortal)new BlockMcPortal(209).setUnlocalizedName("McPortal");
+	public static BlockMcSapling McSapling = (BlockMcSapling)new BlockMcSapling(210, 0).setUnlocalizedName("McSapling");
 	
 	public static Item McWand = new ItemMcWand(451).setUnlocalizedName("McWand");
+	public static Item McStick = new McStick(483).setUnlocalizedName("McStick");
 	public static Item BigMac = new BigMac(452, 30, 10.0F, false).setUnlocalizedName("BigMac");
 	public static Item CheeseBurger = new CheeseBurger(453, 18, 4.0F, false).setUnlocalizedName("CheeseBurger");
 	public static Item McChicken = new McChicken(454, 17, 3.5F, false).setUnlocalizedName("McChicken");
@@ -466,6 +467,7 @@ public class Main {
             LanguageRegistry.addName(McPlanks, "McTree Planks");
             
             LanguageRegistry.addName(McWand, "McWand");
+            LanguageRegistry.addName(McStick, "McStick");
             LanguageRegistry.addName(McNuggets, "Chicken McNuggets");
             LanguageRegistry.addName(CheeseBurger, "Cheeseburger");
             LanguageRegistry.addName(BigMac, "Big Mac");
@@ -560,5 +562,73 @@ public class Main {
             
             GameRegistry.addShapelessRecipe(new ItemStack(Milk,2), new Object[]{
             	Item.bucketMilk });
+            
+            
+            
+            GameRegistry.addRecipe(new ItemStack(McStonePickaxe, 1), new Object[]{
+            	"MMM", " S ", " S ", 'S', Item.stick, 'M', McStone
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McStoneSword, 1), new Object[]{
+            	"M", "M", "S", 'S', Item.stick, 'M', McStone
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McStoneAxe, 1), new Object[]{
+            	"MM ", "MS ", " S ", 'S', Item.stick, 'M', McStone
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McStoneAxe, 1), new Object[]{
+            	" MM", " SM", " S ", 'S', Item.stick, 'M', McStone
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McStoneShovel, 1), new Object[]{
+            	"M", "S", "S", 'S', Item.stick, 'M', McStone
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McStoneHoe, 1), new Object[]{
+            	"MM ", " S ", " S ", 'S', Item.stick, 'M', McStone
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McStoneHoe, 1), new Object[]{
+            	" MM", " S ", " S ", 'S', Item.stick, 'M', McStone
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McStonePickaxe, 1), new Object[]{
+            	"MMM", " S ", " S ", 'S', Item.stick, 'M', McStone
+            	});
+            
+            
+            GameRegistry.addRecipe(new ItemStack(McStick, 4), new Object[]{
+            	"M", "M", 'M', McPlanks
+            	});
+            
+            
+            GameRegistry.addRecipe(new ItemStack(McWoodSword, 1), new Object[]{
+            	"M", "M", "S", 'S', McStick, 'M', McPlanks
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McWoodPickaxe, 1), new Object[]{
+            	"MMM", " S ", " S ", 'S', McStick, 'M', McPlanks
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McWoodAxe, 1), new Object[]{
+            	"MM ", "MS ", " S ", 'S', McStick, 'M', McPlanks
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McWoodAxe, 1), new Object[]{
+            	" MM", " SM", " S ", 'S', McStick, 'M', McPlanks
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McWoodShovel, 1), new Object[]{
+            	"M", "S", "S", 'S', McStick, 'M', McPlanks
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McWoodHoe, 1), new Object[]{
+            	"MM ", " S ", " S ", 'S', McStick, 'M', McPlanks
+            	});
+            
+            GameRegistry.addRecipe(new ItemStack(McWoodHoe, 1), new Object[]{
+            	" MM", " S ", " S ", 'S', McStick, 'M', McPlanks
+            	});
 }
 }
