@@ -50,7 +50,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
-@Mod(modid = "minedonalds", name = "MineDonalds", version = "4.0")
+@Mod(modid = "mineronalds", name = "MineRonald's Food", version = "1.0")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 
 
@@ -420,12 +420,12 @@ public class Main {
              */
             EntityRegistry.registerGlobalEntityID(EntityEmployee.class, "Employee", 1);
     		EntityRegistry.findGlobalUniqueEntityId();
-    		LanguageRegistry.instance().addStringLocalization("entity.Employee.name", "en_US", "McDonalds Employee");
+    		LanguageRegistry.instance().addStringLocalization("entity.Employee.name", "en_US", "MineDonalds Employee");
     		registerEntityEgg(EntityEmployee.class, 0xFF0000, 0xFFFF00);
     		
     		EntityRegistry.registerGlobalEntityID(EntityMcZombie.class, "McZombie", 2);
     		EntityRegistry.findGlobalUniqueEntityId();
-    		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "en_US", "McDimension Zombie");
+    		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "en_US", "MineDimension Zombie");
     		registerEntityEgg(EntityMcZombie.class, 0xFF0000, 0x096910);
     		
     		EntityRegistry.registerGlobalEntityID(EntityFatZombie.class, "FatZombie", 3);
@@ -445,42 +445,41 @@ public class Main {
     		/**
     		 * GameRegistry
     		 */
-    		GameRegistry.registerBlock(McGrass, "McGrass");
-    		GameRegistry.registerBlock(McDirt, "McDirt");
-    		GameRegistry.registerBlock(McStone, "McStone");
-    		GameRegistry.registerBlock(McLeaf, "McLeaf");
-    		GameRegistry.registerBlock(McLog, "McLog");
-    		GameRegistry.registerBlock(McVine, "McVine");
-    		GameRegistry.registerBlock(McSapling, "McSapling");
-    		GameRegistry.registerBlock(McPlanks, "McPlanks");
+    		GameRegistry.registerBlock(McGrass, "MineGrass");
+    		GameRegistry.registerBlock(McDirt, "MineDirt");
+    		GameRegistry.registerBlock(McStone, "MineStone");
+    		GameRegistry.registerBlock(McLeaf, "MineLeaf");
+    		GameRegistry.registerBlock(McLog, "MineLog");
+    		GameRegistry.registerBlock(McVine, "MineVine");
+    		GameRegistry.registerBlock(McSapling, "MineSapling");
+    		GameRegistry.registerBlock(McPlanks, "MinePlanks");
     		
     		/**
     		 * LanguageRegistry
     		 */
-    		LanguageRegistry.addName(McGrass, "McDimension Grass");
-            LanguageRegistry.addName(McDirt, "McDimension Dirt");
-            LanguageRegistry.addName(McStone, "McDimension Stone");
-            LanguageRegistry.addName(McLeaf, "McTree Leaf");
-            LanguageRegistry.addName(McLog, "McTree Log");
-            LanguageRegistry.addName(McVine, "McTree Vine");
-            LanguageRegistry.addName(McSapling, "McTree Sapling");
-            LanguageRegistry.addName(McPlanks, "McTree Planks");
+    		LanguageRegistry.addName(McGrass, "MineDimension Grass");
+            LanguageRegistry.addName(McDirt, "MineDimension Dirt");
+            LanguageRegistry.addName(McStone, "MineDimension Stone");
+            LanguageRegistry.addName(McLeaf, "MineTree Leaf");
+            LanguageRegistry.addName(McLog, "MineTree Log");
+            LanguageRegistry.addName(McVine, "MineTree Vine");
+            LanguageRegistry.addName(McSapling, "MineTree Sapling");
+            LanguageRegistry.addName(McPlanks, "MineTree Planks");
             
-            LanguageRegistry.addName(McWand, "McWand");
-            LanguageRegistry.addName(McStick, "McStick");
-            LanguageRegistry.addName(McNuggets, "Chicken McNuggets");
-            LanguageRegistry.addName(CheeseBurger, "Cheeseburger");
-            LanguageRegistry.addName(BigMac, "Big Mac");
-            LanguageRegistry.addName(McChicken, "McChicken");
-            LanguageRegistry.addName(Fries, "World Famous Fries");
-            LanguageRegistry.addName(Salad, "Premium Bacon Ranch Salad");
-            LanguageRegistry.addName(CocaCola, "Coca-Cola");
+            LanguageRegistry.addName(McWand, "MineWand");
+            LanguageRegistry.addName(McStick, "MineStick");
+            LanguageRegistry.addName(McNuggets, "Chicken MineNuggets");
+            LanguageRegistry.addName(CheeseBurger, "Mineburger");
+            LanguageRegistry.addName(BigMac, "Big Mine");
+            LanguageRegistry.addName(McChicken, "MineChicken");
+            LanguageRegistry.addName(Fries, "Mine Fries");
+            LanguageRegistry.addName(Salad, "Premium Mine Salad");
+            LanguageRegistry.addName(CocaCola, "Mine-Cola");
             LanguageRegistry.addName(Fanta, "Fanta");
-            LanguageRegistry.addName(McFlurry, "McFlurry with M&M's");
-			LanguageRegistry.addName(McFlurry, "McFlurry with M&M's®");
-			LanguageRegistry.addName(McWrap, "Honey Mustard Snack Wrap (Crispy)");
-            LanguageRegistry.addName(Apple, "Apple Slices");
-            LanguageRegistry.addName(Milk, "1% Low Fat Milk Jug");
+            LanguageRegistry.addName(McFlurry, "MineFlurry");
+			LanguageRegistry.addName(McWrap, "MineWrap)");
+            LanguageRegistry.addName(Apple, "MineApple");
+            LanguageRegistry.addName(Milk, "1% Low Fat Mine Milk");
             
             LanguageRegistry.addName(BurgerButtom, "Burger Buttom");
             LanguageRegistry.addName(BurgerTop, "Burger Top");
@@ -488,25 +487,25 @@ public class Main {
             LanguageRegistry.addName(Tomato, "Tomato");
             LanguageRegistry.addName(Cheese, "Cheese");
             
-            LanguageRegistry.addName(McStoneSword, "McStone Sword");
-            LanguageRegistry.addName(McStonePickaxe, "McStone Pickaxe");
-            LanguageRegistry.addName(McStoneAxe, "McStone Axe");
-            LanguageRegistry.addName(McStoneShovel, "McStone Shovel");
-            LanguageRegistry.addName(McStoneHoe, "McStone Hoe");
-            LanguageRegistry.addName(McWoodSword, "McWood Sword");
-            LanguageRegistry.addName(McWoodPickaxe, "McWood Pickaxe");
-            LanguageRegistry.addName(McWoodAxe, "McWood Axe");
-            LanguageRegistry.addName(McWoodShovel, "McWood Shovel");
-            LanguageRegistry.addName(McWoodHoe, "McWood Hoe");
+            LanguageRegistry.addName(McStoneSword, "MineStone Sword");
+            LanguageRegistry.addName(McStonePickaxe, "MineStone Pickaxe");
+            LanguageRegistry.addName(McStoneAxe, "MineStone Axe");
+            LanguageRegistry.addName(McStoneShovel, "MineStone Shovel");
+            LanguageRegistry.addName(McStoneHoe, "MineStone Hoe");
+            LanguageRegistry.addName(McWoodSword, "MineWood Sword");
+            LanguageRegistry.addName(McWoodPickaxe, "MineWood Pickaxe");
+            LanguageRegistry.addName(McWoodAxe, "MineWood Axe");
+            LanguageRegistry.addName(McWoodShovel, "MineWood Shovel");
+            LanguageRegistry.addName(McWoodHoe, "MineWood Hoe");
             
-            LanguageRegistry.addName(McZombieHelmet, "McZombie Helmet");
-            LanguageRegistry.addName(McZombieChestplate, "McZombie Chestplate");
-            LanguageRegistry.addName(McZombieLeggings, "McZombie Leggings");
-            LanguageRegistry.addName(McZombieBoots, "McZombie Boots");
+            LanguageRegistry.addName(McZombieHelmet, "MineZombie Helmet");
+            LanguageRegistry.addName(McZombieChestplate, "MineZombie Chestplate");
+            LanguageRegistry.addName(McZombieLeggings, "MineZombie Leggings");
+            LanguageRegistry.addName(McZombieBoots, "MineZombie Boots");
             
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonalds Blocks");
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonalds Items");
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab3", "MineDonalds Food");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineRonald's Blocks");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineRonald's Items");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab3", "MineRonald's Food");
             
             
             /**
@@ -630,5 +629,9 @@ public class Main {
             GameRegistry.addRecipe(new ItemStack(McWoodHoe, 1), new Object[]{
             	" MM", " S ", " S ", 'S', McStick, 'M', McPlanks
             	});
+            
+            GameRegistry.addShapelessRecipe(new ItemStack(McPlanks,4), new Object[]{
+            	McLog });
+            
 }
 }
