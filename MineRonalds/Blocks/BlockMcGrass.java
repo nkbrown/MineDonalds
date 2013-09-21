@@ -108,10 +108,10 @@ return this.blockIcon;
 */
 public void registerIcons(IconRegister par1IconRegister)
 {
-this.blockIcon = par1IconRegister.registerIcon("minedonalds:grassSide");
-this.iconGrassTop = par1IconRegister.registerIcon("minedonalds:grassTop");
-this.iconGrassBottom = par1IconRegister.registerIcon("minedonalds:McDirt");
-this.iconGrassSideOverlay = par1IconRegister.registerIcon("minedonalds:grassSide");
+this.blockIcon = par1IconRegister.registerIcon("mineronalds:grassSide");
+this.iconGrassTop = par1IconRegister.registerIcon("mineronalds:grassTop");
+this.iconGrassBottom = par1IconRegister.registerIcon("mineronalds:McDirt");
+this.iconGrassSideOverlay = par1IconRegister.registerIcon("mineronalds:grassSide");
 }
 
 @SideOnly(Side.CLIENT)

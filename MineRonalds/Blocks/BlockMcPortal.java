@@ -21,7 +21,7 @@ public class BlockMcPortal extends BlockBreakable
 {
 	public BlockMcPortal(int par1)
 	{
-		super(par1, "minedonalds:McPortal", Material.portal, false);
+		super(par1, "mineronalds:McPortal", Material.portal, false);
 		this.setTickRandomly(true);
 		this.setHardness(-1.0F);
 		this.setStepSound(soundGlassFootstep);

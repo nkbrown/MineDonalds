@@ -32,7 +32,7 @@ public class BlockMcVine extends Block implements IShearable
         this.setCreativeTab(Main.McTab);
     }
     public void registerIcons(IconRegister iconRegister) {
-    	blockIcon = iconRegister.registerIcon("minedonalds:McVine");
+    	blockIcon = iconRegister.registerIcon("mineronalds:McVine");
     }
 
     /**

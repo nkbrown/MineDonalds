@@ -12,6 +12,6 @@ public class McStoneHoe extends ItemHoe{
 		this.setCreativeTab(Main.McTab2);
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:McStoneHoe");
+		itemIcon = iconRegister.registerIcon("mineronalds:McStoneHoe");
 	}
 }

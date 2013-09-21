@@ -55,7 +55,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 /**
  * Hi
- * @author iLexiconn
+ * @authors iLexiconn Modding Team
  */
 
 public class Main {
@@ -63,7 +63,7 @@ public class Main {
 	/**
 	 * Proxy stuff
 	 */
-	@SidedProxy(clientSide="MineDonalds.ClientProxy", serverSide="MineDonalds.ServerProxy")
+	@SidedProxy(clientSide="MineRonalds.ClientProxy", serverSide="MineRonalds.ServerProxy")
 	public static ServerProxy proxy;
 	static Configuration config;
 	@Instance("minedonalds")
@@ -480,8 +480,8 @@ public class Main {
             LanguageRegistry.addName(Apple, "MineApple");
             LanguageRegistry.addName(Milk, "1% Low Fat Mine Milk");
             
-            LanguageRegistry.addName(BurgerButtom, "Burger Buttom");
-            LanguageRegistry.addName(BurgerTop, "Burger Top");
+            LanguageRegistry.addName(BurgerButtom, "Burger Bread (Buttom)");
+            LanguageRegistry.addName(BurgerTop, "Burger Bread (Top)");
             LanguageRegistry.addName(LettucePiece, "Lettuce Piece");
             LanguageRegistry.addName(Tomato, "Tomato");
             LanguageRegistry.addName(Cheese, "Cheese");

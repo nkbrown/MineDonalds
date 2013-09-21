@@ -12,6 +12,6 @@ public class BurgerTop extends Item {
 		this.setCreativeTab(Main.McTab3);
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:BurgerTop");
+		itemIcon = iconRegister.registerIcon("mineronalds:BurgerTop");
 }
 }

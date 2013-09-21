@@ -14,6 +14,6 @@ public class BigMac extends ItemFood{
 		this.setCreativeTab(Main.McTab3);
 }
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:BigMac");
+		itemIcon = iconRegister.registerIcon("mineronalds:BigMac");
 }
 }

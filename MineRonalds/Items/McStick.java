@@ -13,6 +13,6 @@ public class McStick extends Item{
 	@Override
     public void registerIcons(IconRegister iconRegister)
     {
-            itemIcon = iconRegister.registerIcon("minedonalds:McStick");
+            itemIcon = iconRegister.registerIcon("mineronalds:McStick");
     }
 }

@@ -36,7 +36,7 @@ public class BlockMcDirtMcStone extends Block
     @Override
     public void registerIcons(IconRegister iconRegister)
     {
-            blockIcon = iconRegister.registerIcon("minedonalds" + ":" + this.getUnlocalizedName().substring(5));
+            blockIcon = iconRegister.registerIcon("mineronalds" + ":" + this.getUnlocalizedName().substring(5));
     }
 
    @Override

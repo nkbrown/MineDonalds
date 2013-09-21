@@ -11,6 +11,6 @@ public class McNuggets extends ItemFood{
 		this.setCreativeTab(Main.McTab3);
 }
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:McNuggets");
+		itemIcon = iconRegister.registerIcon("mineronalds:McNuggets");
 }
 }

@@ -12,6 +12,6 @@ public class Milk extends ItemFood{
 		this.setCreativeTab(Main.McTab3);
 }
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:Milk");
+		itemIcon = iconRegister.registerIcon("mineronalds:Milk");
 }
 }

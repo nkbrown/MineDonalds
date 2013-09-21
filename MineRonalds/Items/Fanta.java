@@ -14,6 +14,6 @@ public class Fanta extends ItemFood{
 		this.setCreativeTab(Main.McTab3);
 }
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:Fanta");
+		itemIcon = iconRegister.registerIcon("mineronalds:Fanta");
 }
 }

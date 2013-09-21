@@ -12,6 +12,6 @@ public class Tomato extends Item{
 		this.setCreativeTab(Main.McTab3);
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:Tomato");
+		itemIcon = iconRegister.registerIcon("mineronalds:Tomato");
 }
 }

@@ -11,7 +11,7 @@ public class Fries extends ItemFood{
 		this.setCreativeTab(Main.McTab3);
 }
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:Fries");
+		itemIcon = iconRegister.registerIcon("mineronalds:Fries");
 		
 }
 }

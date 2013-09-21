@@ -121,12 +121,12 @@ public class ItemMcWand extends Item
 	@Override
     public void registerIcons(IconRegister iconRegister)
     {
-            itemIcon = iconRegister.registerIcon("minedonalds:McWand");
+            itemIcon = iconRegister.registerIcon("mineronalds:McWand");
     }
 	
 	@SideOnly(Side.CLIENT)
     protected String func_111208_A() 
 	{
-		return "minedonalds:McWand";
+		return "mineronalds:McWand";
 	}
 }

@@ -11,8 +11,8 @@ import net.minecraft.item.ItemStack;
 
 public class McZombieArmor extends ItemArmor {
 	
-private String texturePath = "minedonalds:";
-private String iconPath = "minedonalds:";
+private String texturePath = "mineronalds:";
+private String iconPath = "mineronalds:";
 private String type = "mczombie";
 
 public McZombieArmor(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {

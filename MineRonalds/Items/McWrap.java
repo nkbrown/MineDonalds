@@ -12,6 +12,6 @@ public class McWrap extends ItemFood{
 		this.setCreativeTab(Main.McTab3);
 }
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:McWrap");
+		itemIcon = iconRegister.registerIcon("mineronalds:McWrap");
 }
 }

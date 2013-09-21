@@ -30,7 +30,7 @@ public class BlockMcSapling extends BlockFlower
 	@Override
     public void registerIcons(IconRegister iconRegister)
     {
-            blockIcon = iconRegister.registerIcon("minedonalds:McSapling");
+            blockIcon = iconRegister.registerIcon("mineronalds:McSapling");
     }
 	
 	/**

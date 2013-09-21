@@ -11,6 +11,6 @@ public class CheeseBurger extends ItemFood{
 		this.setCreativeTab(Main.McTab3);
 }
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:CheeseBurger");
+		itemIcon = iconRegister.registerIcon("mineronalds:CheeseBurger");
 }
 }

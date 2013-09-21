@@ -11,6 +11,6 @@ public class Salad extends ItemFood{
 		this.setCreativeTab(Main.McTab3);
 }
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:Salad");
+		itemIcon = iconRegister.registerIcon("mineronalds:Salad");
 }
 }

@@ -12,6 +12,6 @@ public class McStoneShovel extends ItemSpade{
 		this.setCreativeTab(Main.McTab2);
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:McStoneShovel");
+		itemIcon = iconRegister.registerIcon("mineronalds:McStoneShovel");
 	}
 }

@@ -12,6 +12,6 @@ public class LettucePiece extends Item{
 		this.setCreativeTab(Main.McTab3);
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:LettucePiece");
+		itemIcon = iconRegister.registerIcon("mineronalds:LettucePiece");
 }
 }

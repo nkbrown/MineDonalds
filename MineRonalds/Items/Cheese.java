@@ -12,6 +12,6 @@ public class Cheese extends Item{
 		this.setCreativeTab(Main.McTab3);
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:Cheese");
+		itemIcon = iconRegister.registerIcon("mineronalds:Cheese");
 }
 }

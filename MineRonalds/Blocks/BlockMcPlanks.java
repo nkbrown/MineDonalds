@@ -13,6 +13,6 @@ public class BlockMcPlanks extends Block{
 		
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		blockIcon = iconRegister.registerIcon("minedonalds:McPlanks");
+		blockIcon = iconRegister.registerIcon("mineronalds:McPlanks");
 	}
 }

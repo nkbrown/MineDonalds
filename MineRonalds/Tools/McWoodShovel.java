@@ -13,6 +13,6 @@ public class McWoodShovel extends ItemSpade{
 		
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:McWoodShovel");
+		itemIcon = iconRegister.registerIcon("mineronalds:McWoodShovel");
 	}
 }

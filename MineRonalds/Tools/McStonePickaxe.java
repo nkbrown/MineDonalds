@@ -12,6 +12,6 @@ public class McStonePickaxe extends ItemPickaxe{
 		this.setCreativeTab(Main.McTab2);
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:McStonePickaxe");
+		itemIcon = iconRegister.registerIcon("mineronalds:McStonePickaxe");
 	}
 }

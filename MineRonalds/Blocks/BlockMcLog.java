@@ -81,9 +81,9 @@ return par1 == 1 ? this.iconLogTop : (par1 == 0 ? this.iconLogBottom : this.bloc
 public void registerIcons(IconRegister par1IconRegister)
 {
 /** change the "Tutorial:LogSide,LogTop to your texture names **/
-this.blockIcon = par1IconRegister.registerIcon("minedonalds:LogSide");
-this.iconLogTop = par1IconRegister.registerIcon("minedonalds:LogTop");
-this.iconLogBottom = par1IconRegister.registerIcon("minedonalds:LogTop");
+this.blockIcon = par1IconRegister.registerIcon("mineronalds:LogSide");
+this.iconLogTop = par1IconRegister.registerIcon("mineronalds:LogTop");
+this.iconLogBottom = par1IconRegister.registerIcon("mineronalds:LogTop");
 }
 
 @Override

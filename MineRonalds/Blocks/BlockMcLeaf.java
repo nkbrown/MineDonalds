@@ -20,6 +20,6 @@ public class BlockMcLeaf extends BlockMcDirtMcStone
 		return false;
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		blockIcon = iconRegister.registerIcon("minedonalds:McLeaf");
+		blockIcon = iconRegister.registerIcon("mineronalds:McLeaf");
 	}
 }

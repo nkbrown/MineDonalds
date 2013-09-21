@@ -393,8 +393,8 @@ public class BlockMcFire extends BlockFire
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister par1IconRegister)
 	{
-		this.blockIcon = par1IconRegister.registerIcon("minedonalds:McPortal");
-		this.iconArray = new Icon[] { par1IconRegister.registerIcon("minedonalds:McPortal"), par1IconRegister.registerIcon("minedonalds:McPortal") };
+		this.blockIcon = par1IconRegister.registerIcon("mineronalds:McPortal");
+		this.iconArray = new Icon[] { par1IconRegister.registerIcon("mineronalds:McPortal"), par1IconRegister.registerIcon("mineronalds:McPortal") };
 	}
 	
 	@SideOnly(Side.CLIENT)

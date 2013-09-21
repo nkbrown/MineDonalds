@@ -12,6 +12,6 @@ public class McWoodSword extends ItemSword{
 		this.setCreativeTab(Main.McTab2);
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:McWoodSword");
+		itemIcon = iconRegister.registerIcon("mineronalds:McWoodSword");
 	}
 }

@@ -12,6 +12,6 @@ public class McWoodAxe extends ItemAxe{
 		this.setCreativeTab(Main.McTab2);
 	}
 	public void registerIcons(IconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon("minedonalds:McWoodAxe");
+		itemIcon = iconRegister.registerIcon("mineronalds:McWoodAxe");
 	}
 }
