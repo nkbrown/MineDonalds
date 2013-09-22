@@ -36,7 +36,7 @@ public class McWorldProvider extends WorldProvider
 	}
 	public String getDimensionName()
 	{
-		return "McDimension";
+		return "MineDonalds Dimension";
 	}
 	public boolean renderStars()
 	{
@@ -106,7 +106,7 @@ public class McWorldProvider extends WorldProvider
 	{
 		if ((this instanceof McWorldProvider))
 		{
-			return "Entering the McDimension :D";
+			return "Entering the MineDonalds Dimension :D";
 		}
 		return null;
 	}

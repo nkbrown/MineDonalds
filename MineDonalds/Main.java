@@ -4,6 +4,9 @@ import java.io.File;
 import java.util.HashMap;
 
 import MineDonalds.Blocks.*;
+import MineDonalds.Carpets.McDirtCarpet;
+import MineDonalds.Carpets.McGrassCarpet;
+import MineDonalds.Carpets.McStoneCarpet;
 import MineDonalds.Dimension.McWorldProvider;
 import MineDonalds.Dimension.Biomes.BiomeGenMcBiome;
 import MineDonalds.Dimension.Biomes.BiomeGenYellowTree;
@@ -33,7 +36,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.RecipesTools;
 import net.minecraft.src.BaseMod;
+import net.minecraft.stats.Achievement;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
@@ -349,10 +354,14 @@ public class Main {
 		public ItemStack getIconItemStack(){
 			return new ItemStack(BigMac);
 		}};
+	public static CreativeTabs McTab4 = new CreativeTabs("McTab4"){
+
+		public ItemStack getIconItemStack(){
+			return new ItemStack(McGrassCarpet);
+		}};
 	public static EnumArmorMaterial armorMcZombie = EnumHelper.addArmorMaterial("MCZOMBIE", 15, new int[]{2, 7, 5, 2}, 99);
 	public static EnumToolMaterial toolMcStone = EnumHelper.addToolMaterial("MCSTONE", 2, 242, 4.5F, 1.5F, 99);
 	public static EnumToolMaterial toolMcWood = EnumHelper.addToolMaterial("MCWOOD", 1, 69, 2.5F, 0.5F, 99);
-	public static EnumToolMaterial toolMcWand = EnumHelper.addToolMaterial("MCWOOD", 97, 97, 97F, 97F, 99); //Little bit overpowered? ;)
 	
 		
 	public static Block McGrass = new BlockMcGrass(201).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
@@ -366,7 +375,7 @@ public class Main {
 	public static BlockMcPortal McPortal = (BlockMcPortal)new BlockMcPortal(209).setUnlocalizedName("McPortal");
 	public static BlockMcSapling McSapling = (BlockMcSapling)new BlockMcSapling(210, 0).setUnlocalizedName("McSapling");
 	
-	public static Item McWand = new ItemMcWand(451, toolMcWand).setUnlocalizedName("McWand");
+	public static Item McWand = new ItemMcWand(451).setUnlocalizedName("McWand");
 	public static Item McStick = new McStick(483).setUnlocalizedName("McStick");
 	public static Item BigMac = new BigMac(452, 30, 10.0F, false).setUnlocalizedName("BigMac");
 	public static Item CheeseBurger = new CheeseBurger(453, 18, 4.0F, false).setUnlocalizedName("CheeseBurger");
@@ -407,6 +416,17 @@ public class Main {
 	public static Item LettucePiece = new LettucePiece(480).setUnlocalizedName("LettucePiece");
 	public static Item Tomato = new Tomato(481).setUnlocalizedName("Tomato");
 	public static Item Cheese = new Cheese(482).setUnlocalizedName("Cheese");
+	
+	public static Item HappyMine = new HappyMine(484).setUnlocalizedName("HappyMine");
+	public static Block HappyMineB = new HappyMineB(211, Material.rock).setUnlocalizedName("HappyMineB");
+	public static Block McGrassCarpet = (new McGrassCarpet(212)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet").setLightOpacity(0);
+	public static Block McDirtCarpet = (new McDirtCarpet(213)).setHardness(0.1F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("mineCarpet1").setLightOpacity(0);
+	public static Block McStoneCarpet = (new McStoneCarpet(214)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
+	
+	static final Achievement macAchieve = new Achievement(2002, "MacAchieve", 0, -2, BigMac, null).registerAchievement();
+	static final Achievement wandAchieve = new Achievement(2001, "WandAchieve", 0, 0, McWand, macAchieve).registerAchievement().setSpecial();
+	public static McCraftingHandler craftHandler = new McCraftingHandler();
+	public static AchievementPage page1 = new AchievementPage("MineDonalds", wandAchieve, macAchieve);
 	
 	@EventHandler
     public void load(FMLInitializationEvent event) {
@@ -453,7 +473,13 @@ public class Main {
     		GameRegistry.registerBlock(McLog, "MineLog");
     		GameRegistry.registerBlock(McVine, "MineVine");
     		GameRegistry.registerBlock(McSapling, "MineSapling");
-    		GameRegistry.registerBlock(McPlanks, "MinePlanks");
+    		
+    		GameRegistry.registerBlock(McGrassCarpet, "McGrassCarpet");
+    		GameRegistry.registerBlock(McDirtCarpet, "McDirtCarpet");
+    		GameRegistry.registerBlock(McStoneCarpet, "McStoneCarpet");
+    		
+    		GameRegistry.registerCraftingHandler(new McCraftingHandler());
+    		AchievementPage.registerAchievementPage(page1);
     		
     		/**
     		 * LanguageRegistry
@@ -504,11 +530,21 @@ public class Main {
             LanguageRegistry.addName(McZombieLeggings, "MineZombie Leggings");
             LanguageRegistry.addName(McZombieBoots, "MineZombie Boots");
             
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineRonald's Blocks");
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineRonald's Items");
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab3", "MineRonald's Food");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonald's Blocks");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonald's Items");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab3", "MineDonald's Food");
+            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab4", "MineDonald's Carpets");
+            
+            LanguageRegistry.addName(McGrassCarpet, "MineDonalds Grass Carpet");
+            LanguageRegistry.addName(McDirtCarpet, "MineDonalds Dirt Carpet");
+            LanguageRegistry.addName(McStoneCarpet, "MineDonalds Stone Carpet");
             
             
+            
+            LanguageRegistry.instance().addStringLocalization("achievement.WandAchieve", "en_US", "Got MineWand Achieve!");
+            LanguageRegistry.instance().addStringLocalization("achievement.WandAchieve.desc", "en_US", "You crafted the MineWand!");
+            LanguageRegistry.instance().addStringLocalization("achievement.MacAchieve", "en_US", "Got BigMine Achieve!");
+            LanguageRegistry.instance().addStringLocalization("achievement.MacAchieve.desc", "en_US", "You crafted the BigMine!");
             /**
              * Crafting recipes
              */
@@ -633,6 +669,9 @@ public class Main {
             
             GameRegistry.addShapelessRecipe(new ItemStack(McPlanks,4), new Object[]{
             	McLog });
+            
+            
+            
             
 }
 }

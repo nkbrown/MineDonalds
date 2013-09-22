@@ -14,14 +14,14 @@ import net.minecraft.item.ItemSword;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class ItemMcWand extends ItemSword
+public class ItemMcWand extends Item
 {
-	public ItemMcWand(int par1, EnumToolMaterial tool)
+	public ItemMcWand(int par1)
 	{
-		super(par1, tool);
+		super(par1);
 		setCreativeTab(Main.McTab2);
 		this.setMaxStackSize(1);
-        this.setMaxDamage(0);
+        this.setMaxDamage(1);
 		
 	}
 	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int X, int Y, int Z, int par7, float par8, float par9, float par10)
@@ -69,7 +69,8 @@ public class ItemMcWand extends ItemSword
 				
 				par3World.setBlock(X, Y + 3, Z, Main.McFire.blockID);
 				
-				par1ItemStack.damageItem(1, par2EntityPlayer);
+				par2EntityPlayer.addChatMessage("[MineDonalds] Go to the MineDonalds Dimension! :D");
+				par1ItemStack.damageItem(2, par2EntityPlayer);
 				return true;
 			}
 		else
@@ -112,7 +113,7 @@ public class ItemMcWand extends ItemSword
 				
 				par3World.setBlock(X, Y + 3, Z, Main.McFire.blockID);
 				
-				par1ItemStack.damageItem(1, par2EntityPlayer);
+				par1ItemStack.damageItem(2, par2EntityPlayer);
 				return true;
 			}
 		}
