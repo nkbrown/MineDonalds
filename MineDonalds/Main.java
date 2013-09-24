@@ -48,6 +48,7 @@ import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -73,6 +74,62 @@ public class Main {
 	static Configuration config;
 	@Instance("minedonalds")
 	public static Main instance;
+	
+	/**
+	 * Int things
+	 */
+	public static Block McGrass;
+	public static Block McDirt;
+	public static Block McStone;
+	public static Block McLeaf;
+	public static Block McLog;
+	public static Block McPlanks;
+	public static Block McVine;
+	public static BlockMcFire McFire;
+	public static BlockMcPortal McPortal;
+	public static BlockMcSapling McSapling;
+	public static Item McWand;
+	public static Item McStick;
+	public static Item BigMac;
+	public static Item CheeseBurger;
+	public static Item McChicken;
+	public static Item McNuggets;
+	public static Item Fries;
+	public static Item Salad;
+	public static Item CocaCola;
+	public static Item Fanta;
+	public static Item McFlurry;
+	public static Item McWrap;
+	public static Item Apple;
+	public static Item Milk;
+	public static Item McZombieHelmet;
+	public static Item McZombieChestplate;
+	public static Item McZombieLeggings;
+	public static Item McZombieBoots;
+	public static Item McStoneSword;
+	public static Item McStonePickaxe;
+	public static Item McStoneAxe;
+	public static Item McStoneShovel;
+	public static Item McStoneHoe;
+	public static Item McWoodSword;
+	public static Item McWoodPickaxe;
+	public static Item McWoodAxe;
+	public static Item McWoodShovel;
+	public static Item McWoodHoe;
+	public static BiomeGenBase YellowTree;
+	public static BiomeGenBase McBiome;
+	public static int DimID;
+	public static Item BurgerButtom;
+	public static Item BurgerTop;
+	public static Item LettucePiece;
+	public static Item Tomato;
+	public static Item Cheese;
+	public static Item HappyMine;
+	public static Block HappyMineB;
+	public static Block McGrassCarpet;
+	public static Block McDirtCarpet;
+	public static Block McStoneCarpet;
+	
 	
 	/**
 	 * The Entity ID Registry
@@ -363,70 +420,81 @@ public class Main {
 	public static EnumToolMaterial toolMcStone = EnumHelper.addToolMaterial("MCSTONE", 2, 242, 4.5F, 1.5F, 99);
 	public static EnumToolMaterial toolMcWood = EnumHelper.addToolMaterial("MCWOOD", 1, 69, 2.5F, 0.5F, 99);
 	
-		
-	public static Block McGrass = new BlockMcGrass(201).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
-	public static Block McDirt = new BlockMcDirtMcStone(202, Material.ground).setStepSound(Block.soundGravelFootstep).setHardness(0.5F).setUnlocalizedName("McDirt");
-	public static Block McStone = new BlockMcDirtMcStone(203, Material.rock).setHardness(2.0F).setUnlocalizedName("McStone");
-	public static Block McLeaf = new BlockMcLeaf(204).setHardness(0.2F).setUnlocalizedName("McLeaf");
-	public static Block McLog = new BlockMcLog(205).setHardness(2.0F).setUnlocalizedName("McLog");
-	public static Block McPlanks = new BlockMcPlanks(206, Material.wood).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("McWood");
-	public static Block McVine = new BlockMcVine(207).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
-	public static BlockMcFire McFire = (BlockMcFire)new BlockMcFire(208).setUnlocalizedName("McFire");
-	public static BlockMcPortal McPortal = (BlockMcPortal)new BlockMcPortal(209).setUnlocalizedName("McPortal");
-	public static BlockMcSapling McSapling = (BlockMcSapling)new BlockMcSapling(210, 0).setUnlocalizedName("McSapling");
 	
-	public static Item McWand = new ItemMcWand(451).setUnlocalizedName("McWand");
-	public static Item McStick = new McStick(483).setUnlocalizedName("McStick");
-	public static Item BigMac = new BigMac(452, 30, 10.0F, false).setUnlocalizedName("BigMac");
-	public static Item CheeseBurger = new CheeseBurger(453, 18, 4.0F, false).setUnlocalizedName("CheeseBurger");
-	public static Item McChicken = new McChicken(454, 17, 3.5F, false).setUnlocalizedName("McChicken");
-	public static Item McNuggets = new McNuggets(455, 7, 4.0F, true).setUnlocalizedName("McNuggets");
-	public static Item Fries = new Fries(456, 10, 4.5F, false).setUnlocalizedName("Fries");
-	public static Item Salad = new Salad(457, 8, 1.5F, true).setUnlocalizedName("Salad");
-	public static Item CocaCola = new CocaCola(458, 0, 0, false).setUnlocalizedName("CocaCola");
-	public static Item Fanta = new Fanta(459, 1, 0.1F, false).setUnlocalizedName("Fanta");
-	public static Item McFlurry = new McFlurry(460, 1, 1.2F, false).setUnlocalizedName("McFlurry");
-	public static Item McWrap = new McWrap(461, 2, 1.6F, true).setUnlocalizedName("McWrap");
-	public static Item Apple = new Apple(462, 2, 1.8F, true).setUnlocalizedName("Apple");
-	public static Item Milk = new Milk(463, 3, 2.0F, true).setUnlocalizedName("Milk");
 	
-	public static Item McZombieHelmet = new McZombieArmor(464, armorMcZombie, 0, 0).setUnlocalizedName("McZombieHelmet");
-	public static Item McZombieChestplate = new McZombieArmor(465, armorMcZombie, 0, 1).setUnlocalizedName("McZombieChestplate");
-	public static Item McZombieLeggings = new McZombieArmor(466, armorMcZombie, 0, 2).setUnlocalizedName("McZombieLeggings");
-	public static Item McZombieBoots = new McZombieArmor(467, armorMcZombie, 0, 3).setUnlocalizedName("McZombieBoots");
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		McConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator  +"MineDonalds" + ".cfg"));
+	McGrass = new BlockMcGrass(201).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
+	McDirt = new BlockMcDirtMcStone(202, Material.ground).setStepSound(Block.soundGravelFootstep).setHardness(0.5F).setUnlocalizedName("McDirt");
+	McStone = new BlockMcDirtMcStone(203, Material.rock).setHardness(2.0F).setUnlocalizedName("McStone");
+	McLeaf = new BlockMcLeaf(204).setHardness(0.2F).setUnlocalizedName("McLeaf");
+	McLog = new BlockMcLog(205).setHardness(2.0F).setUnlocalizedName("McLog");
+	McPlanks = new BlockMcPlanks(206, Material.wood).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("McWood");
+	McVine = new BlockMcVine(207).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
+	McFire = (BlockMcFire)new BlockMcFire(208).setUnlocalizedName("McFire");
+	McPortal = (BlockMcPortal)new BlockMcPortal(209).setUnlocalizedName("McPortal");
+	McSapling = (BlockMcSapling)new BlockMcSapling(210, 0).setUnlocalizedName("McSapling");
 	
-	public static Item McStoneSword = new McStoneSword(468, toolMcStone).setUnlocalizedName("McStoneSword");
-	public static Item McStonePickaxe = new McStonePickaxe(469, toolMcStone).setUnlocalizedName("McStonePickaxe");
-	public static Item McStoneAxe = new McStoneAxe(470, toolMcStone).setUnlocalizedName("McStoneAxe");
-	public static Item McStoneShovel = new McStoneShovel(471, toolMcStone).setUnlocalizedName("McStoneShovel");
-	public static Item McStoneHoe = new McStoneHoe(472, toolMcStone).setUnlocalizedName("McStoneHoe");
+	McWand = new ItemMcWand(451).setUnlocalizedName("McWand");
+	McStick = new McStick(483).setUnlocalizedName("McStick");
+	BigMac = new BigMac(452, 30, 10.0F, false).setUnlocalizedName("BigMac");
+	CheeseBurger = new CheeseBurger(453, 18, 4.0F, false).setUnlocalizedName("CheeseBurger");
+	McChicken = new McChicken(454, 17, 3.5F, false).setUnlocalizedName("McChicken");
+	McNuggets = new McNuggets(455, 7, 4.0F, true).setUnlocalizedName("McNuggets");
+	Fries = new Fries(456, 10, 4.5F, false).setUnlocalizedName("Fries");
+	Salad = new Salad(457, 8, 1.5F, true).setUnlocalizedName("Salad");
+	CocaCola = new CocaCola(458, 0, 0, false).setUnlocalizedName("CocaCola");
+	Fanta = new Fanta(459, 1, 0.1F, false).setUnlocalizedName("Fanta");
+	McFlurry = new McFlurry(460, 1, 1.2F, false).setUnlocalizedName("McFlurry");
+	McWrap = new McWrap(461, 2, 1.6F, true).setUnlocalizedName("McWrap");
+	Apple = new Apple(462, 2, 1.8F, true).setUnlocalizedName("Apple");
+	Milk = new Milk(463, 3, 2.0F, true).setUnlocalizedName("Milk");
 	
-	public static Item McWoodSword = new McWoodSword(473, toolMcWood).setUnlocalizedName("McWoodSword");
-	public static Item McWoodPickaxe = new McWoodPickaxe(474, toolMcWood).setUnlocalizedName("McWoodPickaxe");
-	public static Item McWoodAxe = new McWoodAxe(475, toolMcWood).setUnlocalizedName("McWoodAxe");
-	public static Item McWoodShovel = new McWoodShovel(476, toolMcWood).setUnlocalizedName("McWoodShovel");
-	public static Item McWoodHoe = new McWoodHoe(477, toolMcWood).setUnlocalizedName("McWoodHoe");
+	McZombieHelmet = new McZombieArmor(464, armorMcZombie, 0, 0).setUnlocalizedName("McZombieHelmet");
+	McZombieChestplate = new McZombieArmor(465, armorMcZombie, 0, 1).setUnlocalizedName("McZombieChestplate");
+	McZombieLeggings = new McZombieArmor(466, armorMcZombie, 0, 2).setUnlocalizedName("McZombieLeggings");
+	McZombieBoots = new McZombieArmor(467, armorMcZombie, 0, 3).setUnlocalizedName("McZombieBoots");
+	
+	McStoneSword = new McStoneSword(468, toolMcStone).setUnlocalizedName("McStoneSword");
+	McStonePickaxe = new McStonePickaxe(469, toolMcStone).setUnlocalizedName("McStonePickaxe");
+	McStoneAxe = new McStoneAxe(470, toolMcStone).setUnlocalizedName("McStoneAxe");
+	McStoneShovel = new McStoneShovel(471, toolMcStone).setUnlocalizedName("McStoneShovel");
+	McStoneHoe = new McStoneHoe(472, toolMcStone).setUnlocalizedName("McStoneHoe");
+	
+	McWoodSword = new McWoodSword(473, toolMcWood).setUnlocalizedName("McWoodSword");
+	McWoodPickaxe = new McWoodPickaxe(474, toolMcWood).setUnlocalizedName("McWoodPickaxe");
+	McWoodAxe = new McWoodAxe(475, toolMcWood).setUnlocalizedName("McWoodAxe");
+	McWoodShovel = new McWoodShovel(476, toolMcWood).setUnlocalizedName("McWoodShovel");
+	McWoodHoe = new McWoodHoe(477, toolMcWood).setUnlocalizedName("McWoodHoe");
 
-	public static BiomeGenBase YellowTree = new BiomeGenYellowTree(41);
-	public static BiomeGenBase McBiome = new BiomeGenMcBiome(42);
-	public static int DimID = 2;
+	YellowTree = new BiomeGenYellowTree(41);
+	McBiome = new BiomeGenMcBiome(42);
+	DimID = 2;
 	
-	public static Item BurgerButtom = new BurgerButtom(478).setUnlocalizedName("BurgerButtom");
-	public static Item BurgerTop = new BurgerTop(479).setUnlocalizedName("BurgerTop");
-	public static Item LettucePiece = new LettucePiece(480).setUnlocalizedName("LettucePiece");
-	public static Item Tomato = new Tomato(481).setUnlocalizedName("Tomato");
-	public static Item Cheese = new Cheese(482).setUnlocalizedName("Cheese");
+	BurgerButtom = new BurgerButtom(478).setUnlocalizedName("BurgerButtom");
+	BurgerTop = new BurgerTop(479).setUnlocalizedName("BurgerTop");
+	LettucePiece = new LettucePiece(480).setUnlocalizedName("LettucePiece");
+	Tomato = new Tomato(481).setUnlocalizedName("Tomato");
+	Cheese = new Cheese(482).setUnlocalizedName("Cheese");
 	
-	public static Item HappyMine = new HappyMine(484).setUnlocalizedName("HappyMine");
-	public static Block HappyMineB = new HappyMineB(211, Material.rock).setUnlocalizedName("HappyMineB");
-	public static Block McGrassCarpet = (new McGrassCarpet(212)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet").setLightOpacity(0);
-	public static Block McDirtCarpet = (new McDirtCarpet(213)).setHardness(0.1F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("mineCarpet1").setLightOpacity(0);
-	public static Block McStoneCarpet = (new McStoneCarpet(214)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
+	HappyMine = new HappyMine(484).setUnlocalizedName("HappyMine");
+	HappyMineB = new HappyMineB(211, Material.rock).setUnlocalizedName("HappyMineB");
 	
-	static final Achievement macAchieve = new Achievement(2002, "MacAchieve", 0, -2, BigMac, null).registerAchievement();
-	static final Achievement wandAchieve = new Achievement(2001, "WandAchieve", 0, 0, McWand, macAchieve).registerAchievement().setSpecial();
-	public static McCraftingHandler craftHandler = new McCraftingHandler();
-	public static AchievementPage page1 = new AchievementPage("MineDonalds", wandAchieve, macAchieve);
+	McGrassCarpet = (new McGrassCarpet(212)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet").setLightOpacity(0);
+	McDirtCarpet = (new McDirtCarpet(213)).setHardness(0.1F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("mineCarpet1").setLightOpacity(0);
+	McStoneCarpet = (new McStoneCarpet(214)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
+	
+	}
+	
+	//static final Achievement macAchieve = new Achievement(2002, "MacAchieve", 0, 0, BigMac, null).registerAchievement();
+	//static final Achievement wandAchieve = new Achievement(2001, "WandAchieve", 2, 1, McWand, macAchieve).registerAchievement().setSpecial();
+	
+	//static final Achievement cheeseAchieve = new Achievement(2003, "CheeseAchieve", 4, -1, CheeseBurger, null).registerAchievement();
+	//public static McCraftingHandler craftHandler = new McCraftingHandler();
+	//public static AchievementPage page1 = new AchievementPage("MineDonalds", wandAchieve, macAchieve, cheeseAchieve);
+	
+	
 	
 	@EventHandler
     public void load(FMLInitializationEvent event) {
@@ -479,7 +547,7 @@ public class Main {
     		GameRegistry.registerBlock(McStoneCarpet, "McStoneCarpet");
     		
     		GameRegistry.registerCraftingHandler(new McCraftingHandler());
-    		AchievementPage.registerAchievementPage(page1);
+    		//AchievementPage.registerAchievementPage(page1);
     		
     		/**
     		 * LanguageRegistry
