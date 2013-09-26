@@ -32,6 +32,7 @@ import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.RecipesTools;
@@ -116,20 +117,28 @@ public class Main {
 	public static Item McWoodAxe;
 	public static Item McWoodShovel;
 	public static Item McWoodHoe;
-	public static BiomeGenBase YellowTree;
 	public static BiomeGenBase McBiome;
+	public static int McBiomeID;
 	public static int DimID;
+	public static int Dim;
 	public static Item BurgerButtom;
 	public static Item BurgerTop;
 	public static Item LettucePiece;
 	public static Item Tomato;
 	public static Item Cheese;
-	public static Item HappyMine;
-	public static Block HappyMineB;
 	public static Block McGrassCarpet;
 	public static Block McDirtCarpet;
 	public static Block McStoneCarpet;
+	public static Block CheeseBlock;
 	
+	public static Block TomatoPlant;
+	public static Item TomatoSeeds;
+	public static Block LettucePlant;
+	public static Item LettuceSeeds;
+	
+	public static McCraftingHandler craftHandler;
+	public static Achievement wandAchieve;
+	public static AchievementPage page1;
 	
 	/**
 	 * The Entity ID Registry
@@ -227,22 +236,12 @@ public class Main {
 			itemMapping.put(itemList[i],i);
 		}
 		
-		for(int i=0;i<enchantmentList.length;i++){
-			Property p=getEnchantmentId(i,"");
-			if(p==null) continue;
-			
-			enchantmentList[i]=p.getString();
-			enchantmentMapping.put(enchantmentList[i],i);
-		}
 	}
 	static Property getBlockId(int id,String def){
 		return getId("blocks","%04d", id, def);
 	}
 	static Property getItemId(int id,String def){
 		return getId("items","%05d", id, def);
-	}
-	static Property getEnchantmentId(int id,String def){
-		return getId("enchantments","%03d", id, def);
 	}
 	static Property getId(String category,String keyMask,int id,String def){
 		String key=String.format(keyMask,id);
@@ -355,44 +354,6 @@ public class Main {
         
     	return itemId;
 	}
-	public static int transformEnchantmentId(int enchantmentId) {
-		if(Enchantment.infinity==null) return enchantmentId;
-		loadConfig();
-		
-		String key=getModNamespace()+"|"+enchantmentId;
-		if(enchantmentMapping.containsKey(key))
-			enchantmentId=enchantmentMapping.get(key);
-		
-    	int lower=0;
-    	int upper=0x100;
-    	
-    	if(enchantmentId<0 || enchantmentId>=enchantmentList.length)
-    		enchantmentId=upper-1;
-    	
-        for(int possibleId=upper;possibleId>=lower;possibleId--){
-        	int id=possibleId==upper?enchantmentId:possibleId;
-        	
-        	if(Enchantment.enchantmentsList[id]!=null) continue;
-        	
-        	boolean empty=enchantmentList[id]==null;
-        	boolean fits=!empty && enchantmentList[id].equals(key);
-        	if(!empty && !fits) continue;
-        	
-        	if(empty && config!=null){
-        		enchantmentList[id]=key;
-        		enchantmentMapping.put(key, id);
-        		getEnchantmentId(id,key).set(key);
-        		config.save();
-        	}
-        	
-        	if(id!=enchantmentId)
-        		System.out.println("Idfix: changing enchantment id for "+key+" because of conflict with "+enchantmentList[enchantmentId]+"; from "+enchantmentId+" to "+id);
-        	
-        	return id;
-        }
-        
-    	return enchantmentId;
-	}
 	
 	/**
 	 * The public static things!
@@ -425,6 +386,7 @@ public class Main {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		McConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator  +"MineDonalds" + ".cfg"));
+		
 	McGrass = new BlockMcGrass(201).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
 	McDirt = new BlockMcDirtMcStone(202, Material.ground).setStepSound(Block.soundGravelFootstep).setHardness(0.5F).setUnlocalizedName("McDirt");
 	McStone = new BlockMcDirtMcStone(203, Material.rock).setHardness(2.0F).setUnlocalizedName("McStone");
@@ -468,33 +430,30 @@ public class Main {
 	McWoodShovel = new McWoodShovel(476, toolMcWood).setUnlocalizedName("McWoodShovel");
 	McWoodHoe = new McWoodHoe(477, toolMcWood).setUnlocalizedName("McWoodHoe");
 
-	YellowTree = new BiomeGenYellowTree(41);
-	McBiome = new BiomeGenMcBiome(42);
-	DimID = 2;
+	McBiome = new BiomeGenMcBiome(McBiomeID);
+	DimID = Dim;
 	
 	BurgerButtom = new BurgerButtom(478).setUnlocalizedName("BurgerButtom");
 	BurgerTop = new BurgerTop(479).setUnlocalizedName("BurgerTop");
 	LettucePiece = new LettucePiece(480).setUnlocalizedName("LettucePiece");
 	Tomato = new Tomato(481).setUnlocalizedName("Tomato");
 	Cheese = new Cheese(482).setUnlocalizedName("Cheese");
-	
-	HappyMine = new HappyMine(484).setUnlocalizedName("HappyMine");
-	HappyMineB = new HappyMineB(211, Material.rock).setUnlocalizedName("HappyMineB");
-	
 	McGrassCarpet = (new McGrassCarpet(212)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet").setLightOpacity(0);
 	McDirtCarpet = (new McDirtCarpet(213)).setHardness(0.1F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("mineCarpet1").setLightOpacity(0);
 	McStoneCarpet = (new McStoneCarpet(214)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
 	
-	}
+	CheeseBlock = new CheeseBlock(220);
 	
-	//static final Achievement macAchieve = new Achievement(2002, "MacAchieve", 0, 0, BigMac, null).registerAchievement();
-	//static final Achievement wandAchieve = new Achievement(2001, "WandAchieve", 2, 1, McWand, macAchieve).registerAchievement().setSpecial();
+	TomatoPlant = (new TomatoPlant(221)).setUnlocalizedName("tomatoCrop").func_111022_d("minedonalds:tomato");
+	TomatoSeeds = (new TomatoSeeds(485, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds").func_111206_d("minedonalds:tomatoSeeds");
+	LettucePlant = (new LettucePlant(222)).setUnlocalizedName("lettuceCrop").func_111022_d("minedonalds:lettuce");
+	LettuceSeeds = (new LettuceSeeds(486, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds").func_111206_d("minedonalds:lettuceSeeds");
+    
+	wandAchieve = new Achievement(2001, "WandAchieve", 1, -2, McWand, null).registerAchievement();
 	
-	//static final Achievement cheeseAchieve = new Achievement(2003, "CheeseAchieve", 4, -1, CheeseBurger, null).registerAchievement();
-	//public static McCraftingHandler craftHandler = new McCraftingHandler();
-	//public static AchievementPage page1 = new AchievementPage("MineDonalds", wandAchieve, macAchieve, cheeseAchieve);
-	
-	
+	craftHandler = new McCraftingHandler();
+	page1 = new AchievementPage("MineDonalds");
+    }
 	
 	@EventHandler
     public void load(FMLInitializationEvent event) {
@@ -528,7 +487,6 @@ public class Main {
     		DimensionManager.registerProviderType(DimID, McWorldProvider.class, true);
     		DimensionManager.registerDimension(DimID, DimID);
     		MinecraftForge.EVENT_BUS.register(new McEvent());
-    		GameRegistry.addBiome(YellowTree);
     		
     		
     		/**
@@ -541,14 +499,14 @@ public class Main {
     		GameRegistry.registerBlock(McLog, "MineLog");
     		GameRegistry.registerBlock(McVine, "MineVine");
     		GameRegistry.registerBlock(McSapling, "MineSapling");
+    		GameRegistry.registerBlock(CheeseBlock, "CheeseBlock");
     		
     		GameRegistry.registerBlock(McGrassCarpet, "McGrassCarpet");
     		GameRegistry.registerBlock(McDirtCarpet, "McDirtCarpet");
     		GameRegistry.registerBlock(McStoneCarpet, "McStoneCarpet");
     		
-    		GameRegistry.registerCraftingHandler(new McCraftingHandler());
-    		//AchievementPage.registerAchievementPage(page1);
-    		
+    		GameRegistry.registerCraftingHandler(craftHandler);
+    		AchievementPage.registerAchievementPage(page1);
     		/**
     		 * LanguageRegistry
     		 */
@@ -572,7 +530,7 @@ public class Main {
             LanguageRegistry.addName(CocaCola, "Mine-Cola");
             LanguageRegistry.addName(Fanta, "Fanta");
             LanguageRegistry.addName(McFlurry, "MineFlurry");
-			LanguageRegistry.addName(McWrap, "MineWrap)");
+			LanguageRegistry.addName(McWrap, "MineWrap");
             LanguageRegistry.addName(Apple, "MineApple");
             LanguageRegistry.addName(Milk, "1% Low Fat Mine Milk");
             
@@ -603,16 +561,17 @@ public class Main {
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab3", "MineDonald's Food");
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab4", "MineDonald's Carpets");
             
+            LanguageRegistry.instance().addStringLocalization("achievement.WandAchieve", "en_US", "Got Wand Achieve!");
+            LanguageRegistry.instance().addStringLocalization("achievement.WandAchieve.desc", "en_US", "You crafted the MineWand!");
+            
             LanguageRegistry.addName(McGrassCarpet, "MineDonalds Grass Carpet");
             LanguageRegistry.addName(McDirtCarpet, "MineDonalds Dirt Carpet");
             LanguageRegistry.addName(McStoneCarpet, "MineDonalds Stone Carpet");
             
+            LanguageRegistry.addName(CheeseBlock, "Cheese");
             
+            LanguageRegistry.addName(TomatoSeeds, "Tomatoplant Seeds");
             
-            LanguageRegistry.instance().addStringLocalization("achievement.WandAchieve", "en_US", "Got MineWand Achieve!");
-            LanguageRegistry.instance().addStringLocalization("achievement.WandAchieve.desc", "en_US", "You crafted the MineWand!");
-            LanguageRegistry.instance().addStringLocalization("achievement.MacAchieve", "en_US", "Got BigMine Achieve!");
-            LanguageRegistry.instance().addStringLocalization("achievement.MacAchieve.desc", "en_US", "You crafted the BigMine!");
             /**
              * Crafting recipes
              */
@@ -666,7 +625,6 @@ public class Main {
             
             GameRegistry.addShapelessRecipe(new ItemStack(Milk,2), new Object[]{
             	Item.bucketMilk });
-            
             
             
             GameRegistry.addRecipe(new ItemStack(McStonePickaxe, 1), new Object[]{
@@ -735,11 +693,12 @@ public class Main {
             	" MM", " S ", " S ", 'S', McStick, 'M', McPlanks
             	});
             
-            GameRegistry.addShapelessRecipe(new ItemStack(McPlanks,4), new Object[]{
-            	McLog });
-            
-            
-            
+            GameRegistry.addRecipe(new ItemStack(BurgerTop, 6), new Object[]{
+            	"BBB", "   ", "   ", 'B', Item.bread
+            	});
+            GameRegistry.addRecipe(new ItemStack(BurgerButtom, 6), new Object[]{
+            	"   ", "   ", "BBB", 'B', Item.bread
+            	});
             
 }
 }

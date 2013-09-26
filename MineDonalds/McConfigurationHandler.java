@@ -13,8 +13,10 @@ public static void init(File configFile) {
 	configuration = new Configuration(configFile);
 	try {
 		configuration.load();
-		// Blocks or Items
-		//YourBlockID = configuration.getBlock(YourBlockName, YourBlockDefaultID).getInt(YourBlockDefaultID);
+		
+		Main.Dim = configuration.get("Dimension ID", "MineDonalds Dimension", 2).getInt();
+		Main.McBiomeID = configuration.get("Biome ID", "MineDonalds Biome", 40).getInt();
+		
 	} catch (Exception e) {
 		FMLLog.log(Level.SEVERE, e, "MineDonalds" + " has had a problem loading its configuration");
 		throw new RuntimeException(e);
