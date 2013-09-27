@@ -1,9 +1,14 @@
 package MineDonalds.Items;
 
+import java.util.List;
+
 import MineDonalds.Main;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.util.EnumChatFormatting;
 
 public class BigMac extends ItemFood{
 
@@ -16,4 +21,9 @@ public class BigMac extends ItemFood{
 	public void registerIcons(IconRegister iconRegister) {
 		itemIcon = iconRegister.registerIcon("minedonalds:BigMac");
 }
+	
+	public void addInformation(ItemStack s, EntityPlayer p, List list, boolean flag)
+	 {
+	  list.add(EnumChatFormatting.DARK_PURPLE + "Eat me...");
+	 }
 }

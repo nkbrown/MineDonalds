@@ -16,6 +16,22 @@ public class McCraftingHandler implements ICraftingHandler
         {
                 player.addStat(Main.wandAchieve, 1);
         }
+		if (item.itemID == Main.BigMac.itemID)
+        {
+                player.addStat(Main.macAchieve, 1);
+        }
+		if (item.itemID == Main.CheeseBurger.itemID)
+        {
+                player.addStat(Main.cheeseAchieve, 1);
+        }
+		if (item.itemID == Main.BurgerButtom.itemID)
+        {
+                player.addStat(Main.breadAchieve, 1);
+        }
+		if (item.itemID == Main.BurgerTop.itemID)
+        {
+                player.addStat(Main.breadAchieve, 1);
+        }
 		
 	}
 

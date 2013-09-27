@@ -1,5 +1,7 @@
 package MineDonalds.Items;
 
+import java.util.List;
+
 import MineDonalds.Main;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -11,6 +13,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -131,5 +134,10 @@ public class ItemMcWand extends Item
     protected String func_111208_A() 
 	{
 		return "mineronalds:McWand";
+	}
+	
+	public void addInformation(ItemStack s, EntityPlayer p, List list, boolean flag)
+	{
+	  list.add(EnumChatFormatting.DARK_PURPLE + "Make the portal by right-clicking on the ground!");
 	}
 }
