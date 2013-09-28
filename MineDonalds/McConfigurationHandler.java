@@ -56,6 +56,20 @@ public static void init(File configFile) {
 		Main.LettucePieceID = configuration.get("Item ID", "Lettuce Piece", 467).getInt();
 		Main.TomatoID = configuration.get("Item ID", "Tomato", 468).getInt();
 		
+		Main.McZombieHelmetID = configuration.get("Armor ID", "MineZombie Helmet", 469).getInt();
+		Main.McZombieChestplateID = configuration.get("Armor ID", "MineZombie Chestplate", 470).getInt();
+		Main.McZombieLeggingsID = configuration.get("Armor ID", "MineZombie Leggings", 471).getInt();
+		Main.McZombieBootsID = configuration.get("Armor ID", "MineZombie Boots", 472).getInt();
+		
+		Main.McStoneSwordID = configuration.get("Tool ID", "MineStone Sword", 473).getInt();
+		Main.McStonePickaxeID = configuration.get("Tool ID", "MineStone Pickaxe", 474).getInt();
+		Main.McStoneAxeID = configuration.get("Tool ID", "MineStone Axe", 475).getInt();
+		Main.McStoneShovelID = configuration.get("Tool ID", "MineStone Shovel", 476).getInt();
+		Main.McStoneHoeID = configuration.get("Tool ID", "MineStone Hoe", 477).getInt();
+		
+		Main.TomatoSeedsID = configuration.get("Plant ID", "Tomatoplant Seeds", 478).getInt();
+		Main.LettuceSeedsID = configuration.get("Plant ID", "Lettuceplant Seeds", 479).getInt();
+		
 	} catch (Exception e) {
 		FMLLog.log(Level.SEVERE, e, "MineDonalds" + " has had a problem loading its configuration");
 		throw new RuntimeException(e);

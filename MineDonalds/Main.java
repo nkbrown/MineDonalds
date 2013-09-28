@@ -177,8 +177,10 @@ public class Main {
 	
 	public static Block TomatoPlant;
 	public static Item TomatoSeeds;
+	public static int TomatoSeedsID;
 	public static Block LettucePlant;
 	public static Item LettuceSeeds;
+	public static int LettuceSeedsID;
 	
 	public static McCraftingHandler craftHandler;
 	public static Achievement macAchieve;
@@ -263,16 +265,16 @@ public class Main {
 	Apple = new Apple(AppleID, 2, 1.8F, true).setUnlocalizedName("Apple");
 	Milk = new Milk(MilkID, 3, 2.0F, true).setUnlocalizedName("Milk");
 	
-	McZombieHelmet = new McZombieArmor(464, armorMcZombie, 0, 0).setUnlocalizedName("McZombieHelmet");
-	McZombieChestplate = new McZombieArmor(465, armorMcZombie, 0, 1).setUnlocalizedName("McZombieChestplate");
-	McZombieLeggings = new McZombieArmor(466, armorMcZombie, 0, 2).setUnlocalizedName("McZombieLeggings");
-	McZombieBoots = new McZombieArmor(467, armorMcZombie, 0, 3).setUnlocalizedName("McZombieBoots");
+	McZombieHelmet = new McZombieArmor(McZombieHelmetID, armorMcZombie, 0, 0).setUnlocalizedName("McZombieHelmet");
+	McZombieChestplate = new McZombieArmor(McZombieChestplateID, armorMcZombie, 0, 1).setUnlocalizedName("McZombieChestplate");
+	McZombieLeggings = new McZombieArmor(McZombieLeggingsID, armorMcZombie, 0, 2).setUnlocalizedName("McZombieLeggings");
+	McZombieBoots = new McZombieArmor(McZombieBootsID, armorMcZombie, 0, 3).setUnlocalizedName("McZombieBoots");
 	
-	McStoneSword = new McStoneSword(468, toolMcStone).setUnlocalizedName("McStoneSword");
-	McStonePickaxe = new McStonePickaxe(469, toolMcStone).setUnlocalizedName("McStonePickaxe");
-	McStoneAxe = new McStoneAxe(470, toolMcStone).setUnlocalizedName("McStoneAxe");
-	McStoneShovel = new McStoneShovel(471, toolMcStone).setUnlocalizedName("McStoneShovel");
-	McStoneHoe = new McStoneHoe(472, toolMcStone).setUnlocalizedName("McStoneHoe");
+	McStoneSword = new McStoneSword(McStoneSwordID, toolMcStone).setUnlocalizedName("McStoneSword");
+	McStonePickaxe = new McStonePickaxe(McStonePickaxeID, toolMcStone).setUnlocalizedName("McStonePickaxe");
+	McStoneAxe = new McStoneAxe(McStoneAxeID, toolMcStone).setUnlocalizedName("McStoneAxe");
+	McStoneShovel = new McStoneShovel(McStoneShovelID, toolMcStone).setUnlocalizedName("McStoneShovel");
+	McStoneHoe = new McStoneHoe(McStoneHoeID, toolMcStone).setUnlocalizedName("McStoneHoe");
 	
 	McBiome = new BiomeGenMcBiome(McBiomeID);
 	DimID = Dim;
@@ -285,21 +287,21 @@ public class Main {
 	
 	McGrassCarpet = (new McGrassCarpet(McGrassCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet").setLightOpacity(0);
 	McDirtCarpet = (new McDirtCarpet(McDirtCarpetID)).setHardness(0.1F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("mineCarpet1").setLightOpacity(0);
-	McStoneCarpet = (new McStoneCarpet(McStoneCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
+	McStoneCarpet = (new McStoneCarpet(McStoneCarpetID)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
 	McLeafCarpet = (new McLeafCarpet(McLeafCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet3").setLightOpacity(0);
 	McLogCarpet = (new McLogCarpet(McLogCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet4").setLightOpacity(0);
 	McPlanksCarpet = (new McPlanksCarpet(McPlanksCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet5").setLightOpacity(0);
 	
-	TomatoPlant = (new TomatoPlant(221)).setUnlocalizedName("tomatoCrop").func_111022_d("minedonalds:tomato");
-	TomatoSeeds = (new TomatoSeeds(485, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds").func_111206_d("minedonalds:tomatoSeeds");
-	LettucePlant = (new LettucePlant(222)).setUnlocalizedName("lettuceCrop").func_111022_d("minedonalds:lettuce");
-	LettuceSeeds = (new LettuceSeeds(486, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds").func_111206_d("minedonalds:lettuceSeeds");
+	TomatoPlant = (new TomatoPlant(216)).setUnlocalizedName("tomatoCrop").func_111022_d("minedonalds:tomato");
+	TomatoSeeds = (new TomatoSeeds(TomatoSeedsID, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds").func_111206_d("minedonalds:tomatoSeeds");
+	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").func_111022_d("minedonalds:lettuce");
+	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds").func_111206_d("minedonalds:lettuceSeeds");
     
 	breadAchieve = new Achievement(1999, "BreadAchieve", 4, 2, BurgerTop, null).registerAchievement();
 	macAchieve = new Achievement(2000, "MacAchieve", 2, 1, BigMac, breadAchieve).registerAchievement();
 	wandAchieve = new Achievement(2001, "WandAchieve", 0, 0, McWand, macAchieve).registerAchievement().setSpecial();
 	cheeseAchieve = new Achievement(2002, "CheeseAchieve", 4, -1, CheeseBurger, breadAchieve).registerAchievement();
-	carpetAchieve = new Achievement(2003, "CarpetAchieve", 4, 2, McGrassCarpet, wandAchieve).registerAchievement();
+	//carpetAchieve = new Achievement(2003, "CarpetAchieve", 4, 2, McGrassCarpet, wandAchieve).registerAchievement();
 	
 	craftHandler = new McCraftingHandler();
 	page1 = new AchievementPage("MineDonalds", macAchieve, wandAchieve, cheeseAchieve, breadAchieve, carpetAchieve);

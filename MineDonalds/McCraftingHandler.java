@@ -33,6 +33,31 @@ public class McCraftingHandler implements ICraftingHandler
                 player.addStat(Main.breadAchieve, 1);
         }
 		
+		if (item.itemID == Main.McGrassCarpet.blockID)
+        {
+                player.addStat(Main.carpetAchieve, 1);
+        }
+		if (item.itemID == Main.McDirtCarpet.blockID)
+        {
+                player.addStat(Main.carpetAchieve, 1);
+        }
+		if (item.itemID == Main.McStoneCarpet.blockID)
+        {
+                player.addStat(Main.carpetAchieve, 1);
+        }
+		if (item.itemID == Main.McLeafCarpet.blockID)
+        {
+                player.addStat(Main.carpetAchieve, 1);
+        }
+		if (item.itemID == Main.McLogCarpet.blockID)
+        {
+                player.addStat(Main.carpetAchieve, 1);
+        }
+		if (item.itemID == Main.McPlanksCarpet.blockID)
+        {
+                player.addStat(Main.carpetAchieve, 1);
+        }
+		
 	}
 
 	@Override
