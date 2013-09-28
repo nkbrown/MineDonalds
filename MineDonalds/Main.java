@@ -59,8 +59,10 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
 /**
+ *******************
  * Hi
- * @authors iLexiconn Modding Team
+ * @author iLexiconn
+ *******************
  */
 
 public class Main {
@@ -125,31 +127,53 @@ public class Main {
 	public static int AppleID;
 	public static Item Milk;
 	public static int MilkID;
+	
 	public static Item McZombieHelmet;
+	public static int McZombieHelmetID;
 	public static Item McZombieChestplate;
+	public static int McZombieChestplateID;
 	public static Item McZombieLeggings;
+	public static int McZombieLeggingsID;
 	public static Item McZombieBoots;
+	public static int McZombieBootsID;
 	public static Item McStoneSword;
+	public static int McStoneSwordID;
 	public static Item McStonePickaxe;
+	public static int McStonePickaxeID;
 	public static Item McStoneAxe;
+	public static int McStoneAxeID;
 	public static Item McStoneShovel;
+	public static int McStoneShovelID;
 	public static Item McStoneHoe;
+	public static int McStoneHoeID;
+	
 	public static BiomeGenBase McBiome;
 	public static int McBiomeID;
 	public static int DimID;
 	public static int Dim;
 	public static Item BurgerButtom;
+	public static int BurgerButtomID;
 	public static Item BurgerTop;
+	public static int BurgerTopID;
 	public static Item LettucePiece;
+	public static int LettucePieceID;
 	public static Item Tomato;
+	public static int TomatoID;
 	public static Item Cheese;
+	public static int CheeseID;
 	
 	public static Block McGrassCarpet;
+	public static int McGrassCarpetID;
 	public static Block McDirtCarpet;
+	public static int McDirtCarpetID;
 	public static Block McStoneCarpet;
+	public static int McStoneCarpetID;
 	public static Block McLeafCarpet;
+	public static int McLeafCarpetID;
 	public static Block McLogCarpet;
+	public static int McLogCarpetID;
 	public static Block McPlanksCarpet;
+	public static int McPlanksCarpetID;
 	
 	public static Block TomatoPlant;
 	public static Item TomatoSeeds;
@@ -253,18 +277,18 @@ public class Main {
 	McBiome = new BiomeGenMcBiome(McBiomeID);
 	DimID = Dim;
 	
-	BurgerButtom = new BurgerButtom(478).setUnlocalizedName("BurgerButtom");
-	BurgerTop = new BurgerTop(479).setUnlocalizedName("BurgerTop");
-	LettucePiece = new LettucePiece(480).setUnlocalizedName("LettucePiece");
-	Tomato = new Tomato(481).setUnlocalizedName("Tomato");
-	Cheese = new Cheese(482).setUnlocalizedName("Cheese");
+	BurgerButtom = new BurgerButtom(BurgerButtomID).setUnlocalizedName("BurgerButtom");
+	BurgerTop = new BurgerTop(BurgerTopID).setUnlocalizedName("BurgerTop");
+	LettucePiece = new LettucePiece(LettucePieceID).setUnlocalizedName("LettucePiece");
+	Tomato = new Tomato(TomatoID).setUnlocalizedName("Tomato");
+	Cheese = new Cheese(CheeseID).setUnlocalizedName("Cheese");
 	
-	McGrassCarpet = (new McGrassCarpet(212)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet").setLightOpacity(0);
-	McDirtCarpet = (new McDirtCarpet(213)).setHardness(0.1F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("mineCarpet1").setLightOpacity(0);
-	McStoneCarpet = (new McStoneCarpet(214)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
-	McLeafCarpet = (new McLeafCarpet(215)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet3").setLightOpacity(0);
-	McLogCarpet = (new McLogCarpet(216)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet4").setLightOpacity(0);
-	McPlanksCarpet = (new McPlanksCarpet(217)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet5").setLightOpacity(0);
+	McGrassCarpet = (new McGrassCarpet(McGrassCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet").setLightOpacity(0);
+	McDirtCarpet = (new McDirtCarpet(McDirtCarpetID)).setHardness(0.1F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("mineCarpet1").setLightOpacity(0);
+	McStoneCarpet = (new McStoneCarpet(McStoneCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
+	McLeafCarpet = (new McLeafCarpet(McLeafCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet3").setLightOpacity(0);
+	McLogCarpet = (new McLogCarpet(McLogCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet4").setLightOpacity(0);
+	McPlanksCarpet = (new McPlanksCarpet(McPlanksCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet5").setLightOpacity(0);
 	
 	TomatoPlant = (new TomatoPlant(221)).setUnlocalizedName("tomatoCrop").func_111022_d("minedonalds:tomato");
 	TomatoSeeds = (new TomatoSeeds(485, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds").func_111206_d("minedonalds:tomatoSeeds");
@@ -276,7 +300,6 @@ public class Main {
 	wandAchieve = new Achievement(2001, "WandAchieve", 0, 0, McWand, macAchieve).registerAchievement().setSpecial();
 	cheeseAchieve = new Achievement(2002, "CheeseAchieve", 4, -1, CheeseBurger, breadAchieve).registerAchievement();
 	carpetAchieve = new Achievement(2003, "CarpetAchieve", 4, 2, McGrassCarpet, wandAchieve).registerAchievement();
-	
 	
 	craftHandler = new McCraftingHandler();
 	page1 = new AchievementPage("MineDonalds", macAchieve, wandAchieve, cheeseAchieve, breadAchieve, carpetAchieve);
@@ -405,6 +428,7 @@ public class Main {
     		
             
             LanguageRegistry.addName(TomatoSeeds, "Tomatoplant Seeds");
+            LanguageRegistry.addName(LettuceSeeds, "Lettuveplant Seeds");
             
             /**
              * Crafting recipes

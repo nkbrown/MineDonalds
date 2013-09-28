@@ -28,20 +28,33 @@ public static void init(File configFile) {
 		Main.McPortalID = configuration.get("Block ID", "MineDimension Portalblock", 208).getInt();
 		Main.McSaplingID = configuration.get("Block ID", "MineDimension Sapling", 209).getInt();
 		
-		Main.McWandID = configuration.get("Item ID", "MineWand", 450).getInt();
-		Main.McStickID = configuration.get("Item ID", "MineStick", 451).getInt();
-		Main.BigMacID = configuration.get("Item ID", "Big Mine", 452).getInt();
-		Main.CheeseBurgerID = configuration.get("Item ID", "Cheesy MineBurger", 453).getInt();
-		Main.McChickenID = configuration.get("Item ID", "MineChicken", 454).getInt();
-		Main.McNuggetsID = configuration.get("Item ID", "Chicken MineNuggets", 455).getInt();
-		Main.FriesID = configuration.get("Item ID", "Mine Fries", 456).getInt();
-		Main.SaladID = configuration.get("Item ID", "Premium Mine Salad", 457).getInt();
-		Main.CocaColaID = configuration.get("Item ID", "Mine-Cola", 458).getInt();
-		Main.FantaID = configuration.get("Item ID", "Mine-Fanta", 459).getInt();
-		Main.McFlurryID = configuration.get("Item ID", "MineFlurry", 460).getInt();
-		Main.AppleID = configuration.get("Item ID", "MineApple", 461).getInt();
-		Main.MilkID = configuration.get("Item ID", "1% Low Fat Mine Milk", 462).getInt();
-		Main.McWrapID = configuration.get("Item ID", "MineWrap", 463).getInt();
+		Main.McGrassCarpetID = configuration.get("Carpet ID", "MineDonalds Grass Carpet", 210).getInt();
+		Main.McDirtCarpetID = configuration.get("Carpet ID", "MineDonalds Dirt Carpet", 211).getInt();
+		Main.McStoneCarpetID = configuration.get("Carpet ID", "MineDonalds Stone Carpet", 212).getInt();
+		Main.McLeafCarpetID = configuration.get("Carpet ID", "MineDonalds Leaf Carpet", 213).getInt();
+		Main.McLogCarpetID = configuration.get("Carpet ID", "MineDonalds Log Carpet", 214).getInt();
+		Main.McPlanksCarpetID = configuration.get("Carpet ID", "MineDonalds Planks Carpet", 215).getInt();
+		
+		Main.BigMacID = configuration.get("Food ID", "Big Mine", 450).getInt();
+		Main.CheeseBurgerID = configuration.get("Food ID", "Cheesy MineBurger", 451).getInt();
+		Main.McChickenID = configuration.get("Food ID", "MineChicken", 452).getInt();
+		Main.McNuggetsID = configuration.get("Food ID", "Chicken MineNuggets", 453).getInt();
+		Main.FriesID = configuration.get("Food ID", "Mine Fries", 454).getInt();
+		Main.SaladID = configuration.get("Food ID", "Premium Mine Salad", 455).getInt();
+		Main.CocaColaID = configuration.get("Food ID", "Mine-Cola", 456).getInt();
+		Main.FantaID = configuration.get("Food ID", "Mine-Fanta", 457).getInt();
+		Main.McFlurryID = configuration.get("Food ID", "MineFlurry", 458).getInt();
+		Main.AppleID = configuration.get("Food ID", "MineApple", 459).getInt();
+		Main.MilkID = configuration.get("Food ID", "1% Low Fat Mine Milk", 460).getInt();
+		Main.McWrapID = configuration.get("Food ID", "MineWrap", 461).getInt();
+		
+		Main.McWandID = configuration.get("Item ID", "MineWand", 462).getInt();
+		Main.McStickID = configuration.get("Item ID", "MineStick", 463).getInt();
+		Main.BurgerTopID = configuration.get("Item ID", "Burger Bread (Top)", 464).getInt();
+		Main.BurgerButtomID = configuration.get("Item ID", "Burger Bread (Buttom)", 465).getInt();
+		Main.CheeseID = configuration.get("Item ID", "Cheese", 466).getInt();
+		Main.LettucePieceID = configuration.get("Item ID", "Lettuce Piece", 467).getInt();
+		Main.TomatoID = configuration.get("Item ID", "Tomato", 468).getInt();
 		
 	} catch (Exception e) {
 		FMLLog.log(Level.SEVERE, e, "MineDonalds" + " has had a problem loading its configuration");
