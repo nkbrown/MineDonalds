@@ -290,7 +290,6 @@ public class Main {
 	McStoneCarpet = (new McStoneCarpet(McStoneCarpetID)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
 	McLeafCarpet = (new McLeafCarpet(McLeafCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet3").setLightOpacity(0);
 	McLogCarpet = (new McLogCarpet(McLogCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet4").setLightOpacity(0);
-	McPlanksCarpet = (new McPlanksCarpet(McPlanksCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet5").setLightOpacity(0);
 	
 	TomatoPlant = (new TomatoPlant(216)).setUnlocalizedName("tomatoCrop").func_111022_d("minedonalds:tomato");
 	TomatoSeeds = (new TomatoSeeds(TomatoSeedsID, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds").func_111206_d("minedonalds:tomatoSeeds");
@@ -534,6 +533,12 @@ public class Main {
             
             GameRegistry.addShapelessRecipe(new ItemStack(Cheese, 4), new Object[]{
             	Item.bucketMilk, Item.bucketWater });
+            
+            GameRegistry.addShapelessRecipe(new ItemStack(TomatoSeeds, 4), new Object[]{
+            	Item.seeds, new ItemStack(Item.dyePowder, 1, 1) });
+            
+            GameRegistry.addShapelessRecipe(new ItemStack(LettuceSeeds, 4), new Object[]{
+            	Item.seeds, new ItemStack(Item.dyePowder, 1, 2) });
             
 }
 }
