@@ -32,7 +32,6 @@ public static void init(File configFile) {
 		Main.McStoneCarpetID = configuration.get("Carpet ID", "MineDonalds Stone Carpet", 212).getInt();
 		Main.McLeafCarpetID = configuration.get("Carpet ID", "MineDonalds Leaf Carpet", 213).getInt();
 		Main.McLogCarpetID = configuration.get("Carpet ID", "MineDonalds Log Carpet", 214).getInt();
-		Main.McPlanksCarpetID = configuration.get("Carpet ID", "MineDonalds Planks Carpet", 215).getInt();
 		
 		Main.BigMacID = configuration.get("Food ID", "Big Mine", 450).getInt();
 		Main.CheeseBurgerID = configuration.get("Food ID", "Cheesy MineBurger", 451).getInt();

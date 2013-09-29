@@ -171,8 +171,6 @@ public class Main {
 	public static int McLeafCarpetID;
 	public static Block McLogCarpet;
 	public static int McLogCarpetID;
-	public static Block McPlanksCarpet;
-	public static int McPlanksCarpetID;
 	
 	public static Block TomatoPlant;
 	public static Item TomatoSeeds;
@@ -353,7 +351,6 @@ public class Main {
     		GameRegistry.registerBlock(McStoneCarpet, "McStoneCarpet");
     		GameRegistry.registerBlock(McLeafCarpet, "McLeafCarpet");
     		GameRegistry.registerBlock(McLogCarpet, "McLogCarpet");
-    		GameRegistry.registerBlock(McPlanksCarpet, "McPlanksCarpet");
     		
     		GameRegistry.registerCraftingHandler(craftHandler);
     		AchievementPage.registerAchievementPage(page1);
@@ -420,8 +417,7 @@ public class Main {
             LanguageRegistry.addName(McStoneCarpet, "MineDonalds Stone Carpet");
             LanguageRegistry.addName(McLeafCarpet, "MineDonalds Leaves Carpet");
             LanguageRegistry.addName(McLogCarpet, "MineDonalds Log Carpet");
-            LanguageRegistry.addName(McPlanksCarpet, "MineDonalds Wood Carpet");
-    		
+            
             
             LanguageRegistry.addName(TomatoSeeds, "Tomatoplant Seeds");
             LanguageRegistry.addName(LettuceSeeds, "Lettuceplant Seeds");

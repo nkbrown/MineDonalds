@@ -53,10 +53,6 @@ public class McCraftingHandler implements ICraftingHandler
         {
                 player.addStat(Main.carpetAchieve, 1);
         }
-		if (item.itemID == Main.McPlanksCarpet.blockID)
-        {
-                player.addStat(Main.carpetAchieve, 1);
-        }
 		
 	}
 
