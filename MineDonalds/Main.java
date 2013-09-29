@@ -342,7 +342,6 @@ public class Main {
 	craftHandler = new McCraftingHandler();
 	page1 = new AchievementPage("MineDonalds", macAchieve, wandAchieve, cheeseAchieve, breadAchieve, carpetAchieve);
 	}
-	
 	}
 	
 	@EventHandler
@@ -599,5 +598,7 @@ public class Main {
             GameRegistry.addShapelessRecipe(new ItemStack(LettuceSeeds, 4), new Object[]{
             	Item.seeds, new ItemStack(Item.dyePowder, 1, 2) });
             
+}
+}
 }
 }
