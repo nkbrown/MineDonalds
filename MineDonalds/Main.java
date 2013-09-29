@@ -285,10 +285,13 @@ public class Main {
 	Apple = new Apple(AppleID, 2, 1.8F, true).setUnlocalizedName("Apple");
 	Milk = new Milk(MilkID, 3, 2.0F, true).setUnlocalizedName("Milk");
 	
+	if(armorEnable == true)
+	{
 	McZombieHelmet = new McZombieArmor(McZombieHelmetID, armorMcZombie, 0, 0).setUnlocalizedName("McZombieHelmet");
 	McZombieChestplate = new McZombieArmor(McZombieChestplateID, armorMcZombie, 0, 1).setUnlocalizedName("McZombieChestplate");
 	McZombieLeggings = new McZombieArmor(McZombieLeggingsID, armorMcZombie, 0, 2).setUnlocalizedName("McZombieLeggings");
 	McZombieBoots = new McZombieArmor(McZombieBootsID, armorMcZombie, 0, 3).setUnlocalizedName("McZombieBoots");
+	}
 	
 	if(toolsEnable == true)
 	{
@@ -311,17 +314,22 @@ public class Main {
 	Tomato = new Tomato(TomatoID).setUnlocalizedName("Tomato");
 	Cheese = new Cheese(CheeseID).setUnlocalizedName("Cheese");
 	
+	if(carpetEnable == true)
+	{
 	McGrassCarpet = (new McGrassCarpet(McGrassCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet").setLightOpacity(0);
 	McDirtCarpet = (new McDirtCarpet(McDirtCarpetID)).setHardness(0.1F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("mineCarpet1").setLightOpacity(0);
 	McStoneCarpet = (new McStoneCarpet(McStoneCarpetID)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
 	McLeafCarpet = (new McLeafCarpet(McLeafCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet3").setLightOpacity(0);
 	McLogCarpet = (new McLogCarpet(McLogCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet4").setLightOpacity(0);
+	}
 	
 	TomatoPlant = (new TomatoPlant(216)).setUnlocalizedName("tomatoCrop").setUnlocalizedName("minedonalds:tomato");
 	TomatoSeeds = (new TomatoSeeds(TomatoSeedsID, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds").setUnlocalizedName("minedonalds:tomatoSeeds");
 	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").setUnlocalizedName("minedonalds:lettuce");
 	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds").setUnlocalizedName("minedonalds:lettuceSeeds");
 	
+	if(achieveEnable == true)
+	{
 	breadAchieve = new Achievement(1999, "BreadAchieve", 4, 2, BurgerTop, null).registerAchievement();
 	macAchieve = new Achievement(2000, "MacAchieve", 2, 1, BigMac, breadAchieve).registerAchievement();
 	if(dimensionEnable == true)
@@ -333,6 +341,7 @@ public class Main {
 	
 	craftHandler = new McCraftingHandler();
 	page1 = new AchievementPage("MineDonalds", macAchieve, wandAchieve, cheeseAchieve, breadAchieve, carpetAchieve);
+	}
 	
 	}
 	
@@ -344,6 +353,8 @@ public class Main {
 			 */
             proxy.registerRenderers();
             
+            if(mobEnable == true)
+        	{
             /**
              * Entity stuff
              */
@@ -361,6 +372,7 @@ public class Main {
     		EntityRegistry.findGlobalUniqueEntityId();
     		LanguageRegistry.instance().addStringLocalization("entity.FatZombie.name", "en_US", "Fat Zombie");
     		registerEntityEgg(EntityFatZombie.class, 0xFF0000, 0x096910);
+        	}
     		
     		/**
     		 * Boring dimension stuff :c
