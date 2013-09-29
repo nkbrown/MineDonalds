@@ -430,7 +430,7 @@ public class Main {
     		
             
             LanguageRegistry.addName(TomatoSeeds, "Tomatoplant Seeds");
-            LanguageRegistry.addName(LettuceSeeds, "Lettuveplant Seeds");
+            LanguageRegistry.addName(LettuceSeeds, "Lettuceplant Seeds");
             
             /**
              * Crafting recipes
@@ -531,6 +531,9 @@ public class Main {
             GameRegistry.addRecipe(new ItemStack(BurgerButtom, 6), new Object[]{
             	"   ", "   ", "BBB", 'B', Item.bread
             	});
+            
+            GameRegistry.addShapelessRecipe(new ItemStack(Cheese, 4), new Object[]{
+            	Item.bucketMilk, Item.bucketWater });
             
 }
 }
