@@ -397,14 +397,20 @@ public class Main {
     		GameRegistry.registerBlock(McVine, "MineVine");
     		GameRegistry.registerBlock(McSapling, "MineSapling");
     		
+    		if(carpetEnable == true)
+    		{
     		GameRegistry.registerBlock(McGrassCarpet, "McGrassCarpet");
     		GameRegistry.registerBlock(McDirtCarpet, "McDirtCarpet");
     		GameRegistry.registerBlock(McStoneCarpet, "McStoneCarpet");
     		GameRegistry.registerBlock(McLeafCarpet, "McLeafCarpet");
     		GameRegistry.registerBlock(McLogCarpet, "McLogCarpet");
+    		}
     		
+    		if(achieveEnable == true)
+    		{
     		GameRegistry.registerCraftingHandler(craftHandler);
     		AchievementPage.registerAchievementPage(page1);
+    		}
     		/**
     		 * LanguageRegistry
     		 */
@@ -439,16 +445,22 @@ public class Main {
             LanguageRegistry.addName(Tomato, "Tomato");
             LanguageRegistry.addName(Cheese, "Cheese");
             
+            if(toolsEnable == true)
+        	{
             LanguageRegistry.addName(McStoneSword, "MineStone Sword");
             LanguageRegistry.addName(McStonePickaxe, "MineStone Pickaxe");
             LanguageRegistry.addName(McStoneAxe, "MineStone Axe");
             LanguageRegistry.addName(McStoneShovel, "MineStone Shovel");
             LanguageRegistry.addName(McStoneHoe, "MineStone Hoe");
+            {
             
+            if(armorEnable == true)
+            {
             LanguageRegistry.addName(McZombieHelmet, "MineZombie Helmet");
             LanguageRegistry.addName(McZombieChestplate, "MineZombie Chestplate");
             LanguageRegistry.addName(McZombieLeggings, "MineZombie Leggings");
             LanguageRegistry.addName(McZombieBoots, "MineZombie Boots");
+            }
             
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonald's Blocks");
             LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonald's Items");
@@ -466,12 +478,14 @@ public class Main {
             LanguageRegistry.instance().addStringLocalization("achievement.CarpetAchieve", "en_US", "Carpets!");
             LanguageRegistry.instance().addStringLocalization("achievement.CarpetAchieve.desc", "en_US", "You crafted a carpet!");
             
+            if(carpetEnable == true)
+        	{
             LanguageRegistry.addName(McGrassCarpet, "MineDonalds Grass Carpet");
             LanguageRegistry.addName(McDirtCarpet, "MineDonalds Dirt Carpet");
             LanguageRegistry.addName(McStoneCarpet, "MineDonalds Stone Carpet");
             LanguageRegistry.addName(McLeafCarpet, "MineDonalds Leaves Carpet");
             LanguageRegistry.addName(McLogCarpet, "MineDonalds Log Carpet");
-            
+        	}
             
             LanguageRegistry.addName(TomatoSeeds, "Tomatoplant Seeds");
             LanguageRegistry.addName(LettuceSeeds, "Lettuceplant Seeds");
@@ -533,7 +547,8 @@ public class Main {
             GameRegistry.addShapelessRecipe(new ItemStack(Milk,2), new Object[]{
             	Item.bucketMilk });
             
-            
+            if(toolsEnable == true)
+        	{
             GameRegistry.addRecipe(new ItemStack(McStonePickaxe, 1), new Object[]{
             	"MMM", " S ", " S ", 'S', Item.stick, 'M', McStone
             	});
@@ -565,7 +580,7 @@ public class Main {
             GameRegistry.addRecipe(new ItemStack(McStonePickaxe, 1), new Object[]{
             	"MMM", " S ", " S ", 'S', Item.stick, 'M', McStone
             	});
-            
+        	}
             
             
             GameRegistry.addRecipe(new ItemStack(BurgerTop, 6), new Object[]{

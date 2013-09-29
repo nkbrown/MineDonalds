@@ -20,7 +20,7 @@ public class McGrassCarpet extends Block
 {
     public McGrassCarpet(int par1)
     {
-        super(par1, Material.field_111018_r);
+        super(par1, Material.materialCarpet);
         this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
         this.setTickRandomly(true);
         this.setCreativeTab(Main.McTab4);
