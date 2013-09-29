@@ -598,7 +598,7 @@ public class Main {
             GameRegistry.addShapelessRecipe(new ItemStack(LettuceSeeds, 4), new Object[]{
             	Item.seeds, new ItemStack(Item.dyePowder, 1, 2) });
             
-}
-}
-}
+            }
+        	}
+	}
 }
