@@ -189,7 +189,12 @@ public class Main {
 	public static Achievement carpetAchieve;
 	public static AchievementPage page1;
 	
-	public static boolean enable; //true/false, but how via config?
+	public static boolean dimensionEnable;
+	public static boolean toolsEnable;
+	public static boolean armorEnable;
+	public static boolean achieveEnable;
+	public static boolean mobEnable;
+	public static boolean carpetEnable;
 	
 	/**
 	 * The Entity ID Registry
@@ -219,11 +224,11 @@ public class Main {
 	public static CreativeTabs McTab2 = new CreativeTabs("McTab2"){
 
 		public ItemStack getIconItemStack(){
-			if(enable == true)
+			if(dimensionEnable == true)
     		{
 			return new ItemStack(McWand);
     		}
-			if(enable == false)
+			if(dimensionEnable == false)
     		{
 			return new ItemStack(McStoneSword);
     		}
@@ -254,17 +259,19 @@ public class Main {
 	McLeaf = new BlockMcLeaf(McLeafID).setHardness(0.2F).setUnlocalizedName("McLeaf");
 	McLog = new BlockMcLog(McLogID).setHardness(2.0F).setUnlocalizedName("McLog");
 	McVine = new BlockMcVine(McVineID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
-	if(enable == true)
+	
+	if(dimensionEnable == true)
 	{
 	McFire = (BlockMcFire)new BlockMcFire(McFireID).setUnlocalizedName("McFire");
 	McPortal = (BlockMcPortal)new BlockMcPortal(McPortalID).setUnlocalizedName("McPortal");
 	}
 	McSapling = (BlockMcSapling)new BlockMcSapling(McSaplingID, 0).setUnlocalizedName("McSapling");
 	
-	if(enable == true)
+	if(dimensionEnable == true)
 	{
 	McWand = new ItemMcWand(McWandID).setUnlocalizedName("McWand");
 	}
+	
 	BigMac = new BigMac(BigMacID, 30, 10.0F, false).setUnlocalizedName("BigMac");
 	CheeseBurger = new CheeseBurger(CheeseBurgerID, 18, 4.0F, false).setUnlocalizedName("CheeseBurger");
 	McChicken = new McChicken(McChickenID, 17, 3.5F, false).setUnlocalizedName("McChicken");
@@ -283,13 +290,16 @@ public class Main {
 	McZombieLeggings = new McZombieArmor(McZombieLeggingsID, armorMcZombie, 0, 2).setUnlocalizedName("McZombieLeggings");
 	McZombieBoots = new McZombieArmor(McZombieBootsID, armorMcZombie, 0, 3).setUnlocalizedName("McZombieBoots");
 	
+	if(toolsEnable == true)
+	{
 	McStoneSword = new McStoneSword(McStoneSwordID, toolMcStone).setUnlocalizedName("McStoneSword");
 	McStonePickaxe = new McStonePickaxe(McStonePickaxeID, toolMcStone).setUnlocalizedName("McStonePickaxe");
 	McStoneAxe = new McStoneAxe(McStoneAxeID, toolMcStone).setUnlocalizedName("McStoneAxe");
 	McStoneShovel = new McStoneShovel(McStoneShovelID, toolMcStone).setUnlocalizedName("McStoneShovel");
 	McStoneHoe = new McStoneHoe(McStoneHoeID, toolMcStone).setUnlocalizedName("McStoneHoe");
+	}
 	
-	if(enable == true)
+	if(dimensionEnable == true)
 	{
 	McBiome = new BiomeGenMcBiome(McBiomeID);
 	DimID = Dim;
@@ -307,14 +317,14 @@ public class Main {
 	McLeafCarpet = (new McLeafCarpet(McLeafCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet3").setLightOpacity(0);
 	McLogCarpet = (new McLogCarpet(McLogCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet4").setLightOpacity(0);
 	
-	TomatoPlant = (new TomatoPlant(216)).setUnlocalizedName("tomatoCrop").func_111022_d("minedonalds:tomato");
-	TomatoSeeds = (new TomatoSeeds(TomatoSeedsID, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds").func_111206_d("minedonalds:tomatoSeeds");
-	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").func_111022_d("minedonalds:lettuce");
-	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds").func_111206_d("minedonalds:lettuceSeeds");
-    
+	TomatoPlant = (new TomatoPlant(216)).setUnlocalizedName("tomatoCrop").setUnlocalizedName("minedonalds:tomato");
+	TomatoSeeds = (new TomatoSeeds(TomatoSeedsID, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds").setUnlocalizedName("minedonalds:tomatoSeeds");
+	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").setUnlocalizedName("minedonalds:lettuce");
+	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds").setUnlocalizedName("minedonalds:lettuceSeeds");
+	
 	breadAchieve = new Achievement(1999, "BreadAchieve", 4, 2, BurgerTop, null).registerAchievement();
 	macAchieve = new Achievement(2000, "MacAchieve", 2, 1, BigMac, breadAchieve).registerAchievement();
-	if(enable == true)
+	if(dimensionEnable == true)
 	{
 	wandAchieve = new Achievement(2001, "WandAchieve", 0, 0, McWand, macAchieve).registerAchievement().setSpecial();
 	}
@@ -355,7 +365,7 @@ public class Main {
     		/**
     		 * Boring dimension stuff :c
     		 */
-    		if(enable == true)
+    		if(dimensionEnable == true)
     		{
     		DimensionManager.registerProviderType(DimID, McWorldProvider.class, true);
     		DimensionManager.registerDimension(DimID, DimID);
@@ -394,7 +404,7 @@ public class Main {
             LanguageRegistry.addName(McVine, "MineTree Vine");
             LanguageRegistry.addName(McSapling, "MineTree Sapling");
             
-            if(enable == true)
+            if(dimensionEnable == true)
     		{
             LanguageRegistry.addName(McWand, "MineWand");
     		}
@@ -457,7 +467,7 @@ public class Main {
             /**
              * Crafting recipes
              */
-            if(enable == true)
+            if(dimensionEnable == true)
     		{
             GameRegistry.addRecipe(new ItemStack(McWand,1), new Object[]{
             	"GGB","GSG","GGG",'B',BigMac,'G',Block.blockGold,'S',Item.stick

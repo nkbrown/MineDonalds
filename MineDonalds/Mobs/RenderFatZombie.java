@@ -19,7 +19,6 @@ public class RenderFatZombie extends RenderLiving
 		return texture;
 	}
 
-	@Override
 	protected ResourceLocation func_110775_a(Entity entity) {
 		return texture;
 	}

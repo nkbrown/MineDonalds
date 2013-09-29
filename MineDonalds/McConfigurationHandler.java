@@ -14,7 +14,7 @@ public static void init(File configFile) {
 	try {
 		configuration.load();
 		
-		Main.Dim = configuration.get("Dimension ID", "MineDonalds Dimension", 2).getInt();
+		Main.Dim = configuration.get("DimensionID", "Minedonalds Dimension", 2).getInt();
 		Main.McBiomeID = configuration.get("Biome ID", "MineDonalds Biome", 40).getInt();
 		
 		Main.McGrassID = configuration.get("Block ID", "MineDimension Grass", 200).getInt();
@@ -67,6 +67,12 @@ public static void init(File configFile) {
 		Main.TomatoSeedsID = configuration.get("Plant ID", "Tomatoplant Seeds", 478).getInt();
 		Main.LettuceSeedsID = configuration.get("Plant ID", "Lettuceplant Seeds", 479).getInt();
 		
+		Main.dimensionEnable = configuration.get("Enable/Disable", "MineDonalds Dimension", true).getBoolean(true);
+		Main.toolsEnable = configuration.get("Enable/Disable", "MineStone Tools", true).getBoolean(true);
+		Main.armorEnable = configuration.get("Enable/Disable", "MineZombie Armor", true).getBoolean(true);
+		Main.achieveEnable = configuration.get("Enable/Disable", "Achievements", true).getBoolean(true);
+		Main.mobEnable = configuration.get("Enable/Disable", "Emplayee/Fat Zombie/McZombie", true).getBoolean(true);
+		Main.carpetEnable = configuration.get("Enable/Disable", "Carpets", true).getBoolean(true);
 		
 	} catch (Exception e) {
 		FMLLog.log(Level.SEVERE, e, "MineDonalds" + " has had a problem loading its configuration");
