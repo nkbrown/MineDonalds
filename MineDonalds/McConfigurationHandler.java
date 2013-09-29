@@ -67,6 +67,7 @@ public static void init(File configFile) {
 		Main.TomatoSeedsID = configuration.get("Plant ID", "Tomatoplant Seeds", 478).getInt();
 		Main.LettuceSeedsID = configuration.get("Plant ID", "Lettuceplant Seeds", 479).getInt();
 		
+		
 	} catch (Exception e) {
 		FMLLog.log(Level.SEVERE, e, "MineDonalds" + " has had a problem loading its configuration");
 		throw new RuntimeException(e);

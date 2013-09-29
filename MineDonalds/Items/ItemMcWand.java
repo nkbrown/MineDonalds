@@ -116,6 +116,7 @@ public class ItemMcWand extends Item
 				
 				par3World.setBlock(X, Y + 3, Z, Main.McFire.blockID);
 				
+				par2EntityPlayer.addChatMessage("[MineDonalds] Go to the MineDonalds Dimension! :D");
 				par1ItemStack.damageItem(2, par2EntityPlayer);
 				return true;
 			}

@@ -65,6 +65,8 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  *
  *
  * Mod version 1.1.1
+ * 
+ * Thanks to -> Mogan, Isaac, Evan and Waffleguy ;p
  */
 
 public class Main {
@@ -187,6 +189,8 @@ public class Main {
 	public static Achievement carpetAchieve;
 	public static AchievementPage page1;
 	
+	public static boolean enable; //true/false, but how via config?
+	
 	/**
 	 * The Entity ID Registry
 	 */
@@ -215,7 +219,15 @@ public class Main {
 	public static CreativeTabs McTab2 = new CreativeTabs("McTab2"){
 
 		public ItemStack getIconItemStack(){
+			if(enable == true)
+    		{
 			return new ItemStack(McWand);
+    		}
+			if(enable == false)
+    		{
+			return new ItemStack(McStoneSword);
+    		}
+			return new ItemStack (McStoneSword);
 		}};
 	public static CreativeTabs McTab3 = new CreativeTabs("McTab3"){
 
@@ -242,11 +254,17 @@ public class Main {
 	McLeaf = new BlockMcLeaf(McLeafID).setHardness(0.2F).setUnlocalizedName("McLeaf");
 	McLog = new BlockMcLog(McLogID).setHardness(2.0F).setUnlocalizedName("McLog");
 	McVine = new BlockMcVine(McVineID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
+	if(enable == true)
+	{
 	McFire = (BlockMcFire)new BlockMcFire(McFireID).setUnlocalizedName("McFire");
 	McPortal = (BlockMcPortal)new BlockMcPortal(McPortalID).setUnlocalizedName("McPortal");
+	}
 	McSapling = (BlockMcSapling)new BlockMcSapling(McSaplingID, 0).setUnlocalizedName("McSapling");
 	
+	if(enable == true)
+	{
 	McWand = new ItemMcWand(McWandID).setUnlocalizedName("McWand");
+	}
 	BigMac = new BigMac(BigMacID, 30, 10.0F, false).setUnlocalizedName("BigMac");
 	CheeseBurger = new CheeseBurger(CheeseBurgerID, 18, 4.0F, false).setUnlocalizedName("CheeseBurger");
 	McChicken = new McChicken(McChickenID, 17, 3.5F, false).setUnlocalizedName("McChicken");
@@ -271,8 +289,11 @@ public class Main {
 	McStoneShovel = new McStoneShovel(McStoneShovelID, toolMcStone).setUnlocalizedName("McStoneShovel");
 	McStoneHoe = new McStoneHoe(McStoneHoeID, toolMcStone).setUnlocalizedName("McStoneHoe");
 	
+	if(enable == true)
+	{
 	McBiome = new BiomeGenMcBiome(McBiomeID);
 	DimID = Dim;
+	}
 	
 	BurgerButtom = new BurgerButtom(BurgerButtomID).setUnlocalizedName("BurgerButtom");
 	BurgerTop = new BurgerTop(BurgerTopID).setUnlocalizedName("BurgerTop");
@@ -293,13 +314,17 @@ public class Main {
     
 	breadAchieve = new Achievement(1999, "BreadAchieve", 4, 2, BurgerTop, null).registerAchievement();
 	macAchieve = new Achievement(2000, "MacAchieve", 2, 1, BigMac, breadAchieve).registerAchievement();
+	if(enable == true)
+	{
 	wandAchieve = new Achievement(2001, "WandAchieve", 0, 0, McWand, macAchieve).registerAchievement().setSpecial();
+	}
 	cheeseAchieve = new Achievement(2002, "CheeseAchieve", 4, -1, CheeseBurger, breadAchieve).registerAchievement();
 	//carpetAchieve = new Achievement(2003, "CarpetAchieve", 4, 2, McGrassCarpet, wandAchieve).registerAchievement();
 	
 	craftHandler = new McCraftingHandler();
 	page1 = new AchievementPage("MineDonalds", macAchieve, wandAchieve, cheeseAchieve, breadAchieve, carpetAchieve);
-    }
+	
+	}
 	
 	@EventHandler
     public void load(FMLInitializationEvent event) {
@@ -330,9 +355,13 @@ public class Main {
     		/**
     		 * Boring dimension stuff :c
     		 */
+    		if(enable == true)
+    		{
     		DimensionManager.registerProviderType(DimID, McWorldProvider.class, true);
     		DimensionManager.registerDimension(DimID, DimID);
     		MinecraftForge.EVENT_BUS.register(new McEvent());
+    		}
+    		
     		
     		
     		/**
@@ -365,7 +394,10 @@ public class Main {
             LanguageRegistry.addName(McVine, "MineTree Vine");
             LanguageRegistry.addName(McSapling, "MineTree Sapling");
             
+            if(enable == true)
+    		{
             LanguageRegistry.addName(McWand, "MineWand");
+    		}
             LanguageRegistry.addName(McNuggets, "Chicken MineNuggets");
             LanguageRegistry.addName(CheeseBurger, "Cheesy MineBurger");
             LanguageRegistry.addName(BigMac, "Big Mine");
@@ -425,9 +457,12 @@ public class Main {
             /**
              * Crafting recipes
              */
+            if(enable == true)
+    		{
             GameRegistry.addRecipe(new ItemStack(McWand,1), new Object[]{
             	"GGB","GSG","GGG",'B',BigMac,'G',Block.blockGold,'S',Item.stick
             	});
+    		}
             
             GameRegistry.addRecipe(new ItemStack(BigMac,2), new Object[]{
             	"LTL","SOS","CBC",'L',LettucePiece,'T',BurgerTop,'S',Item.beefCooked,'O',Tomato,'C',Cheese,'B',BurgerButtom
