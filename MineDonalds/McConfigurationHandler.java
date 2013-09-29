@@ -22,7 +22,6 @@ public static void init(File configFile) {
 		Main.McStoneID = configuration.get("Block ID", "MineDimension Stone", 202).getInt();
 		Main.McLeafID = configuration.get("Block ID", "MineDimension Leaves", 203).getInt();
 		Main.McLogID = configuration.get("Block ID", "MineDimension Log", 204).getInt();
-		Main.McPlanksID = configuration.get("Block ID", "MineDimension Planks", 205).getInt();
 		Main.McVineID = configuration.get("Block ID", "MineDimension Vine", 206).getInt();
 		Main.McFireID = configuration.get("Block ID", "MineDimension Fireblock", 207).getInt();
 		Main.McPortalID = configuration.get("Block ID", "MineDimension Portalblock", 208).getInt();
@@ -49,7 +48,6 @@ public static void init(File configFile) {
 		Main.McWrapID = configuration.get("Food ID", "MineWrap", 461).getInt();
 		
 		Main.McWandID = configuration.get("Item ID", "MineWand", 462).getInt();
-		Main.McStickID = configuration.get("Item ID", "MineStick", 463).getInt();
 		Main.BurgerTopID = configuration.get("Item ID", "Burger Bread (Top)", 464).getInt();
 		Main.BurgerButtomID = configuration.get("Item ID", "Burger Bread (Buttom)", 465).getInt();
 		Main.CheeseID = configuration.get("Item ID", "Cheese", 466).getInt();

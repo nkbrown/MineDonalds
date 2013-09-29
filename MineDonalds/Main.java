@@ -8,7 +8,6 @@ import MineDonalds.Carpets.McDirtCarpet;
 import MineDonalds.Carpets.McGrassCarpet;
 import MineDonalds.Carpets.McLeafCarpet;
 import MineDonalds.Carpets.McLogCarpet;
-import MineDonalds.Carpets.McPlanksCarpet;
 import MineDonalds.Carpets.McStoneCarpet;
 import MineDonalds.Dimension.McWorldProvider;
 import MineDonalds.Dimension.Biomes.BiomeGenMcBiome;
@@ -63,6 +62,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  * Hi
  * @author iLexiconn
  *******************
+ *
+ *
+ * Mod version 1.1.1
  */
 
 public class Main {
@@ -89,8 +91,6 @@ public class Main {
 	public static int McLeafID;
 	public static Block McLog;
 	public static int McLogID;
-	public static Block McPlanks;
-	public static int McPlanksID;
 	public static Block McVine;
 	public static int McVineID;
 	public static BlockMcFire McFire;
@@ -99,10 +99,9 @@ public class Main {
 	public static int McPortalID;
 	public static BlockMcSapling McSapling;
 	public static int McSaplingID;
+	
 	public static Item McWand;
 	public static int McWandID;
-	public static Item McStick;
-	public static int McStickID;
 	public static Item BigMac;
 	public static int BigMacID;
 	public static Item CheeseBurger;
@@ -244,14 +243,12 @@ public class Main {
 	McStone = new BlockMcDirtMcStone(McStoneID, Material.rock).setHardness(2.0F).setUnlocalizedName("McStone");
 	McLeaf = new BlockMcLeaf(McLeafID).setHardness(0.2F).setUnlocalizedName("McLeaf");
 	McLog = new BlockMcLog(McLogID).setHardness(2.0F).setUnlocalizedName("McLog");
-	McPlanks = new BlockMcPlanks(McPlanksID, Material.wood).setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("McWood");
 	McVine = new BlockMcVine(McVineID).setHardness(0.0F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("McVine");
 	McFire = (BlockMcFire)new BlockMcFire(McFireID).setUnlocalizedName("McFire");
 	McPortal = (BlockMcPortal)new BlockMcPortal(McPortalID).setUnlocalizedName("McPortal");
 	McSapling = (BlockMcSapling)new BlockMcSapling(McSaplingID, 0).setUnlocalizedName("McSapling");
 	
 	McWand = new ItemMcWand(McWandID).setUnlocalizedName("McWand");
-	McStick = new McStick(McStickID).setUnlocalizedName("McStick");
 	BigMac = new BigMac(BigMacID, 30, 10.0F, false).setUnlocalizedName("BigMac");
 	CheeseBurger = new CheeseBurger(CheeseBurgerID, 18, 4.0F, false).setUnlocalizedName("CheeseBurger");
 	McChicken = new McChicken(McChickenID, 17, 3.5F, false).setUnlocalizedName("McChicken");
@@ -370,10 +367,8 @@ public class Main {
             LanguageRegistry.addName(McLog, "MineTree Log");
             LanguageRegistry.addName(McVine, "MineTree Vine");
             LanguageRegistry.addName(McSapling, "MineTree Sapling");
-            LanguageRegistry.addName(McPlanks, "MineTree Planks");
             
             LanguageRegistry.addName(McWand, "MineWand");
-            LanguageRegistry.addName(McStick, "MineStick");
             LanguageRegistry.addName(McNuggets, "Chicken MineNuggets");
             LanguageRegistry.addName(CheeseBurger, "Cheesy MineBurger");
             LanguageRegistry.addName(BigMac, "Big Mine");
@@ -518,10 +513,6 @@ public class Main {
             	"MMM", " S ", " S ", 'S', Item.stick, 'M', McStone
             	});
             
-            
-            GameRegistry.addRecipe(new ItemStack(McStick, 4), new Object[]{
-            	"M", "M", 'M', McPlanks
-            	});
             
             
             GameRegistry.addRecipe(new ItemStack(BurgerTop, 6), new Object[]{
