@@ -36,7 +36,7 @@ public class LettucePlant extends TomatoPlant{
 
         for (int i = 0; i < this.iconArray.length; ++i)
         {
-        	this.iconArray[i] = par1IconRegister.registerIcon(this.getUnlocalizedName() + "_stage_" + i);
+        	this.iconArray[i] = par1IconRegister.registerIcon(this.getTextureName() + "_stage_" + i);
         }
     }
 }

@@ -1,6 +1,7 @@
 package MineDonalds.Items;
 
 import MineDonalds.Main;
+import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
@@ -16,4 +17,7 @@ public class LettuceSeeds extends TomatoSeeds{
     {
         return (EnumPlantType.Crop);
     }
+	public void registerIcons(IconRegister iconRegister) {
+		itemIcon = iconRegister.registerIcon("minedonalds:lettuceSeeds");
+}
 }

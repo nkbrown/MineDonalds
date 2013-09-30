@@ -196,6 +196,11 @@ public class Main {
 	public static boolean mobEnable;
 	public static boolean carpetEnable;
 	
+	public static CreativeTabs McTab;
+	public static CreativeTabs McTab2;
+	public static CreativeTabs McTab3;
+	public static CreativeTabs McTab4;
+	
 	/**
 	 * The Entity ID Registry
 	 */
@@ -212,16 +217,23 @@ public class Main {
 		EntityList.IDtoClassMapping.put(id, entity);
 		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
 	}
+		
+	public static EnumArmorMaterial armorMcZombie = EnumHelper.addArmorMaterial("MCZOMBIE", 15, new int[]{2, 7, 5, 2}, 99);
+	public static EnumToolMaterial toolMcStone = EnumHelper.addToolMaterial("MCSTONE", 2, 242, 4.5F, 1.5F, 99);
 	
 	
-	/**
-	 * The public static things!
-	 */
-	public static CreativeTabs McTab = new CreativeTabs("McTab"){
-		public ItemStack getIconItemStack(){
-			return new ItemStack(McGrass);
-		}};
-	public static CreativeTabs McTab2 = new CreativeTabs("McTab2"){
+	
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		McConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator  +"MineDonalds" + ".cfg"));
+		
+	
+		McTab = new CreativeTabs("McTab"){
+			public ItemStack getIconItemStack(){
+				return new ItemStack(McGrass);
+			}};
+			
+	McTab2 = new CreativeTabs("McTab2"){
 
 		public ItemStack getIconItemStack(){
 			if(dimensionEnable == true)
@@ -232,26 +244,26 @@ public class Main {
     		{
 			return new ItemStack(McStoneSword);
     		}
-			return new ItemStack (McStoneSword);
+			if(dimensionEnable == false == toolsEnable == false)
+    		{
+			return new ItemStack(TomatoSeeds);
+    		}
+    		return new ItemStack (TomatoSeeds);
 		}};
-	public static CreativeTabs McTab3 = new CreativeTabs("McTab3"){
+		
+		McTab3 = new CreativeTabs("McTab3"){
 
-		public ItemStack getIconItemStack(){
-			return new ItemStack(BigMac);
-		}};
-	public static CreativeTabs McTab4 = new CreativeTabs("McTab4"){
+			public ItemStack getIconItemStack(){
+				return new ItemStack(BigMac);
+			}};
+			
+		if(carpetEnable == true) {
+			McTab4 = new CreativeTabs("McTab4"){
 
 		public ItemStack getIconItemStack(){
 			return new ItemStack(McGrassCarpet);
 		}};
-	public static EnumArmorMaterial armorMcZombie = EnumHelper.addArmorMaterial("MCZOMBIE", 15, new int[]{2, 7, 5, 2}, 99);
-	public static EnumToolMaterial toolMcStone = EnumHelper.addToolMaterial("MCSTONE", 2, 242, 4.5F, 1.5F, 99);
-	
-	
-	
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		McConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator  +"MineDonalds" + ".cfg"));
+	}
 		
 	McGrass = new BlockMcGrass(McGrassID).setStepSound(Block.soundGrassFootstep).setHardness(0.5F).setUnlocalizedName("McGrass");
 	McDirt = new BlockMcDirtMcStone(McDirtID, Material.ground).setStepSound(Block.soundGravelFootstep).setHardness(0.5F).setUnlocalizedName("McDirt");
@@ -323,10 +335,10 @@ public class Main {
 	McLogCarpet = (new McLogCarpet(McLogCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet4").setLightOpacity(0);
 	}
 	
-	TomatoPlant = (new TomatoPlant(216)).setUnlocalizedName("tomatoCrop").setUnlocalizedName("minedonalds:tomato");
-	TomatoSeeds = (new TomatoSeeds(TomatoSeedsID, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds").setUnlocalizedName("minedonalds:tomatoSeeds");
-	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").setUnlocalizedName("minedonalds:lettuce");
-	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds").setUnlocalizedName("minedonalds:lettuceSeeds");
+	TomatoPlant = (new TomatoPlant(216)).setUnlocalizedName("tomatoCrop").setUnlocalizedName("minedonalds:tomato").setTextureName("tomato");
+	TomatoSeeds = (new TomatoSeeds(TomatoSeedsID, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds");
+	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").setUnlocalizedName("minedonalds:lettuce").setTextureName("lettuce");
+	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds");
 	
 	if(achieveEnable == true)
 	{
@@ -342,6 +354,9 @@ public class Main {
 	craftHandler = new McCraftingHandler();
 	page1 = new AchievementPage("MineDonalds", macAchieve, wandAchieve, cheeseAchieve, breadAchieve, carpetAchieve);
 	}
+	
+	
+		
 	}
 	
 	@EventHandler
