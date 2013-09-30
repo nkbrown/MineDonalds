@@ -22,6 +22,9 @@ public class ClientProxy extends ServerProxy {
 	}
 	
 	public void addArmor(String armor) {
+		if(Main.armorEnable == true)
+		{
 		RenderingRegistry.addNewArmourRendererPrefix(armor);
+		}
 	}
 }

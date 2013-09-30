@@ -15,6 +15,7 @@ import MineDonalds.Dimension.Biomes.BiomeGenYellowTree;
 import MineDonalds.Dimension.Event.McEvent;
 import MineDonalds.Items.*;
 import MineDonalds.Mobs.*;
+import MineDonalds.Support.Support;
 import MineDonalds.Tools.McStoneAxe;
 import MineDonalds.Tools.McStoneHoe;
 import MineDonalds.Tools.McStonePickaxe;
@@ -46,6 +47,7 @@ import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -53,7 +55,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
-@Mod(modid = "minedonalds", name = "iLexiconn's MineDonalds", version = "1.1.1")
+@Mod(modid = "minedonalds", name = "iLexiconn's MineDonalds", version = "1.1.2 Preview")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 
 
@@ -64,9 +66,9 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  *******************
  *
  *
- * Mod version 1.1.1
+ * Mod version 1.1.2 Preview
  * 
- * Thanks to -> Mogan, Isaac, Evan and Waffleguy ;p
+ * Thanks to -> Mogan, Isaac, Evan, James and Waffleguy ;p
  */
 
 public class Main {
@@ -218,7 +220,6 @@ public class Main {
 		EntityList.IDtoClassMapping.put(id, entity);
 		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
 	}
-		
 	public static EnumArmorMaterial armorMcZombie = EnumHelper.addArmorMaterial("MCZOMBIE", 15, new int[]{2, 7, 5, 2}, 99);
 	public static EnumToolMaterial toolMcStone = EnumHelper.addToolMaterial("MCSTONE", 2, 242, 4.5F, 1.5F, 99);
 	
@@ -228,11 +229,13 @@ public class Main {
 	public void preInit(FMLPreInitializationEvent event) {
 		McConfigurationHandler.init(new File(event.getModConfigurationDirectory().getAbsolutePath() + File.separator  +"MineDonalds" + ".cfg"));
 		
-	
+		if(dimensionEnable == true)
+		{
 		McTab = new CreativeTabs("McTab"){
 			public ItemStack getIconItemStack(){
 				return new ItemStack(McGrass);
 			}};
+		}
 			
 	McTab2 = new CreativeTabs("McTab2"){
 
@@ -242,10 +245,6 @@ public class Main {
 			return new ItemStack(McWand);
     		}
 			if(dimensionEnable == false)
-    		{
-			return new ItemStack(McStoneSword);
-    		}
-			if(dimensionEnable == false == toolsEnable == false)
     		{
 			return new ItemStack(TomatoSeeds);
     		}
@@ -404,6 +403,8 @@ public class Main {
     		/**
     		 * GameRegistry
     		 */
+    		if(dimensionEnable == true)
+    		{
     		GameRegistry.registerBlock(McGrass, "MineGrass");
     		GameRegistry.registerBlock(McDirt, "MineDirt");
     		GameRegistry.registerBlock(McStone, "MineStone");
@@ -411,6 +412,7 @@ public class Main {
     		GameRegistry.registerBlock(McLog, "MineLog");
     		GameRegistry.registerBlock(McVine, "MineVine");
     		GameRegistry.registerBlock(McSapling, "MineSapling");
+    		}
     		
     		if(carpetEnable == true)
     		{
@@ -441,6 +443,7 @@ public class Main {
     		{
             LanguageRegistry.addName(McWand, "MineWand");
     		}
+            
             LanguageRegistry.addName(McNuggets, "Chicken MineNuggets");
             LanguageRegistry.addName(CheeseBurger, "Cheesy MineBurger");
             LanguageRegistry.addName(BigMac, "Big Mine");
@@ -467,7 +470,7 @@ public class Main {
             LanguageRegistry.addName(McStoneAxe, "MineStone Axe");
             LanguageRegistry.addName(McStoneShovel, "MineStone Shovel");
             LanguageRegistry.addName(McStoneHoe, "MineStone Hoe");
-            {
+        	}
             
             if(armorEnable == true)
             {
@@ -616,7 +619,10 @@ public class Main {
             	Item.seeds, new ItemStack(Item.dyePowder, 1, 2) });
             }
             
-            }
-        }
+}
+	@EventHandler
+	public void postInit(FMLPostInitializationEvent event) 
+	{
+		Support.init();
 	}
 }
