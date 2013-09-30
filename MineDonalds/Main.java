@@ -65,7 +65,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  *******************
  *
  *
- * Mod version 1.1.2 Preview
+ * Mod version 1.1.3 Beta 1
  * 
  * Thanks to -> Mogan, Isaac, Evan, James and Waffleguy ;p
  */
