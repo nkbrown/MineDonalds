@@ -182,18 +182,9 @@ public class Main {
 	public static Item LettuceSeeds;
 	public static int LettuceSeedsID;
 	
-	public static McCraftingHandler craftHandler;
-	public static Achievement macAchieve;
-	public static Achievement wandAchieve;
-	public static Achievement cheeseAchieve;
-	public static Achievement breadAchieve;
-	public static Achievement carpetAchieve;
-	public static AchievementPage page1;
-	
 	public static boolean dimensionEnable;
 	public static boolean toolsEnable;
 	public static boolean armorEnable;
-	public static boolean achieveEnable;
 	public static boolean mobEnable;
 	public static boolean carpetEnable;
 	public static boolean recipesEnable;
@@ -339,23 +330,6 @@ public class Main {
 	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").setUnlocalizedName("minedonalds:lettuce").setTextureName("lettuce");
 	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds");
 	
-	if(achieveEnable == true)
-	{
-	breadAchieve = new Achievement(1999, "BreadAchieve", 4, 2, BurgerTop, null).registerAchievement();
-	macAchieve = new Achievement(2000, "MacAchieve", 2, 1, BigMac, breadAchieve).registerAchievement();
-	if(dimensionEnable == true)
-	{
-	wandAchieve = new Achievement(2001, "WandAchieve", 0, 0, McWand, macAchieve).registerAchievement().setSpecial();
-	}
-	cheeseAchieve = new Achievement(2002, "CheeseAchieve", 4, -1, CheeseBurger, breadAchieve).registerAchievement();
-	//carpetAchieve = new Achievement(2003, "CarpetAchieve", 4, 2, McGrassCarpet, wandAchieve).registerAchievement();
-	
-	craftHandler = new McCraftingHandler();
-	page1 = new AchievementPage("MineDonalds", macAchieve, wandAchieve, cheeseAchieve, breadAchieve, carpetAchieve);
-	}
-	
-	
-		
 	}
 	
 	@EventHandler
@@ -373,17 +347,14 @@ public class Main {
              */
             EntityRegistry.registerGlobalEntityID(EntityEmployee.class, "Employee", 1);
     		EntityRegistry.findGlobalUniqueEntityId();
-    		LanguageRegistry.instance().addStringLocalization("entity.Employee.name", "en_US", "MineDonalds Employee");
     		registerEntityEgg(EntityEmployee.class, 0xFF0000, 0xFFFF00);
     		
     		EntityRegistry.registerGlobalEntityID(EntityMcZombie.class, "McZombie", 2);
     		EntityRegistry.findGlobalUniqueEntityId();
-    		LanguageRegistry.instance().addStringLocalization("entity.McZombie.name", "en_US", "MineDimension Zombie");
     		registerEntityEgg(EntityMcZombie.class, 0xFF0000, 0x096910);
     		
     		EntityRegistry.registerGlobalEntityID(EntityFatZombie.class, "FatZombie", 3);
     		EntityRegistry.findGlobalUniqueEntityId();
-    		LanguageRegistry.instance().addStringLocalization("entity.FatZombie.name", "en_US", "Fat Zombie");
     		registerEntityEgg(EntityFatZombie.class, 0xFF0000, 0x096910);
         	}
     		
@@ -422,92 +393,7 @@ public class Main {
     		GameRegistry.registerBlock(McLogCarpet, "McLogCarpet");
     		}
     		
-    		if(achieveEnable == true)
-    		{
-    		GameRegistry.registerCraftingHandler(craftHandler);
-    		AchievementPage.registerAchievementPage(page1);
-    		}
     		/**
-    		 * LanguageRegistry
-    		 */
-    		LanguageRegistry.addName(McGrass, "MineDimension Grass");
-            LanguageRegistry.addName(McDirt, "MineDimension Dirt");
-            LanguageRegistry.addName(McStone, "MineDimension Stone");
-            LanguageRegistry.addName(McLeaf, "MineTree Leaf");
-            LanguageRegistry.addName(McLog, "MineTree Log");
-            LanguageRegistry.addName(McVine, "MineTree Vine");
-            LanguageRegistry.addName(McSapling, "MineTree Sapling");
-            
-            if(dimensionEnable == true)
-    		{
-            LanguageRegistry.addName(McWand, "MineWand");
-    		}
-            
-            LanguageRegistry.addName(McNuggets, "Chicken MineNuggets");
-            LanguageRegistry.addName(CheeseBurger, "Cheesy MineBurger");
-            LanguageRegistry.addName(BigMac, "Big Mine");
-            LanguageRegistry.addName(McChicken, "MineChicken");
-            LanguageRegistry.addName(Fries, "Mine Fries");
-            LanguageRegistry.addName(Salad, "Premium Mine Salad");
-            LanguageRegistry.addName(CocaCola, "Mine-Cola");
-            LanguageRegistry.addName(Fanta, "Mine-Fanta");
-            LanguageRegistry.addName(McFlurry, "MineFlurry");
-			LanguageRegistry.addName(McWrap, "MineWrap");
-            LanguageRegistry.addName(Apple, "MineApple");
-            LanguageRegistry.addName(Milk, "1% Low Fat Mine Milk");
-            
-            LanguageRegistry.addName(BurgerButtom, "Burger Bread (Buttom)");
-            LanguageRegistry.addName(BurgerTop, "Burger Bread (Top)");
-            LanguageRegistry.addName(LettucePiece, "Lettuce Piece");
-            LanguageRegistry.addName(Tomato, "Tomato");
-            LanguageRegistry.addName(Cheese, "Cheese");
-            
-            if(toolsEnable == true)
-        	{
-            LanguageRegistry.addName(McStoneSword, "MineStone Sword");
-            LanguageRegistry.addName(McStonePickaxe, "MineStone Pickaxe");
-            LanguageRegistry.addName(McStoneAxe, "MineStone Axe");
-            LanguageRegistry.addName(McStoneShovel, "MineStone Shovel");
-            LanguageRegistry.addName(McStoneHoe, "MineStone Hoe");
-        	}
-            
-            if(armorEnable == true)
-            {
-            LanguageRegistry.addName(McZombieHelmet, "MineZombie Helmet");
-            LanguageRegistry.addName(McZombieChestplate, "MineZombie Chestplate");
-            LanguageRegistry.addName(McZombieLeggings, "MineZombie Leggings");
-            LanguageRegistry.addName(McZombieBoots, "MineZombie Boots");
-            }
-            
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab", "MineDonald's Blocks");
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab2", "MineDonald's Items");
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab3", "MineDonald's Food");
-            LanguageRegistry.instance().addStringLocalization("itemGroup.McTab4", "MineDonald's Carpets");
-            
-            LanguageRegistry.instance().addStringLocalization("achievement.WandAchieve", "en_US", "Minewhat..?");
-            LanguageRegistry.instance().addStringLocalization("achievement.WandAchieve.desc", "en_US", "You crafted the MineWand!");
-            LanguageRegistry.instance().addStringLocalization("achievement.MacAchieve", "en_US", "Yumyum, NO!");
-            LanguageRegistry.instance().addStringLocalization("achievement.MacAchieve.desc", "en_US", "You crafted the BigMine!");
-            LanguageRegistry.instance().addStringLocalization("achievement.CheeseAchieve", "en_US", "Cheese FTW!");
-            LanguageRegistry.instance().addStringLocalization("achievement.CheeseAchieve.desc", "en_US", "You crafted the Cheesy Mineburger!");
-            LanguageRegistry.instance().addStringLocalization("achievement.BreadAchieve", "en_US", "Burger bread...");
-            LanguageRegistry.instance().addStringLocalization("achievement.BreadAchieve.desc", "en_US", "You crafted some burger bread!");
-            LanguageRegistry.instance().addStringLocalization("achievement.CarpetAchieve", "en_US", "Carpets!");
-            LanguageRegistry.instance().addStringLocalization("achievement.CarpetAchieve.desc", "en_US", "You crafted a carpet!");
-            
-            if(carpetEnable == true)
-        	{
-            LanguageRegistry.addName(McGrassCarpet, "MineDonalds Grass Carpet");
-            LanguageRegistry.addName(McDirtCarpet, "MineDonalds Dirt Carpet");
-            LanguageRegistry.addName(McStoneCarpet, "MineDonalds Stone Carpet");
-            LanguageRegistry.addName(McLeafCarpet, "MineDonalds Leaves Carpet");
-            LanguageRegistry.addName(McLogCarpet, "MineDonalds Log Carpet");
-        	}
-            
-            LanguageRegistry.addName(TomatoSeeds, "Tomatoplant Seeds");
-            LanguageRegistry.addName(LettuceSeeds, "Lettuceplant Seeds");
-            
-            /**
              * Crafting recipes
              */
             if(recipesEnable == true) {

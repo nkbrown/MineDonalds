@@ -70,7 +70,6 @@ public static void init(File configFile) {
 		Main.dimensionEnable = configuration.get("Enable/Disable", "MineDonalds Dimension", true).getBoolean(true);
 		Main.toolsEnable = configuration.get("Enable/Disable", "MineStone Tools", true).getBoolean(true);
 		Main.armorEnable = configuration.get("Enable/Disable", "MineZombie Armor", true).getBoolean(true);
-		Main.achieveEnable = configuration.get("Enable/Disable", "Achievements", true).getBoolean(true);
 		Main.mobEnable = configuration.get("Enable/Disable", "Emplayee/Fat Zombie/McZombie", true).getBoolean(true);
 		Main.carpetEnable = configuration.get("Enable/Disable", "Carpets", true).getBoolean(true);
 		

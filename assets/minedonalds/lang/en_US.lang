@@ -1,0 +1,62 @@
+# Items #
+
+item.McWand.name=MineWand
+item.McNuggets.name=Chicken MineNuggets
+item.CheeseBurger.name=Cheesy Mineburger
+item.BigMac.name=Big Mine
+item.McChicken.name=MineChicken Burger
+item.Fries.name=MineFries
+item.Salad.name=Premium MineSalad
+item.CocaCola.name=Mine-Cola
+item.Fanta.name=Mine-Fanta
+item.McFlurry.name=MineFlurry
+item.McWrap.name=MineWrap
+item.Apple.name=MineApple
+item.Milk.name=MineMilk
+item.BurgerButtom.name=Burger Bread (Buttom)
+item.BurgerTop.name=Burger Bread (Top)
+item.LettucePiece.name=Lettuce
+item.Tomato.name=Tomato
+item.Cheese.name=Cheese
+item.tomatoSeeds.name=Tomatoplant Seeds
+item.lettuceSeeds.name=Lettuceplant Seeds
+item.McZombieHelmet.name=MineDimension Zombie Helmet
+item.McZombieChestplate.name=MineDimension Zombie Chestplate
+item.McZombieLeggings.name=MineDimension Zombie Leggings
+item.McZombieBoots.name=MineDimension Zombie Boots
+
+# Tools #
+
+item.McStoneSword.name=MineStone Sword
+item.McStonePickaxe.name=MineStone Pickaxe
+item.McStoneAxe.name=MineStone Axe
+item.McStoneShovel.name=MineStone Shovel
+item.McStoneHoe.name=MineStone Hoe
+
+# Blocks #
+
+tile.McGrass.name=MineDonalds Dimension Grass
+tile.McDirt.name=MineDonalds Dimension Dirt
+tile.McStone.name=MineDonalds Dimension Stone
+tile.McLeaf.name=MineDonalds Dimension Leaves
+tile.McLog.name=MineDonalds Dimension Log
+tile.McVine.name=MineDonalds Dimension Vine
+tile.McSapling.name=MineDonalds Dimension Sapling
+tile.mineCarpet.name=MineDonalds Grass Carpet
+tile.mineCarpet1.name=MineDonalds Dirt Carpet
+tile.mineCarpet2.name=MineDonalds Stone Carpet
+tile.mineCarpet3.name=MineDonalds Leaves Carpet
+tile.mineCarpet4.name=MineDonalds Log Carpet
+
+# Creative Tabs #
+
+itemGroup.McTab=MineDonalds Blocks
+itemGroup.McTab2=MineDonalds Items
+itemGroup.McTab3=MineDonalds Food
+itemGroup.McTab4=MineDonalds Carpets
+
+# Mobs #
+
+entity.Employee.name=MineDonalds Employee
+entity.McZombie.name=MineDimension Zombie
+entity.FatZombie.name=Fat Zombie

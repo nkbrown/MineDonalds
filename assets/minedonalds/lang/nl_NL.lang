@@ -1,0 +1,62 @@
+# Spullen #
+
+item.McWand.name=MineWand
+item.McNuggets.name=Chicken MineNuggets
+item.CheeseBurger.name=Kaazige Mineburger
+item.BigMac.name=Big Mine
+item.McChicken.name=MineChicken Burger
+item.Fries.name=MineFries
+item.Salad.name=Premium MineSalad
+item.CocaCola.name=Mine-Cola
+item.Fanta.name=Mine-Fanta
+item.McFlurry.name=MineFlurry
+item.McWrap.name=MineWrap
+item.Apple.name=MineApple
+item.Milk.name=MineMilk
+item.BurgerButtom.name=Burger Brood (Onderkant)
+item.BurgerTop.name=Burger Brood (Bovenkant)
+item.LettucePiece.name=Sla
+item.Tomato.name=Tomaat
+item.Cheese.name=Kaas
+item.tomatoSeeds.name=Tomaatplant Seeds
+item.lettuceSeeds.name=slaplant Seeds
+item.McZombieHelmet.name=MineDimensie Zombie Help
+item.McZombieChestplate.name=MineDimensie Zombie Borstkas
+item.McZombieLeggings.name=MineDimensie Zombie Legging
+item.McZombieBoots.name=MineDimensie Zombie Schoenen
+
+# Tools #
+
+item.McStoneSword.name=MineStone Zwaard
+item.McStonePickaxe.name=MineStone Houweel
+item.McStoneAxe.name=MineStone Bijl
+item.McStoneShovel.name=MineStone Schep
+item.McStoneHoe.name=MineStone Schoffel
+
+# Blokken #
+
+tile.McGrass.name=MineDonalds Dimensie Gras
+tile.McDirt.name=MineDonalds Dimensie Grond
+tile.McStone.name=MineDonalds Dimensie Steen
+tile.McLeaf.name=MineDonalds Dimensie Bladeren
+tile.McLog.name=MineDonalds Dimensie Hout
+tile.McVine.name=MineDonalds Dimensie Liaan
+tile.McSapling.name=MineDonalds Dimensie Kiemplant
+tile.mineCarpet.name=MineDonalds Gras Klof
+tile.mineCarpet1.name=MineDonalds Grond Klof
+tile.mineCarpet2.name=MineDonalds Steen Klof
+tile.mineCarpet3.name=MineDonalds Bladeren Klof
+tile.mineCarpet4.name=MineDonalds Hout Klof
+
+# Creatif tab #
+
+itemGroup.McTab=MineDonalds Blokken
+itemGroup.McTab2=MineDonalds Spullen
+itemGroup.McTab3=MineDonalds Eten
+itemGroup.McTab4=MineDonalds Klof
+
+# Mobs #
+
+entity.Employee.name=MineDonalds Werknemer
+entity.McZombie.name=MineDimensie Zombie
+entity.FatZombie.name=Dikke Zombie
