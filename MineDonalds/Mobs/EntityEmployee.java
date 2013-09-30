@@ -30,6 +30,11 @@ public class EntityEmployee extends EntityVillager
     {
         return true;
     }
+	//@Override
+	//protected String getHurtSound()
+    //{
+    //    return "minedonalds.tune";
+    //}
 	@Override
 	protected int getDropItemId()
     {

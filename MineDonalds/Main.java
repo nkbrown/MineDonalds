@@ -3,6 +3,8 @@ package MineDonalds;
 import java.io.File;
 import java.util.HashMap;
 
+import org.lwjgl.input.Keyboard;
+
 import MineDonalds.Blocks.*;
 import MineDonalds.Carpets.McDirtCarpet;
 import MineDonalds.Carpets.McGrassCarpet;
@@ -15,6 +17,7 @@ import MineDonalds.Dimension.Biomes.BiomeGenYellowTree;
 import MineDonalds.Dimension.Event.McEvent;
 import MineDonalds.Items.*;
 import MineDonalds.Mobs.*;
+import MineDonalds.TESTZONE.SoundHandler;
 import MineDonalds.Tools.McStoneAxe;
 import MineDonalds.Tools.McStoneHoe;
 import MineDonalds.Tools.McStonePickaxe;
@@ -22,6 +25,7 @@ import MineDonalds.Tools.McStoneShovel;
 import MineDonalds.Tools.McStoneSword;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
@@ -42,6 +46,9 @@ import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Property;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import cpw.mods.fml.client.registry.KeyBindingRegistry;
 import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -194,6 +201,7 @@ public class Main {
 	public static CreativeTabs McTab3;
 	public static CreativeTabs McTab4;
 	
+	
 	/**
 	 * The Entity ID Registry
 	 */
@@ -330,6 +338,10 @@ public class Main {
 	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").setUnlocalizedName("minedonalds:lettuce").setTextureName("lettuce");
 	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds");
 	
+	/**
+     * TESTZONE1
+     */
+	MinecraftForge.EVENT_BUS.register(new SoundHandler());
 	}
 	
 	@EventHandler
@@ -503,6 +515,12 @@ public class Main {
             GameRegistry.addShapelessRecipe(new ItemStack(LettuceSeeds, 4), new Object[]{
             	Item.seeds, new ItemStack(Item.dyePowder, 1, 2) });
             }
+            
+            /**
+             * TESTZONE2
+             */
+
+            
             
 }
 }
