@@ -195,6 +195,7 @@ public class Main {
 	public static boolean achieveEnable;
 	public static boolean mobEnable;
 	public static boolean carpetEnable;
+	public static boolean recipesEnable;
 	
 	public static CreativeTabs McTab;
 	public static CreativeTabs McTab2;
@@ -507,6 +508,7 @@ public class Main {
             /**
              * Crafting recipes
              */
+            if(recipesEnable == true) {
             if(dimensionEnable == true)
     		{
             GameRegistry.addRecipe(new ItemStack(McWand,1), new Object[]{
@@ -612,8 +614,9 @@ public class Main {
             
             GameRegistry.addShapelessRecipe(new ItemStack(LettuceSeeds, 4), new Object[]{
             	Item.seeds, new ItemStack(Item.dyePowder, 1, 2) });
+            }
             
             }
-        	}
+        }
 	}
 }
