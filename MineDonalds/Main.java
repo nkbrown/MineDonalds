@@ -15,7 +15,6 @@ import MineDonalds.Dimension.Biomes.BiomeGenYellowTree;
 import MineDonalds.Dimension.Event.McEvent;
 import MineDonalds.Items.*;
 import MineDonalds.Mobs.*;
-import MineDonalds.Support.Support;
 import MineDonalds.Tools.McStoneAxe;
 import MineDonalds.Tools.McStoneHoe;
 import MineDonalds.Tools.McStonePickaxe;
@@ -620,9 +619,4 @@ public class Main {
             }
             
 }
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) 
-	{
-		Support.init();
-	}
 }
