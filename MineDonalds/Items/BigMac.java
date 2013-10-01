@@ -4,11 +4,13 @@ import java.util.List;
 
 import MineDonalds.Main;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.world.World;
 
 public class BigMac extends ItemFood{
 
@@ -26,4 +28,8 @@ public class BigMac extends ItemFood{
 	 {
 	  list.add(EnumChatFormatting.DARK_PURPLE + "Eat me...");
 	 }
+	
+	public void onItemUse(World world, Entity entity) {
+		world.playSoundAtEntity(entity, "minedonalds:tune", 1, 1);
+	}
 }

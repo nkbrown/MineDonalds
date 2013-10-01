@@ -407,4 +407,5 @@ public class BlockMcFire extends BlockFire
 	{
 		return this.iconArray[0];
 	}
+
 }

@@ -9,7 +9,6 @@ import MineDonalds.Mobs.ModelFatZombie;
 import MineDonalds.Mobs.RenderEmployee;
 import MineDonalds.Mobs.RenderFatZombie;
 import MineDonalds.Mobs.RenderMcZombie;
-import MineDonalds.TESTZONE.SoundHandler;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 
@@ -32,9 +31,4 @@ public class ClientProxy extends ServerProxy {
 		}
 	}
 
-	@ForgeSubscribe
-	public void registerSounds()
-	{
-	MinecraftForge.EVENT_BUS.register(new SoundHandler());
-	}
 }

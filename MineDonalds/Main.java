@@ -17,7 +17,6 @@ import MineDonalds.Dimension.Biomes.BiomeGenYellowTree;
 import MineDonalds.Dimension.Event.McEvent;
 import MineDonalds.Items.*;
 import MineDonalds.Mobs.*;
-import MineDonalds.TESTZONE.SoundHandler;
 import MineDonalds.Tools.McStoneAxe;
 import MineDonalds.Tools.McStoneHoe;
 import MineDonalds.Tools.McStonePickaxe;
@@ -40,12 +39,14 @@ import net.minecraft.item.crafting.RecipesTools;
 import net.minecraft.src.BaseMod;
 import net.minecraft.stats.Achievement;
 import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.Property;
+import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import cpw.mods.fml.client.registry.KeyBindingRegistry;
@@ -72,7 +73,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  *******************
  *
  *
- * Mod version 1.1.3 Beta 1
+ * Mod version 1.1.3 Beta 2
  * 
  * Thanks to -> Mogan, Isaac, Evan, James and W.Waffle <-
  */
@@ -201,6 +202,12 @@ public class Main {
 	public static CreativeTabs McTab3;
 	public static CreativeTabs McTab4;
 	
+	
+	@ForgeSubscribe
+	 public void loadSounds(SoundLoadEvent event)
+	 {
+	    event.manager.addSound("minedonalds:tune.ogg");
+	 }
 	
 	/**
 	 * The Entity ID Registry
@@ -340,7 +347,8 @@ public class Main {
 	/**
      * TESTZONE1
      */
-	MinecraftForge.EVENT_BUS.register(new SoundHandler());
+	
+	
 	}
 	
 	@EventHandler
@@ -519,7 +527,7 @@ public class Main {
              * TESTZONE2
              */
 
-            
+            MinecraftForge.EVENT_BUS.register(this);
             
 }
 }
