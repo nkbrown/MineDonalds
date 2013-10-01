@@ -324,14 +324,13 @@ public class Main {
 	Tomato = new Tomato(TomatoID).setUnlocalizedName("Tomato");
 	Cheese = new Cheese(CheeseID).setUnlocalizedName("Cheese");
 	
-	if(carpetEnable == true)
-	{
+	
 	McGrassCarpet = (new McGrassCarpet(McGrassCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet").setLightOpacity(0);
 	McDirtCarpet = (new McDirtCarpet(McDirtCarpetID)).setHardness(0.1F).setStepSound(Block.soundGravelFootstep).setUnlocalizedName("mineCarpet1").setLightOpacity(0);
 	McStoneCarpet = (new McStoneCarpet(McStoneCarpetID)).setHardness(0.1F).setStepSound(Block.soundStoneFootstep).setUnlocalizedName("mineCarpet2").setLightOpacity(0);
 	McLeafCarpet = (new McLeafCarpet(McLeafCarpetID)).setHardness(0.1F).setStepSound(Block.soundGrassFootstep).setUnlocalizedName("mineCarpet3").setLightOpacity(0);
 	McLogCarpet = (new McLogCarpet(McLogCarpetID)).setHardness(0.1F).setStepSound(Block.soundWoodFootstep).setUnlocalizedName("mineCarpet4").setLightOpacity(0);
-	}
+	
 	
 	TomatoPlant = (new TomatoPlant(216)).setUnlocalizedName("tomatoCrop").setUnlocalizedName("minedonalds:tomato").setTextureName("tomato");
 	TomatoSeeds = (new TomatoSeeds(TomatoSeedsID, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds");
