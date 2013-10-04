@@ -28,8 +28,4 @@ public class BigMac extends ItemFood{
 	 {
 	  list.add(EnumChatFormatting.DARK_PURPLE + "Eat me...");
 	 }
-	
-	public void onItemUse(World world, Entity entity) {
-		world.playSoundAtEntity(entity, "minedonalds:tune", 1, 1);
-	}
 }

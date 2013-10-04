@@ -73,6 +73,7 @@ public static void init(File configFile) {
 		Main.mobEnable = configuration.get("Enable/Disable", "Emplayee/Fat Zombie/McZombie", true).getBoolean(true);
 		Main.carpetEnable = configuration.get("Enable/Disable", "Carpets", true).getBoolean(true);
 		
+		
 	} catch (Exception e) {
 		FMLLog.log(Level.SEVERE, e, "MineDonalds" + " has had a problem loading its configuration");
 		throw new RuntimeException(e);

@@ -57,6 +57,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -201,10 +202,9 @@ public class Main {
 	public static CreativeTabs McTab2;
 	public static CreativeTabs McTab3;
 	public static CreativeTabs McTab4;
-	
-	
+
 	@ForgeSubscribe
-	 public void loadSounds(SoundLoadEvent event)
+	public void loadSounds(SoundLoadEvent event)
 	 {
 	    event.manager.addSound("minedonalds:tune.ogg");
 	 }
