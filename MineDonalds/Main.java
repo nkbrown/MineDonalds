@@ -28,10 +28,12 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.*;
+import net.minecraft.entity.item.EntityPainting;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemHangingEntity;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -63,7 +65,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
 
-@Mod(modid = "minedonalds", name = "iLexiconn's MineDonalds", version = "1.1.2 Preview")
+@Mod(modid = "minedonalds", name = "iLexiconn's MineDonalds", version = "1.1.3 Preview")
 @NetworkMod(serverSideRequired = false, clientSideRequired = true)
 
 
@@ -74,7 +76,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
  *******************
  *
  *
- * Mod version 1.1.3 Beta 2
+ * Mod version 1.1.3 Preview
  * 
  * Thanks to -> Mogan, Isaac, Evan, James and W.Waffle <-
  */
@@ -202,12 +204,6 @@ public class Main {
 	public static CreativeTabs McTab2;
 	public static CreativeTabs McTab3;
 	public static CreativeTabs McTab4;
-
-	@ForgeSubscribe
-	public void loadSounds(SoundLoadEvent event)
-	 {
-	    event.manager.addSound("minedonalds:tune.ogg");
-	 }
 	
 	/**
 	 * The Entity ID Registry
@@ -343,11 +339,6 @@ public class Main {
 	TomatoSeeds = (new TomatoSeeds(TomatoSeedsID, Main.TomatoPlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("tomatoSeeds");
 	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").setUnlocalizedName("minedonalds:lettuce").setTextureName("lettuce");
 	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds");
-	
-	/**
-     * TESTZONE1
-     */
-	
 	
 	}
 	
@@ -522,12 +513,5 @@ public class Main {
             GameRegistry.addShapelessRecipe(new ItemStack(LettuceSeeds, 4), new Object[]{
             	Item.seeds, new ItemStack(Item.dyePowder, 1, 2) });
             }
-            
-            /**
-             * TESTZONE2
-             */
-
-            MinecraftForge.EVENT_BUS.register(this);
-            
 }
 }
