@@ -16,7 +16,6 @@ import MineDonalds.Dimension.Biomes.BiomeGenMcBiome;
 import MineDonalds.Dimension.Event.McEvent;
 import MineDonalds.Items.*;
 import MineDonalds.Mobs.*;
-import MineDonalds.TestZone.McWorldProvider2;
 import MineDonalds.Tools.McStoneAxe;
 import MineDonalds.Tools.McStoneHoe;
 import MineDonalds.Tools.McStonePickaxe;
