@@ -17,6 +17,7 @@ import MineDonalds.Dimension.Biomes.BiomeGenYellowTree;
 import MineDonalds.Dimension.Event.McEvent;
 import MineDonalds.Items.*;
 import MineDonalds.Mobs.*;
+import MineDonalds.TestZone.McWorldProvider2;
 import MineDonalds.Tools.McStoneAxe;
 import MineDonalds.Tools.McStoneHoe;
 import MineDonalds.Tools.McStonePickaxe;
@@ -373,7 +374,9 @@ public class Main {
     		 */
     		if(dimensionEnable == true)
     		{
-    		DimensionManager.registerProviderType(DimID, McWorldProvider.class, true);
+    		//DimensionManager.registerProviderType(DimID, McWorldProvider.class, true);
+    			/** Testing worldProvider to add biomes **/
+    			DimensionManager.registerProviderType(Main.DimID, McWorldProvider2.class, true);
     		DimensionManager.registerDimension(DimID, DimID);
     		MinecraftForge.EVENT_BUS.register(new McEvent());
     		}
