@@ -526,7 +526,7 @@ public class McChunkProvider implements IChunkProvider
 	}
 	public String makeString()
 	{
-		return "Don't understand it? PM me with this code: IDUTPHLM||INH";
+		return "MineDonalds";
 	}
 	public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4)
 	{
