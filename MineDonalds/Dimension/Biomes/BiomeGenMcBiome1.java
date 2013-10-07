@@ -4,9 +4,9 @@ import MineDonalds.Main;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class BiomeGenYellowTree extends BiomeGenBase
+public class BiomeGenMcBiome1 extends BiomeGenBase
 {
-	public BiomeGenYellowTree(int par1)
+	public BiomeGenMcBiome1(int par1)
 	{
 		super(par1);
 		this.minHeight = 0.1F;

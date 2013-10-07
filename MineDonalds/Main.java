@@ -13,7 +13,6 @@ import MineDonalds.Carpets.McLogCarpet;
 import MineDonalds.Carpets.McStoneCarpet;
 import MineDonalds.Dimension.McWorldProvider;
 import MineDonalds.Dimension.Biomes.BiomeGenMcBiome;
-import MineDonalds.Dimension.Biomes.BiomeGenYellowTree;
 import MineDonalds.Dimension.Event.McEvent;
 import MineDonalds.Items.*;
 import MineDonalds.Mobs.*;
@@ -89,6 +88,7 @@ public class Main {
 	 */
 	@SidedProxy(clientSide="MineDonalds.ClientProxy", serverSide="MineDonalds.ServerProxy")
 	public static ServerProxy proxy;
+	public static ClientProxy proxy2;
 	static Configuration config;
 	@Instance("minedonalds")
 	public static Main instance;
@@ -150,6 +150,7 @@ public class Main {
 	public static int McZombieLeggingsID;
 	public static Item McZombieBoots;
 	public static int McZombieBootsID;
+	public static String mczombiearmor;
 	public static Item McStoneSword;
 	public static int McStoneSwordID;
 	public static Item McStonePickaxe;
@@ -205,6 +206,10 @@ public class Main {
 	public static CreativeTabs McTab2;
 	public static CreativeTabs McTab3;
 	public static CreativeTabs McTab4;
+	
+	public static Item McSpawner;
+	public static int McSpawnerID;
+	public static Entity entity;
 	
 	/**
 	 * The Entity ID Registry
@@ -341,6 +346,9 @@ public class Main {
 	LettucePlant = (new LettucePlant(217)).setUnlocalizedName("lettuceCrop").setUnlocalizedName("minedonalds:lettuce").setTextureName("lettuce");
 	LettuceSeeds = (new LettuceSeeds(LettuceSeedsID, Main.LettucePlant.blockID, Block.tilledField.blockID)).setUnlocalizedName("lettuceSeeds");
 	
+	if(mobEnable == true) {
+		McSpawner = new McSpawner(McSpawnerID).setUnlocalizedName("McSpawner").setTextureName("minedonalds:McSpawner").setCreativeTab(Main.McTab);
+	}
 	}
 	
 	@EventHandler
@@ -350,6 +358,7 @@ public class Main {
 			 * The Proxy-registry
 			 */
             proxy.registerRenderers();
+            proxy.addArmor(mczombiearmor);
             
             if(mobEnable == true)
         	{
@@ -358,15 +367,15 @@ public class Main {
              */
             EntityRegistry.registerGlobalEntityID(EntityEmployee.class, "Employee", 1);
     		EntityRegistry.findGlobalUniqueEntityId();
-    		registerEntityEgg(EntityEmployee.class, 0xFF0000, 0xFFFF00);
+    		//registerEntityEgg(EntityEmployee.class, 0xFF0000, 0xFFFF00);
     		
     		EntityRegistry.registerGlobalEntityID(EntityMcZombie.class, "McZombie", 2);
     		EntityRegistry.findGlobalUniqueEntityId();
-    		registerEntityEgg(EntityMcZombie.class, 0xFF0000, 0x096910);
+    		//registerEntityEgg(EntityMcZombie.class, 0xFF0000, 0x096910);
     		
     		EntityRegistry.registerGlobalEntityID(EntityFatZombie.class, "FatZombie", 3);
     		EntityRegistry.findGlobalUniqueEntityId();
-    		registerEntityEgg(EntityFatZombie.class, 0xFF0000, 0x096910);
+    		//registerEntityEgg(EntityFatZombie.class, 0xFF0000, 0x096910);
         	}
     		
     		/**
@@ -374,14 +383,12 @@ public class Main {
     		 */
     		if(dimensionEnable == true)
     		{
-    		//DimensionManager.registerProviderType(DimID, McWorldProvider.class, true);
+    		DimensionManager.registerProviderType(DimID, McWorldProvider.class, true);
     			/** Testing worldProvider to add biomes **/
-    			DimensionManager.registerProviderType(Main.DimID, McWorldProvider2.class, true);
+    			//DimensionManager.registerProviderType(Main.DimID, McWorldProvider2.class, true);
     		DimensionManager.registerDimension(DimID, DimID);
     		MinecraftForge.EVENT_BUS.register(new McEvent());
     		}
-    		
-    		
     		
     		/**
     		 * GameRegistry
@@ -399,11 +406,11 @@ public class Main {
     		
     		if(carpetEnable == true)
     		{
-    		GameRegistry.registerBlock(McGrassCarpet, "McGrassCarpet");
+    		GameRegistry.registerBlock(McGrassCarpet, "McGrassCarpet");	
     		GameRegistry.registerBlock(McDirtCarpet, "McDirtCarpet");
-    		GameRegistry.registerBlock(McStoneCarpet, "McStoneCarpet");
-    		GameRegistry.registerBlock(McLeafCarpet, "McLeafCarpet");
-    		GameRegistry.registerBlock(McLogCarpet, "McLogCarpet");
+        	GameRegistry.registerBlock(McStoneCarpet, "McStoneCarpet");
+        	GameRegistry.registerBlock(McLeafCarpet, "McLeafCarpet");
+        	GameRegistry.registerBlock(McLogCarpet, "McLogCarpet");
     		}
     		
     		/**
